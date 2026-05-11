@@ -1,0 +1,440 @@
+/* ------------------------------------------------------------------
+   Minimal editorial portfolio
+   - Cream background, dark ink text, one warm accent
+   - Instrument Serif for headings, Inter for everything else
+   - Mobile-first; one breakpoint at 720px
+   ------------------------------------------------------------------ */
+
+:root {
+  --bg: #faf8f4;
+  --ink: #18181b;
+  --ink-soft: #52525b;
+  --line: #e6e1d8;
+  --accent: #a0411e;
+  --accent-hover: #7c2d10;
+
+  --measure: 64ch;
+  --container: 1040px;
+  --gutter: clamp(20px, 5vw, 48px);
+
+  --font-serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --font-sans:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  text-underline-offset: 3px;
+  transition: color 120ms ease;
+}
+
+a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+/* ------------------------------------------------------------------
+   Header
+   ------------------------------------------------------------------ */
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 28px var(--gutter);
+}
+
+.wordmark {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.wordmark:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.primary-nav {
+  display: flex;
+  gap: clamp(16px, 3vw, 32px);
+}
+
+.primary-nav a {
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.primary-nav a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ------------------------------------------------------------------
+   Sections
+   ------------------------------------------------------------------ */
+
+main {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+section {
+  padding: clamp(64px, 10vw, 120px) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+section:last-of-type {
+  border-bottom: none;
+}
+
+.section-label {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-soft);
+  font-weight: 500;
+  margin: 0 0 48px 0;
+}
+
+/* ------------------------------------------------------------------
+   Hero
+   ------------------------------------------------------------------ */
+
+.hero {
+  padding-top: clamp(48px, 8vw, 96px);
+  padding-bottom: clamp(80px, 12vw, 140px);
+  border-bottom: 1px solid var(--line);
+}
+
+.hero h1 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(40px, 7vw, 76px);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  margin: 0 0 32px 0;
+  max-width: 18ch;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero-sub {
+  font-size: clamp(17px, 1.6vw, 19px);
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: var(--measure);
+  margin: 0 0 32px 0;
+}
+
+.hero-meta a {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* ------------------------------------------------------------------
+   Work
+   ------------------------------------------------------------------ */
+
+.project {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  padding: 48px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.project:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.project:first-of-type {
+  padding-top: 0;
+}
+
+.project-cover {
+  display: block;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  transition: transform 240ms ease;
+}
+
+.project-cover:hover {
+  transform: translateY(-2px);
+}
+
+.cover-image {
+  width: 100%;
+  height: 100%;
+  /* Placeholder gradients. Replace with real images:
+     background: url("assets/images/project-1.jpg") center/cover; */
+}
+
+.cover-1 {
+  background: linear-gradient(135deg, #d9c3a0 0%, #b08568 60%, #6e4a32 100%);
+}
+
+.cover-2 {
+  background: linear-gradient(135deg, #c6d1c5 0%, #6c8d80 55%, #2b3f3a 100%);
+}
+
+.cover-3 {
+  background: linear-gradient(135deg, #f0d4cb 0%, #c87b65 55%, #6b2e22 100%);
+}
+
+.project-meta h3 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(26px, 3vw, 34px);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 0 0 12px 0;
+}
+
+.project-line {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin: 0 0 16px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project-summary {
+  font-size: 17px;
+  line-height: 1.6;
+  max-width: var(--measure);
+  margin: 0 0 20px 0;
+}
+
+.case-study {
+  margin-top: 4px;
+}
+
+.case-study summary {
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--accent);
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.case-study summary::-webkit-details-marker {
+  display: none;
+}
+
+.case-study summary::after {
+  content: "↓";
+  transition: transform 160ms ease;
+  display: inline-block;
+}
+
+.case-study[open] summary::after {
+  transform: rotate(180deg);
+}
+
+.case-study summary:hover {
+  color: var(--accent-hover);
+}
+
+.case-body {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  max-width: var(--measure);
+}
+
+.case-body h4 {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin: 24px 0 8px 0;
+}
+
+.case-body h4:first-child {
+  margin-top: 0;
+}
+
+.case-body p {
+  margin: 0 0 12px 0;
+}
+
+/* ------------------------------------------------------------------
+   About
+   ------------------------------------------------------------------ */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+}
+
+.about-bio p {
+  font-size: 18px;
+  line-height: 1.65;
+  max-width: var(--measure);
+  margin: 0 0 18px 0;
+}
+
+.about-side h3 {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin: 0 0 12px 0;
+}
+
+.about-side h3:not(:first-child) {
+  margin-top: 28px;
+}
+
+.about-side ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about-side li {
+  font-size: 15px;
+  padding: 4px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.about-side li:last-child {
+  border-bottom: none;
+}
+
+/* ------------------------------------------------------------------
+   Contact
+   ------------------------------------------------------------------ */
+
+.contact-line {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.2;
+  font-weight: 400;
+  max-width: 22ch;
+  margin: 0 0 32px 0;
+}
+
+.contact-line a {
+  border-bottom: 1px solid var(--accent);
+}
+
+.contact-line a:hover {
+  text-decoration: none;
+  border-bottom-color: var(--accent-hover);
+}
+
+.contact-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.contact-links a {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 2px;
+}
+
+.contact-links a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  text-decoration: none;
+}
+
+/* ------------------------------------------------------------------
+   Footer
+   ------------------------------------------------------------------ */
+
+.site-footer {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 32px var(--gutter) 48px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+/* ------------------------------------------------------------------
+   Larger screens
+   ------------------------------------------------------------------ */
+
+@media (min-width: 720px) {
+  .project {
+    grid-template-columns: 5fr 6fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .about-grid {
+    grid-template-columns: 2fr 1fr;
+    gap: 80px;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Reduced motion
+   ------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    transition: none !important;
+  }
+}
