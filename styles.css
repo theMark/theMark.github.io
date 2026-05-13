@@ -89,7 +89,7 @@ a:focus-visible {
    ------------------------------------------------------------------ */
 
 section {
-  padding: clamp(72px, 11vw, 120px) 0;
+  padding: clamp(40px, 6vw, 64px) 0;
   border-bottom: 1px solid var(--line);
 }
 
@@ -121,8 +121,8 @@ section:last-of-type {
    ------------------------------------------------------------------ */
 
 .hero {
-  padding-top: clamp(80px, 12vw, 128px);
-  padding-bottom: clamp(96px, 14vw, 144px);
+  padding-top: clamp(56px, 9vw, 88px);
+  padding-bottom: clamp(44px, 7vw, 72px);
   border-bottom: 1px solid var(--line);
 }
 
@@ -631,7 +631,7 @@ footer a:hover {
 }
 
 .case-hero-image {
-  margin: 32px 0 64px 0;
+  margin: 24px 0 32px 0;
   aspect-ratio: 16 / 9;
   border-radius: 12px;
   border: 1px solid var(--line);
@@ -682,7 +682,9 @@ footer a:hover {
 }
 
 .case-body section {
-  margin-bottom: 56px;
+  padding: 0;
+  border-bottom: none;
+  margin-bottom: 48px;
 }
 
 .case-body section:last-child {
