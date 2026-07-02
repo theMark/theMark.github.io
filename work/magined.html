@@ -4,14 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>magined — AI Room Designer — Mark Weiss</title>
-  <meta
-    name="description"
-    content="Case study: magined, an AI room designer and shoppable gallery. Designed, built, and grown solo with Claude Code, the Claude Agent SDK, and modern AI tooling."
-  >
+  <meta name="description" content="Case study: magined, an AI room designer app that redesigns any room from a photo and makes it shoppable. Built solo by Mark Weiss with Claude and an agent-first workflow.">
   <meta name="color-scheme" content="dark">
 
   <meta property="og:title" content="magined — AI Room Designer — Mark Weiss">
-  <meta property="og:description" content="An AI room designer and shoppable gallery, built as a one-person team.">
+  <meta property="og:description" content="An AI room designer app, built solo — app, AI pipeline, and business.">
   <meta property="og:type" content="article">
 
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230d0e10'/%3E%3Crect x='34' y='34' width='32' height='32' rx='9' fill='%235e6ad2'/%3E%3C/svg%3E">
@@ -49,22 +46,22 @@
   <main id="main">
 
     <!-- ============ CASE HERO ============ -->
-    <section class="case-hero" aria-label="Case study introduction">
+    <section class="case-hero">
       <div class="wrap">
         <a class="back" href="../index.html#work"><span class="arrow">←</span> All work</a>
 
         <p class="eyebrow">Case study · 01 of 04</p>
         <h1 class="case-heading">magined — an AI room designer, built solo</h1>
         <p class="case-summary">
-          An AI room designer and gallery with shoppable products. I'm the founder,
-          designer, and engineer — one person shipping what would traditionally
-          take a product team, using Claude and an agent-first workflow.
+          Snap a photo of a room, pick a style, and magined redesigns it in
+          seconds — then makes everything in it shoppable. I built all of it
+          myself: the app, the AI pipeline, and the business around it.
         </p>
 
         <dl class="case-facts">
           <div class="fact">
             <dt>Role</dt>
-            <dd>Founder, designer &amp; builder</dd>
+            <dd>Founder, designer &amp; engineer</dd>
           </div>
           <div class="fact">
             <dt>Timeline</dt>
@@ -72,25 +69,16 @@
           </div>
           <div class="fact">
             <dt>Platform</dt>
-            <dd>Web, mobile-first</dd>
+            <dd>iOS app</dd>
           </div>
           <div class="fact">
-            <dt>Tools</dt>
-            <dd>Claude Code, Agent SDK, MCP, Figma, Nano Banana</dd>
+            <dt>Built with</dt>
+            <dd>Claude Code, Agent SDK, Figma, Nano Banana</dd>
           </div>
         </dl>
 
-        <div class="case-panel-wrap">
-          <div class="hero-panel">
-            <div class="hero-panel-chrome">
-              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-            </div>
-            <div class="shot-strip">
-              <img src="../assets/images/magined/after-1.jpg" width="832" height="1248" loading="lazy" decoding="async" alt="A magined room redesign: a modern living room with a gray sectional, walnut coffee table, and a bold blue wave painting.">
-              <img src="../assets/images/magined/after-3.jpg" width="832" height="1248" loading="lazy" decoding="async" alt="A magined kitchen redesign with matte-black cabinets, a marble waterfall island, and a sculptural linear pendant.">
-              <img src="../assets/images/magined/after-2.jpg" width="832" height="1248" loading="lazy" decoding="async" alt="A magined bedroom redesign with an exposed-brick accent wall, wood ceiling beams, and a geometric chandelier.">
-            </div>
-          </div>
+        <div class="app-shot">
+          <img src="../assets/images/magined/app.jpg" width="654" height="1468" loading="lazy" decoding="async" alt="The magined app: a before/after slider dragging a dated living room into a modern redesign, with style swatches and a “Shop the look” button.">
         </div>
       </div>
     </section>
@@ -101,80 +89,29 @@
     <article class="case-body">
       <div class="wrap">
         <section class="case-section">
-          <h2><span class="idx">01</span> The idea</h2>
+          <h2><span class="idx">01</span> What it is</h2>
           <p>
-            Redecorating a room is a visual problem, but shopping for it is a text
-            problem — endless product listings with no way to see how anything fits
-            <strong>your</strong> space. magined closes that gap: generate a redesigned
-            version of your room with AI, then shop the actual products that appear in it.
-          </p>
-          <p>
-            It's also a deliberate proof of a bigger thesis: that one designer, working
-            fluently with AI tooling, can now carry a product from idea to revenue.
+            Redecorating is a visual decision, but shopping for it isn't — you're
+            left imagining how a piece looks in your space. magined closes that
+            gap: see your room redesigned in any style, then buy what you like
+            straight from the result.
           </p>
         </section>
 
-        <figure class="case-figure">
-          <div class="ba">
-            <div class="ba-item">
-              <span class="ba-tag">Before</span>
-              <img src="../assets/images/magined/before-1.jpg" width="832" height="1248" loading="lazy" decoding="async" alt="A dated living room before redesign: rose-colored walls, a paisley sofa, heavy floral drapes, and a traditional landscape painting.">
-            </div>
-            <div class="ba-item">
-              <span class="ba-tag">After</span>
-              <img src="../assets/images/magined/after-1.jpg" width="832" height="1248" loading="lazy" decoding="async" alt="The same living room reimagined by magined: a gray sectional, walnut coffee table, and a bold blue wave painting.">
-            </div>
-          </div>
-          <figcaption>The core loop — snap a photo of your real room, pick a style, and see it redesigned. Every product in the “after” is shoppable.</figcaption>
-        </figure>
-
         <section class="case-section">
-          <h2><span class="idx">02</span> What I built</h2>
-          <ul>
-            <li>
-              <strong>The room designer</strong> — an image-generation pipeline built on
-              Nano Banana, wrapped in an interface designed in Figma and refined in code.
-            </li>
-            <li>
-              <strong>A shoppable gallery</strong> — generated rooms link to real,
-              purchasable products, monetized through affiliate partnerships.
-            </li>
-            <li>
-              <strong>An agent backbone</strong> — content, product matching, and
-              operational tasks run on the Claude Agent SDK with MCP integrations,
-              so the site improves while I sleep.
-            </li>
-            <li>
-              <strong>Growth engineering</strong> — classic SEO plus LLM SEO, structuring
-              the site so both search engines and AI assistants can find and recommend it.
-            </li>
-          </ul>
-          <div class="pull">
-            <p>
-              Every screen was designed twice: once in Figma to find the idea,
-              once in code to make it true.
-            </p>
-          </div>
-        </section>
-
-        <figure class="case-figure">
-          <div class="gallery">
-            <img src="../assets/images/magined/after-3.jpg" width="832" height="1248" loading="lazy" decoding="async" alt="A modern kitchen generated by magined: matte-black cabinetry, a marble waterfall island, and black-framed bar stools.">
-            <img src="../assets/images/magined/space-1.jpg" width="768" height="1376" loading="lazy" decoding="async" alt="A contemporary living room generated by magined: a sage-green sectional, round concrete coffee table, and abstract wall art.">
-            <img src="../assets/images/magined/after-2.jpg" width="832" height="1248" loading="lazy" decoding="async" alt="An industrial-modern bedroom generated by magined: exposed brick, reclaimed-wood beams, and a geometric chandelier.">
-          </div>
-          <figcaption>A few generated spaces across styles — every one rendered from a single real photo, then made shoppable.</figcaption>
-        </figure>
-
-        <section class="case-section">
-          <h2><span class="idx">03</span> Why it matters for your team</h2>
+          <h2><span class="idx">02</span> Why it's here</h2>
           <p>
-            magined is my day-to-day lab for the way product work is heading:
-            design and engineering collapsing into a single, fast loop. The judgment
-            calls — what to build, what to cut, what quality bar to hold — are the
-            same ones I'd bring to your product, with the AI leverage already wired in.
+            I'm the founder, designer, and only engineer. The app, the
+            image-generation pipeline, the shoppable gallery, and the agent
+            backbone that keeps it running are all mine — built with Claude and
+            an agent-first workflow.
           </p>
-          <!-- TODO(mark): when you have traffic/revenue numbers you're comfortable sharing, add them here. -->
+          <p>
+            It's the clearest proof of how I work now: <strong>one person carrying
+            a product from idea to revenue</strong>. Same judgment I'd bring to
+            your team, with the AI leverage already wired in.
+          </p>
+          <!-- TODO(mark): add real traffic/revenue/App Store numbers here when you're comfortable sharing them. -->
         </section>
       </div>
     </article>

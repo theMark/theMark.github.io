@@ -872,76 +872,20 @@ main, header, footer{ position: relative; z-index: 1; }
 /* reuse .hero-panel for the case hero visual; add spacing */
 .case-panel-wrap{ margin-top: 56px; }
 
-/* ---------- real product imagery ---------- */
-.motif img{ width: 100%; height: 100%; object-fit: cover; display: block; }
-
-.shot-strip{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  padding: 14px;
+/* ---------- app screenshot (phone) ---------- */
+.app-shot{
+  display: flex;
+  justify-content: center;
+  margin-top: 52px;
 }
-.shot-strip img{
+.app-shot img{
   width: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  display: block;
-}
-
-.case-figure{ margin: 0 0 56px; }
-.case-figure figcaption{
-  margin: 16px auto 0;
-  max-width: 62ch;
-  font-size: 13.5px;
-  line-height: 1.55;
-  color: var(--muted-dim);
-  text-align: center;
-}
-
-.ba{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-.ba-item{ position: relative; }
-.ba-item img{
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  display: block;
-}
-.ba-tag{
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: var(--ink);
-  padding: 5px 12px;
-  border-radius: 999px;
-  background: rgba(8,9,10,0.62);
+  max-width: 340px;
+  border-radius: 30px;
   border: 1px solid var(--border-strong);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-}
-
-.gallery{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-.gallery img{
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  border-radius: 12px;
-  border: 1px solid var(--border);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    0 40px 90px -30px rgba(0,0,0,0.85);
   display: block;
 }
 
@@ -1112,8 +1056,8 @@ main, header, footer{ position: relative; z-index: 1; }
   .ledger-role{ text-align: left; margin-top: 6px; }
   .case-hero .back{ margin-bottom: 32px; }
   .case-panel-wrap{ margin-top: 40px; }
-  .shot-strip{ gap: 8px; padding: 10px; }
-  .gallery{ grid-template-columns: 1fr 1fr; }
+  .app-shot{ margin-top: 40px; }
+  .app-shot img{ max-width: 300px; }
 }
 
 @media (max-width: 480px){
