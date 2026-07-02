@@ -1,47 +1,111 @@
-# Mark Weiss — Portfolio
+# Mark — Portfolio Site
 
-Personal portfolio site: **https://themark.github.io**
+A minimal, editorial single-page portfolio. Plain HTML and CSS. No build step. Deployed via GitHub Pages.
 
-Minimal dark design in the spirit of Linear — near-black canvas, Inter typography, a single indigo accent, hairline-bordered cards, and a subtle radial hero glow. Plain HTML, one shared CSS file, and ~30 lines of JS for scroll reveals and the mobile nav. No framework, no build step. Deployed via GitHub Pages.
+---
 
-## Structure
+## Deploy in ~5 minutes
 
+### 1. Create the GitHub repo
+
+The repo name **must match your username exactly**:
+
+- Go to https://github.com/new
+- Repository name: `theMark.github.io`
+- Public
+- Don't add a README or .gitignore (this folder already has them)
+
+### 2. Push this folder to that repo
+
+From inside this folder (`theMark.github.io`):
+
+```bash
+git remote add origin https://github.com/theMark/theMark.github.io.git
+git branch -M main
+git push -u origin main
 ```
-index.html              home — hero, selected work, approach, experience, toolkit, contact
-work/magined.html       case study 01 — magined (founder & builder)
-work/freedom-field.html case study 02 — Freedom Forever field & customer apps
-work/internal-ops.html  case study 03 — Freedom Forever internal ops platform
-work/metpro.html        case study 04 — MetPro coaching platform
-styles.css              the whole design system (home + case studies)
-script.js               scroll-reveal + mobile nav (progressive enhancement)
-```
 
-## Before applying for jobs
+### 3. Enable GitHub Pages
 
-1. **Verify every claim in the case studies.** The narratives were drafted from project summaries — read each `work/*.html` and make sure it matches what actually happened.
-2. **Add real numbers.** Each case study has an HTML comment (`TODO(mark)`) marking where adoption / revenue / retention metrics belong, if shareable.
-3. **Swap in real screenshots** when ready. Each case study's hero visual and each home project card use an inline SVG "app panel" stand-in — replace the `<svg>` with an `<img>` (recommended: 1600×1000, under 300KB, compress with Squoosh.app).
+- Repo → Settings → Pages
+- Source: **Deploy from a branch**
+- Branch: **main**, folder: **/ (root)**
+- Save
 
-## Design system quick reference
+### 4. Visit your site
 
-- Colors, spacing, and radii live in the `:root` block of `styles.css` (e.g. `--accent: #5e6ad2`).
-- Fonts: Inter (Google Fonts), loaded per page.
-- To retheme, change the CSS variables in one place and every page follows.
+Within 1–2 minutes it goes live at:
+
+**https://themark.github.io**
+
+(GitHub lowercases the URL even though the repo name keeps its capitalization.)
+
+---
+
+## What to edit before applying for jobs
+
+Open `index.html` and search for the following — each is a clearly marked placeholder:
+
+| Placeholder                                 | What it is                            |
+| ------------------------------------------- | ------------------------------------- |
+| `[Your City]`                               | Your city in the About section       |
+| `[your-linkedin]`                           | Your LinkedIn username in the URL    |
+| `Project One — Replace with real project name` | Project 1 title                    |
+| `Project Two — Replace with real project name` | Project 2 title                    |
+| `Project Three — Replace with real project name` | Project 3 title                  |
+| The hero paragraph                          | Two-sentence elevator pitch          |
+| Each project's `<details>` body             | Problem / What I did / Outcome        |
+
+Email is already set to `wingman42@gmail.com`. GitHub link points at `theMark`.
+
+### Adding project cover images
+
+The cover images right now are CSS gradient placeholders that look intentional. To swap in real screenshots:
+
+1. Add image files to `assets/images/` (e.g., `project-1.jpg`)
+2. In `styles.css`, find `.cover-1`, `.cover-2`, `.cover-3` and replace the gradient with:
+   ```css
+   .cover-1 {
+     background: url("assets/images/project-1.jpg") center/cover;
+   }
+   ```
+
+Recommended image specs: **1600×1000px, JPG, under 300KB each**. Use Squoosh.app to compress.
+
+### Adding your résumé
+
+Drop a PDF at `assets/resume.pdf`. The contact section already links to it.
+
+---
 
 ## Running locally
 
-Open `index.html` in a browser, or:
+You don't need anything fancy — just open `index.html` in a browser. Or for live reload:
 
 ```bash
 python3 -m http.server 8000
+# then open http://localhost:8000
 ```
 
-## Deploying
+---
+
+## Why this is structured the way it is
+
+- **Single page with anchor links.** Recruiters skim. Every extra click costs viewership. Everything important is on one URL.
+- **`<details>`/`<summary>` for case studies.** Native, zero JS, accessible. Click to expand the full story; skim past if you're in a hurry.
+- **No build step, no framework.** Less to maintain, faster to load, easier to edit. The whole site is two files plus an image folder.
+- **`.nojekyll` is committed.** Without it, GitHub Pages runs Jekyll over your repo and can mangle filenames. With it, GitHub serves files as-is.
+
+---
+
+## Updating later
+
+Just edit, commit, push:
 
 ```bash
 git add .
-git commit -m "Update case study"
+git commit -m "Update project two case study"
 git push
 ```
 
-GitHub Pages re-deploys automatically within ~60 seconds. `.nojekyll` is committed so GitHub serves files as-is.
+The site re-deploys automatically within ~60 seconds.
