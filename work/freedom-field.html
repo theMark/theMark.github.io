@@ -1,133 +1,227 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Freedom Field &amp; Customer Apps — Mark Weiss</title>
-    <meta
-      name="description"
-      content="Case study: mobile-first field and customer apps designed at Freedom Forever, used across a national residential solar operation."
-    />
-    <meta name="color-scheme" content="dark" />
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Field &amp; Customer Apps — Freedom Forever — Mark Weiss</title>
+  <meta
+    name="description"
+    content="Case study: mobile field and customer apps designed at Freedom Forever, a national residential solar company. Figma to production, with the customer app built in code with Claude."
+  >
+  <meta name="color-scheme" content="dark">
 
-    <meta property="og:title" content="Freedom Field &amp; Customer Apps — Mark Weiss" />
-    <meta
-      property="og:description"
-      content="Mobile-first field and customer apps at Freedom Forever."
-    />
-    <meta property="og:type" content="article" />
+  <meta property="og:title" content="Field &amp; Customer Apps — Freedom Forever — Mark Weiss">
+  <meta
+    property="og:description"
+    content="Mobile apps for a national residential solar operation — designed in Figma, shipped with Claude Code."
+  >
+  <meta property="og:type" content="article">
 
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2367e8f9'/%3E%3C/svg%3E" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../styles.css" />
-  </head>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230d0e10'/%3E%3Crect x='34' y='34' width='32' height='32' rx='9' fill='%235e6ad2'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
 
-  <body>
-    <main>
-      <a class="back" href="../#work">← all work</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-      <header class="case-hero">
-        <p class="case-year">2024 — 26</p>
-        <h1>freedom field &amp; customer apps</h1>
-        <p class="case-meta">
-          <span>Product Designer</span>
-          <span>Freedom Forever</span>
-          <span>Mobile-first</span>
-        </p>
+  <header class="site-header">
+    <div class="wrap">
+      <a href="../index.html" class="wordmark" aria-label="Mark Weiss — home">
+        <span class="wordmark-dot" aria-hidden="true"></span>
+        Mark Weiss
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="siteNav">
+        <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+          <path d="M2 5h14M2 9h14M2 13h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <div class="header-right">
+        <nav class="site-nav" id="siteNav" aria-label="Primary">
+          <a href="../index.html#work">Work</a>
+          <a href="../index.html#approach">Approach</a>
+          <a href="../index.html#contact">Contact</a>
+        </nav>
+        <a class="btn-header" href="mailto:mark@magined.com">Say hello</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ CASE HERO ============ -->
+    <section class="case-hero">
+      <div class="wrap">
+        <a class="back" href="../index.html#work"><span class="arrow">←</span> All work</a>
+
+        <p class="eyebrow">Case study · 02 of 04</p>
+
+        <h1 class="case-heading">Two mobile apps for a national solar operation</h1>
+
         <p class="case-summary">
-          Mobile-first field and customer-facing applications used daily
-          across a national residential solar operation. Scheduling, project
-          tracking, document sign-off, and customer communication, on the
-          devices people actually carry.
+          At Freedom Forever, a residential solar installer operating across the
+          United States, I designed the mobile apps on both sides of an install:
+          the field app the crews work from, and the customer app homeowners use
+          to follow their project.
         </p>
-      </header>
 
-      <figure class="case-hero-image hero-1" aria-label="Freedom Field hero image placeholder"></figure>
+        <dl class="case-facts">
+          <div class="fact">
+            <dt>Role</dt>
+            <dd>Product designer</dd>
+          </div>
+          <div class="fact">
+            <dt>Timeline</dt>
+            <dd>2021 — 2026</dd>
+          </div>
+          <div class="fact">
+            <dt>Platform</dt>
+            <dd>iOS &amp; Android, mobile-first</dd>
+          </div>
+          <div class="fact">
+            <dt>Tools</dt>
+            <dd>Figma, Claude Code, Mixpanel</dd>
+          </div>
+        </dl>
 
-      <article class="case-body">
-        <section>
-          <h2>context</h2>
+        <div class="case-panel-wrap">
+          <div class="hero-panel" aria-hidden="true">
+            <div class="hero-panel-chrome">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            </div>
+            <div class="hero-panel-body">
+              <div class="hero-panel-sidebar">
+                <div class="hpv-line accent w60"></div>
+                <div class="hpv-line w45"></div>
+                <div class="hpv-line w70"></div>
+                <div class="hpv-line w55"></div>
+                <div class="hpv-line w80"></div>
+                <div class="hpv-line w45"></div>
+              </div>
+              <div class="hero-panel-main">
+                <svg viewBox="0 0 760 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- field app phone -->
+                  <rect x="120" y="14" width="176" height="312" rx="20" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+                  <rect x="184" y="26" width="48" height="6" rx="3" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
+                  <line x1="140" y1="54" x2="220" y2="54" stroke="rgba(255,255,255,0.18)" stroke-width="1.5" stroke-linecap="round"/>
+                  <rect x="140" y="72" width="136" height="46" rx="7" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                  <line x1="150" y1="88" x2="210" y2="88" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
+                  <line x1="150" y1="100" x2="188" y2="100" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                  <rect x="140" y="128" width="136" height="46" rx="7" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                  <line x1="150" y1="144" x2="210" y2="144" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
+                  <line x1="150" y1="156" x2="188" y2="156" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                  <rect x="140" y="184" width="136" height="46" rx="7" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                  <line x1="150" y1="200" x2="210" y2="200" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
+                  <line x1="150" y1="212" x2="188" y2="212" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                  <rect x="140" y="248" width="136" height="30" rx="15" stroke="rgba(94,106,210,0.7)" stroke-width="1.4"/>
+                  <path d="M196 263l6 6 12-13" stroke="rgba(94,106,210,0.8)" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+                  <!-- customer app phone -->
+                  <rect x="464" y="46" width="176" height="280" rx="20" stroke="rgba(255,255,255,0.16)" stroke-width="1"/>
+                  <rect x="528" y="58" width="48" height="6" rx="3" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                  <line x1="484" y1="86" x2="560" y2="86" stroke="rgba(255,255,255,0.16)" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="484" y1="104" x2="600" y2="104" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                  <path d="M484 168l20-26 18 12 22-32 24 22 28-18" stroke="rgba(94,106,210,0.7)" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="576" cy="142" r="4" fill="rgba(94,106,210,0.8)"/>
+                  <line x1="484" y1="196" x2="620" y2="196" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+                  <rect x="484" y="216" width="156" height="18" rx="9" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                  <rect x="484" y="244" width="112" height="18" rx="9" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                  <rect x="484" y="280" width="156" height="30" rx="15" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
+
+                  <!-- connective baseline -->
+                  <line x1="10" y1="330" x2="750" y2="330" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="hr-wrap"><hr class="hairline"></div>
+
+    <article class="case-body">
+      <div class="wrap">
+        <section class="case-section">
+          <h2><span class="idx">01</span> Context</h2>
           <p>
-            <em>Replace with the real story.</em> Freedom Forever installs
-            residential solar across the United States. Field crews,
-            project managers, and customers needed a way to stay in sync
-            on jobs that move through dozens of milestones over weeks.
-          </p>
-          <p>
-            The existing tools were a mix of <strong>web dashboards built
-            for office use</strong> and <strong>paper or text-message
-            workarounds in the field</strong>. The gap between the two
-            was where work got lost.
+            A residential solar install moves through dozens of milestones over weeks —
+            site survey, permitting, install, inspection, activation — and it involves
+            field crews, project managers, and an anxious homeowner who just signed a
+            25-year commitment. The tools holding that together were built for the
+            office; the work happens on driveways and rooftops.
           </p>
         </section>
 
-        <section>
-          <h2>my role</h2>
+        <section class="case-section">
+          <h2><span class="idx">02</span> The field app</h2>
           <p>
-            <em>Replace with the real story.</em> Product designer on the
-            mobile apps from research through ship. Worked with PMs,
-            field operations leadership, and engineering across iOS, Android,
-            and supporting web tooling. Owned the visual and interaction
-            design system used across both apps.
+            The field app is the crew's window into the job: schedules, site details,
+            documents, and status updates from a phone, often with gloves on and sun
+            on the screen. I designed it for one-handed use and fast scanning — the
+            measure of success was how little time a tech had to spend in it.
+          </p>
+          <p>
+            Instrumentation mattered as much as the interface: we used Mixpanel to see
+            where crews actually got stuck, and let that reshape the flows.
           </p>
         </section>
 
-        <section>
-          <h2>what I did</h2>
+        <section class="case-section">
+          <h2><span class="idx">03</span> The customer app</h2>
           <p>
-            <em>Replace with the real story.</em> A few of the threads:
+            The customer app gives homeowners a clear view of a long, opaque process —
+            where their project stands, what happens next, and who to talk to. Fewer
+            surprises for the homeowner means fewer support calls for the operation.
           </p>
-          <ul>
-            <li>Shadowed field techs and customers to map the actual flow of a job, not the idealized version on the org chart.</li>
-            <li>Designed a shared component library that worked across iOS and Android, optimized for one-handed use on a worksite.</li>
-            <li>Reworked the document sign-off flow to reduce the round-trips between customer, sales, and install crews.</li>
-            <li>Partnered with engineering on offline-first patterns — field crews are often outside cell coverage.</li>
-          </ul>
-          <figure class="case-image" aria-label="Screenshot placeholder"></figure>
+          <p>
+            This one I both <strong>designed and coded</strong>, working in Figma and
+            Claude Code side by side. Designing in the production medium collapsed the
+            usual handoff cycle: what I mocked in the morning could be running on a
+            device by the afternoon.
+          </p>
+          <div class="pull">
+            <p>
+              The fastest design review is a build on your phone.
+            </p>
+          </div>
+          <!-- TODO(mark): add adoption/usage numbers here if you can share them. -->
         </section>
 
-        <section>
-          <h2>outcome</h2>
+        <section class="case-section">
+          <h2><span class="idx">04</span> What carried forward</h2>
           <p>
-            <em>Replace with the real numbers.</em> [Adoption metric].
-            [Time-to-completion or error-rate improvement]. [Anything
-            qualitative — what changed for field techs and customers
-            day-to-day].
+            Designing both sides of the same operation taught me that the field app and
+            the customer app are really one product — every status a crew logs is a
+            moment of reassurance (or anxiety) for a homeowner. Designing the pair
+            together, on a shared component language, is what made each one simpler.
           </p>
         </section>
+      </div>
+    </article>
 
-        <section>
-          <h2>what I'd do differently</h2>
-          <p>
-            <em>Optional section. Replace or remove.</em> Reflections on
-            what didn't work, what you learned, and what you'd carry into
-            the next role. Senior hiring managers tend to read this section
-            most carefully — it's where they look for self-awareness.
-          </p>
-        </section>
-      </article>
-
-      <nav class="case-nav">
-        <a href="../#work">← all work</a>
-        <a href="internal-ops.html">next: internal ops tooling →</a>
-      </nav>
-    </main>
-
-    <footer>
-      <p>
-        <span>© 2026 mark weiss</span>
-        <span class="sep">·</span>
-        <span>chico, ca</span>
-        <span class="sep">·</span>
-        <a href="https://github.com/theMark/theMark.github.io" target="_blank" rel="noopener">
-          view source
+    <nav class="case-nav" aria-label="Next case study">
+      <div class="wrap">
+        <p class="eyebrow">Next case study</p>
+        <a class="case-nav-link" href="internal-ops.html">
+          <span class="t">Internal ops platform · Freedom Forever</span>
+          <span class="arrow" aria-hidden="true">→</span>
         </a>
-      </p>
-    </footer>
-  </body>
+      </div>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="footer-copy">© 2026 Mark Weiss · Chico, CA</p>
+      <p class="footer-mark"><a href="https://github.com/theMark/theMark.github.io" target="_blank" rel="noopener">View source</a></p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+
+</body>
 </html>
