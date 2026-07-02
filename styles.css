@@ -876,12 +876,14 @@ main, header, footer{ position: relative; z-index: 1; }
 .app-shots{
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: start;
   gap: 22px;
   max-width: 820px;
   margin: 52px auto 0;
 }
 .app-shots img{
   width: 100%;
+  height: auto;
   border-radius: 18px;
   border: 1px solid var(--border);
   box-shadow: 0 30px 70px -34px rgba(0,0,0,0.8);
