@@ -872,20 +872,19 @@ main, header, footer{ position: relative; z-index: 1; }
 /* reuse .hero-panel for the case hero visual; add spacing */
 .case-panel-wrap{ margin-top: 56px; }
 
-/* ---------- app screenshot (phone) ---------- */
-.app-shot{
-  display: flex;
-  justify-content: center;
-  margin-top: 52px;
+/* ---------- app store frames ---------- */
+.app-shots{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  max-width: 820px;
+  margin: 52px auto 0;
 }
-.app-shot img{
+.app-shots img{
   width: 100%;
-  max-width: 340px;
-  border-radius: 30px;
-  border: 1px solid var(--border-strong);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.08),
-    0 40px 90px -30px rgba(0,0,0,0.85);
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 30px 70px -34px rgba(0,0,0,0.8);
   display: block;
 }
 
@@ -1056,8 +1055,7 @@ main, header, footer{ position: relative; z-index: 1; }
   .ledger-role{ text-align: left; margin-top: 6px; }
   .case-hero .back{ margin-bottom: 32px; }
   .case-panel-wrap{ margin-top: 40px; }
-  .app-shot{ margin-top: 40px; }
-  .app-shot img{ max-width: 300px; }
+  .app-shots{ grid-template-columns: 1fr; max-width: 400px; margin-top: 40px; }
 }
 
 @media (max-width: 480px){
