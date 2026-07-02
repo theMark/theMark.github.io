@@ -516,6 +516,8 @@ main, header, footer{ position: relative; z-index: 1; }
   border: 1px solid var(--border);
 }
 .motif svg{ width: 100%; height: 100%; }
+.motif img{ width: 100%; height: 100%; object-fit: cover; display: block; }
+.motif-shot img{ object-position: center 58%; }
 
 .card-meta-row{
   display:flex;
