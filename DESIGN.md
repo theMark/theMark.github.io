@@ -51,6 +51,12 @@
 - Mono meta bar (name · ● open to work · location) inside a glass pill; gradient primary CTA.
 - Favicon: aurora-gradient disc on the near-black base.
 
+## Case Study Pages
+- **Structure:** narrow reading column (`760px`). Back link → eyebrow (`Case study · 0N of 04`) → year → `h1` → `.case-facts` (Role / Timeline / Platform / Tools) → summary → hero visual → body sections → prev/next nav.
+- **Body:** `.case-body section` with a mono teal `h2` (numbered `01 · …`), prose, `→`-bulleted lists, and `.pull` block-quotes (gradient left border).
+- **Imagery:** real work shown where it exists. magined uses `.shot-strip` (3-up), a `.ba` before/after pair (tagged), and a `.gallery`. Text-only studies use gradient `.case-hero-image` panels (`hero-1/2/3`).
+- **Content is real** (restored from history), not placeholder. `work/magined.html` is the featured case study.
+
 ## Decisions Log
 | Date | Decision | Rationale |
 |------|----------|-----------|

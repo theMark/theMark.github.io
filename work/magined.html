@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>magined — AI Room Designer — Mark Weiss</title>
+    <meta
+      name="description"
+      content="Case study: magined, an AI room designer and shoppable gallery, built solo — founder, designer, and engineer using Claude and an agent-first workflow."
+    />
+    <meta name="color-scheme" content="dark" />
+
+    <meta property="og:title" content="magined — AI Room Designer — Mark Weiss" />
+    <meta property="og:description" content="An AI room designer and shoppable gallery, built solo with Claude and an agent-first workflow." />
+    <meta property="og:type" content="article" />
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7dff'/%3E%3Cstop offset='0.5' stop-color='%234fd7c9'/%3E%3Cstop offset='1' stop-color='%23ff86c0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='24' fill='%23070810'/%3E%3Ccircle cx='50' cy='50' r='30' fill='url(%23g)'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body>
+    <div class="bg" aria-hidden="true"></div>
+    <main class="case-main">
+      <a class="back" href="../#work">← all work</a>
+
+      <header class="case-hero">
+        <p class="case-eyebrow">Case study · 01 of 04</p>
+        <p class="case-year">2026 — ongoing</p>
+        <h1>magined — an AI room designer, built solo</h1>
+        <p class="case-summary">
+          An AI room designer and gallery with shoppable products. I'm the founder,
+          designer, and engineer — <strong>one person shipping what would traditionally
+          take a product team</strong>, using Claude and an agent-first workflow.
+        </p>
+        <dl class="case-facts">
+          <div class="fact"><dt>Role</dt><dd>Founder, designer &amp; builder</dd></div>
+          <div class="fact"><dt>Timeline</dt><dd>2026 — ongoing</dd></div>
+          <div class="fact"><dt>Platform</dt><dd>Web, mobile-first</dd></div>
+          <div class="fact"><dt>Tools</dt><dd>Claude Code, Agent SDK, MCP, Figma, Nano Banana</dd></div>
+        </dl>
+      </header>
+
+      <figure class="case-figure">
+        <div class="shot-strip">
+          <img src="../assets/images/magined/after-1.jpg" width="832" height="1248" loading="lazy" decoding="async" alt="A magined living-room redesign: a gray sectional, walnut coffee table, and a bold blue wave painting." />
+          <img src="../assets/images/magined/after-3.jpg" width="832" height="1248" loading="lazy" decoding="async" alt="A magined kitchen redesign with matte-black cabinets, a marble waterfall island, and a sculptural pendant." />
+          <img src="../assets/images/magined/after-2.jpg" width="832" height="1248" loading="lazy" decoding="async" alt="A magined bedroom redesign with an exposed-brick accent wall, wood beams, and a geometric chandelier." />
+        </div>
+      </figure>
+
+      <article class="case-body">
+        <section>
+          <h2>01 · The idea</h2>
+          <p>
+            Redecorating a room is a visual problem, but shopping for it is a text
+            problem — endless product listings with no way to see how anything fits
+            <strong>your</strong> space. magined closes that gap: generate a redesigned
+            version of your room with AI, then shop the actual products that appear in it.
+          </p>
+          <p>
+            It's also a deliberate proof of a bigger thesis: that one designer, working
+            fluently with AI tooling, can now carry a product from idea to revenue.
+          </p>
+        </section>
+
+        <figure class="case-figure">
+          <div class="ba">
+            <div class="ba-item">
+              <span class="ba-tag">Before</span>
+              <img src="../assets/images/magined/before-1.jpg" width="832" height="1248" loading="lazy" decoding="async" alt="A dated living room before redesign: rose-colored walls, a paisley sofa, heavy floral drapes, and a traditional landscape painting." />
+            </div>
+            <div class="ba-item">
+              <span class="ba-tag">After</span>
+              <img src="../assets/images/magined/after-1.jpg" width="832" height="1248" loading="lazy" decoding="async" alt="The same living room reimagined by magined: a gray sectional, walnut coffee table, and a bold blue wave painting." />
+            </div>
+          </div>
+          <figcaption>The core loop — snap a photo of your real room, pick a style, and see it redesigned. Every product in the “after” is shoppable.</figcaption>
+        </figure>
+
+        <section>
+          <h2>02 · What I built</h2>
+          <ul>
+            <li><strong>The room designer</strong> — an image-generation pipeline built on Nano Banana, wrapped in an interface designed in Figma and refined in code.</li>
+            <li><strong>A shoppable gallery</strong> — generated rooms link to real, purchasable products, monetized through affiliate partnerships.</li>
+            <li><strong>An agent backbone</strong> — content, product matching, and operational tasks run on the Claude Agent SDK with MCP integrations, so the site improves while I sleep.</li>
+            <li><strong>Growth engineering</strong> — classic SEO plus LLM SEO, structuring the site so both search engines and AI assistants can find and recommend it.</li>
+          </ul>
+          <div class="pull"><p>Every screen was designed twice: once in Figma to find the idea, once in code to make it true.</p></div>
+        </section>
+
+        <figure class="case-figure">
+          <div class="gallery">
+            <img src="../assets/images/magined/after-3.jpg" width="832" height="1248" loading="lazy" decoding="async" alt="A modern kitchen generated by magined: matte-black cabinetry, a marble waterfall island, and black-framed bar stools." />
+            <img src="../assets/images/magined/space-1.jpg" width="768" height="1376" loading="lazy" decoding="async" alt="A contemporary living room generated by magined: a sage-green sectional, round concrete coffee table, and abstract wall art." />
+            <img src="../assets/images/magined/after-2.jpg" width="832" height="1248" loading="lazy" decoding="async" alt="An industrial-modern bedroom generated by magined: exposed brick, reclaimed-wood beams, and a geometric chandelier." />
+          </div>
+          <figcaption>A few generated spaces across styles — every one rendered from a single real photo, then made shoppable.</figcaption>
+        </figure>
+
+        <section>
+          <h2>03 · Why it matters for your team</h2>
+          <p>
+            magined is my day-to-day lab for the way product work is heading: design and
+            engineering collapsing into a single, fast loop. The judgment calls — what to
+            build, what to cut, what quality bar to hold — are the same ones I'd bring to
+            your product, with the AI leverage already wired in.
+          </p>
+        </section>
+      </article>
+
+      <nav class="case-nav" aria-label="Case study navigation">
+        <a href="../#work">← all work</a>
+        <a href="freedom-field.html">next: field &amp; customer apps →</a>
+      </nav>
+    </main>
+
+    <footer>
+      <p class="mono">
+        © 2026 Mark Weiss · Chico, CA ·
+        <a href="https://github.com/theMark/theMark.github.io" target="_blank" rel="noopener">View source</a>
+      </p>
+    </footer>
+  </body>
+</html>
