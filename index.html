@@ -17,148 +17,107 @@
     />
     <meta property="og:type" content="website" />
 
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23ff4438'/%3E%3C/svg%3E" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7dff'/%3E%3Cstop offset='0.5' stop-color='%234fd7c9'/%3E%3Cstop offset='1' stop-color='%23ff86c0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='24' fill='%23070810'/%3E%3Ccircle cx='50' cy='50' r='30' fill='url(%23g)'/%3E%3C/svg%3E" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
-    <main>
-      <div class="metabar">
-        <span class="mb-name">Mark Weiss</span>
-        <span class="mb-status"><span class="mb-dot" aria-hidden="true"></span> Open to work</span>
-        <span class="mb-loc">Chico, CA</span>
+    <div class="bg" aria-hidden="true"></div>
+
+    <main class="wrap">
+      <div class="nav glass r d1">
+        <span class="name">Mark Weiss</span>
+        <span class="status"><span class="dot" aria-hidden="true"></span> Open to work</span>
+        <span class="mono">Chico, CA</span>
       </div>
 
       <header class="hero">
-        <h1 class="masthead">
-          Designer<br />
-          who <span class="ships">ships</span><span class="rule" aria-hidden="true"></span>
-        </h1>
-        <p class="tagline">
-          <b>Twenty years of product design, now building alongside AI.</b>
-          I work fluently with <a href="https://claude.ai" target="_blank" rel="noopener">Claude</a>
-          and other AI tools, moving from idea to shipped interface — fast, across mobile and web.
+        <p class="mono kick r d1">Product Designer · AI Builder</p>
+        <h1 class="masthead r d2">Designer who<br /><span class="grad">ships</span> with AI.</h1>
+        <p class="tagline r d3">
+          <b>Twenty years of product design, now building alongside AI.</b> I work fluently with
+          <a href="https://claude.ai" target="_blank" rel="noopener">Claude</a> and other tools —
+          idea to shipped interface, fast, across mobile and web.
         </p>
+        <div class="cta r d4">
+          <a class="btn pri" href="#work">View work ↓</a>
+          <a class="btn sec" href="mailto:mark@magined.com">Email me ↗</a>
+        </div>
       </header>
 
       <section id="work">
-        <p class="seclabel"><span>Selected work</span><span>2016 — 2026</span></p>
-        <ul class="projects">
-          <li class="project">
-            <a href="work/freedom-field.html" aria-label="View case study: magined">
-              <p class="project-year">2026</p>
-              <div class="project-meta">
-                <h2 class="project-title">magined</h2>
-                <p class="project-desc">AI room designer &amp; gallery with shoppable products. Founder &amp; builder.</p>
-                <p class="project-tags">
-                  <span>claude code</span><span>agent sdk</span><span>figma</span><span>nano banana</span><span>mcp</span><span>llm seo</span>
-                </p>
-              </div>
-              <span class="project-arrow" aria-hidden="true">↗</span>
-            </a>
-          </li>
-
-          <li class="project">
-            <a href="work/freedom-field.html" aria-label="View case study: Freedom Forever customer app">
-              <p class="project-year">2021 — 26</p>
-              <div class="project-meta">
-                <h2 class="project-title">Freedom Forever — customer app</h2>
-                <p class="project-desc">Designed and coded a new customer app with Claude Code and Figma.</p>
-                <p class="project-tags">
-                  <span>claude code</span><span>figma</span><span>paper.design</span><span>generative images</span>
-                </p>
-              </div>
-              <span class="project-arrow" aria-hidden="true">↗</span>
-            </a>
-          </li>
-
-          <li class="project">
-            <a href="work/internal-ops.html" aria-label="View case study: Freedom Forever internal ops">
-              <p class="project-year">2021 — 26</p>
-              <div class="project-meta">
-                <h2 class="project-title">Freedom Forever — internal ops</h2>
-                <p class="project-desc">Scheduling, commissions, a customer-support agent, agent framework, and the solar project pipeline (Lightspeed).</p>
-                <p class="project-tags">
-                  <span>figma</span><span>agent sdk</span><span>first principles</span><span>mixpanel</span><span>eleven labs</span>
-                </p>
-              </div>
-              <span class="project-arrow" aria-hidden="true">↗</span>
-            </a>
-          </li>
-
-          <li class="project">
-            <a href="work/metpro.html" aria-label="View case study: MetPro coaching platform">
-              <p class="project-year">2016 — 21</p>
-              <div class="project-meta">
-                <h2 class="project-title">MetPro — coaching platform</h2>
-                <p class="project-desc">Designer and developer on a nutrition coaching platform, across web and mobile.</p>
-                <p class="project-tags">
-                  <span>react native</span><span>ruby on rails</span><span>design</span><span>marketing</span>
-                </p>
-              </div>
-              <span class="project-arrow" aria-hidden="true">↗</span>
-            </a>
-          </li>
-        </ul>
-      </section>
-
-      <section id="skills">
-        <p class="seclabel"><span>Skills</span><span>Design × AI</span></p>
-        <div class="skill-groups">
-          <div class="skill-group">
-            <p class="skill-group-label">AI</p>
-            <ul>
-              <li>claude code</li>
-              <li>claude skills</li>
-              <li>agent sdk</li>
-              <li>mcp</li>
-              <li>llm seo</li>
-            </ul>
+        <a class="featured glass r d3" href="work/freedom-field.html" aria-label="View case study: magined">
+          <div>
+            <span class="badge">◆ Featured · 2026</span>
+            <h2>magined</h2>
+            <p class="lede">
+              An AI room designer &amp; gallery with shoppable products. Founder &amp; builder —
+              design, brand, and the entire AI stack, shipped solo.
+            </p>
+            <p class="tag-row">
+              <span>claude code</span><span>agent sdk</span><span>figma</span><span>nano banana</span><span>mcp</span><span>llm seo</span>
+            </p>
+            <span class="feat-cta">Read the case study <span class="arw" aria-hidden="true">↗</span></span>
           </div>
-          <div class="skill-group">
-            <p class="skill-group-label">Design &amp; build</p>
-            <ul>
-              <li>figma</li>
-              <li>product design</li>
-              <li>design systems</li>
-              <li>prototyping</li>
-              <li>responsive design</li>
-              <li>html / css</li>
-            </ul>
-          </div>
+          <figure class="device">
+            <img src="assets/images/magined/appstore/ba.jpg" alt="magined app — a living room shown before and after an AI restyle" />
+          </figure>
+        </a>
+
+        <p class="seclabel"><span class="mono">More work</span><span class="mono">2016 — 2026</span></p>
+        <div class="work-grid">
+          <a class="work-card glass r d3" href="work/freedom-field.html" aria-label="View case study: Freedom Forever customer app">
+            <div class="wc-top"><span class="wc-num">02</span><span class="wc-year">2021 — 26</span></div>
+            <h3 class="wc-title">Freedom Forever — customer app</h3>
+            <p class="wc-desc">Designed and coded a new customer app with Claude Code and Figma.</p>
+            <p class="wc-tags">claude code · figma · paper.design · generative images</p>
+          </a>
+          <a class="work-card glass r d4" href="work/internal-ops.html" aria-label="View case study: Freedom Forever internal ops">
+            <div class="wc-top"><span class="wc-num">03</span><span class="wc-year">2021 — 26</span></div>
+            <h3 class="wc-title">Freedom Forever — internal ops</h3>
+            <p class="wc-desc">Scheduling, commissions, a support agent, agent framework, and the solar project pipeline (Lightspeed).</p>
+            <p class="wc-tags">figma · agent sdk · first principles · mixpanel · eleven labs</p>
+          </a>
+          <a class="work-card glass r d5" href="work/metpro.html" aria-label="View case study: MetPro coaching platform">
+            <div class="wc-top"><span class="wc-num">04</span><span class="wc-year">2016 — 21</span></div>
+            <h3 class="wc-title">MetPro — coaching platform</h3>
+            <p class="wc-desc">Designer and developer on a nutrition coaching platform, across web and mobile.</p>
+            <p class="wc-tags">react native · ruby on rails · design · marketing</p>
+          </a>
         </div>
       </section>
 
-      <section id="contact">
-        <p class="seclabel"><span>Get in touch</span><span>↗</span></p>
-        <p class="contact-line">
-          Fastest path is email —
-          <a href="mailto:mark@magined.com">mark@magined.com</a>
-        </p>
-        <ul class="contact-links">
-          <li><a href="https://www.linkedin.com/in/themarkweiss" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a></li>
-          <li><a href="https://github.com/theMark" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a></li>
-        </ul>
+      <section class="band glass r d3" id="contact">
+        <div>
+          <span class="k">Get in touch ↗</span>
+          <h3>Fastest path is email —<br /><a href="mailto:mark@magined.com">mark@magined.com</a></h3>
+          <div class="band-links">
+            <a href="https://www.linkedin.com/in/themarkweiss" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="https://github.com/theMark" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+        <div class="skills">
+          <span class="k">Capability · Design × AI</span>
+          <p><b>AI</b> claude code, claude skills, agent sdk, mcp, llm seo</p>
+          <p><b>Design</b> figma, product design, design systems</p>
+          <p><b>Build</b> prototyping, responsive, html / css</p>
+        </div>
       </section>
+
+      <p class="aphorism r d3">Taste is the <span>edge</span>.</p>
     </main>
 
     <footer>
-      <div class="foot-inner">
-        <p class="aphorism">Taste is the <span>edge</span>.</p>
-        <p class="foot-meta">
-          <span>© 2026 mark weiss</span>
-          <span class="sep">·</span>
-          <span>chico, ca</span>
-          <span class="sep">·</span>
-          <a href="https://github.com/theMark/theMark.github.io" target="_blank" rel="noopener">view source</a>
-        </p>
-      </div>
+      <p class="mono">
+        © 2026 Mark Weiss · Chico, CA ·
+        <a href="https://github.com/theMark/theMark.github.io" target="_blank" rel="noopener">View source</a>
+      </p>
     </footer>
   </body>
 </html>
