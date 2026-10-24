@@ -1,9 +1,33 @@
-# Design System — Mark Weiss Portfolio
+# Design System — Mark Weiss Personal Site
+
+> **Homepage + Timeline: "Quiet column"** (Oct 2026). One narrow column, small type,
+> one drawn object at the top. Reference feel: pengzhe.ng. The case studies in `work/`
+> still use the older "Aurora" system documented further down, until they're redone.
+
+## Quiet column (index.html, timeline.html, site.css)
+- **Idea:** a personal site, not a portfolio pitch. The newest thing that's inspiring me
+  sits at the top as a drawing with its line; a short first-person bio; Work as a plain list.
+  The Timeline page lists every post, newest first, grouped by month.
+- **Layout:** single column, max-width `560px`, 16px side gutter. Sticky top bar: page link
+  on the left, art switch on the right. Sections separated by space (44px), not boxes.
+- **Type:** **Geist** 400/500 at 15px/1.6 for everything; the lyric is 19px. **Geist Mono**
+  only for the tiny uppercase "ART" label. No display headlines.
+- **Color (dark only for now):** bg `#111214` · ink `#e9e9e6` · muted `#8f8f8b` ·
+  rule `#2a2b2e` · now `#f0a75a` (the "● Now" marker, favicon dot) · focus `#9fc3ff`.
+- **Art:** each post has custom illustrations cut out on a transparent ground (no frame or
+  box), drawn in three styles: flat vector, grainy gradient, torn paper collage. The
+  Flat / Grainy / Collage switch swaps every drawing on both pages and is remembered per
+  visitor (`localStorage.artStyle`). Full size on the homepage, 128px (96px on phones) on the
+  Timeline.
+- **Links:** underlines appear on hover; selected switch/filter items get a solid underline.
+- **Motion:** only a 0.28s crossfade between art styles; none under reduced motion.
+- **Content:** posts live in `posts.js` (see README). Site copy is first person.
+
+---
+
+# Aurora (case-study pages, styles.css)
 
 > "Aurora" — glassmorphism on a slow, drifting aurora mesh. Dark and premium.
-> The site is the work sample: it has to prove design taste *and* read native to a
-> tech audience (engineers, founders, AI builders). Memorable thing:
-> **a designer who ships with AI.**
 
 ## Product Context
 - **What this is:** Personal portfolio for Mark Weiss — product designer & AI builder.
@@ -62,3 +86,4 @@
 |------|----------|-----------|
 | 2026-07-07 | Adopted "Obsidian" Swiss-dark system | Created via /design-consultation. Chose poster layout over editorial-serif and restraint; dark Swiss over terminal and dev-tool-UI. Cyan → signal red, Inter/JetBrains → Geist. |
 | 2026-07-07 | Redesigned to **"Aurora"** | Via /design-shotgun + /frontend-design. Explored 6 high-craft directions (Atelier/Kinetic/Spotlight/Bento/Riso/Aurora); chose Aurora (glassmorphism on animated aurora mesh). Retired signal red → aurora spectrum (iris/teal/rose/amber); Geist → Onest. Now features real magined work imagery; fully responsive + reduced-motion. |
+| 2026-10-24 | Homepage + Timeline moved to **"Quiet column"** | Mark asked for something creative, simple and not "AI slop", modelled on pengzhe.ng. Picked layout G (latest object, bio, Work list) + G3 Timeline, with hand-drawn art in three styles behind a Flat / Grainy / Collage switch. Case studies stay on Aurora for now. |
