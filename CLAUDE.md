@@ -1,14 +1,16 @@
-# Mark Weiss — Portfolio
+# Mark Weiss — Personal site
 
-Static single-page portfolio + case-study pages. Plain HTML/CSS, no build step,
+Static homepage, Timeline and case-study pages. Plain HTML/CSS/JS, no build step,
 deployed via GitHub Pages at https://themark.github.io.
 
-- `index.html` — homepage (meta bar, poster masthead, work, skills, contact, footer).
-- `styles.css` — the whole design system, token-driven. Shared by all pages.
-- `work/*.html` — case-study pages. They inherit `../styles.css`.
+- `index.html` — homepage: newest inspiration drawing + line, bio, Work list, footer links.
+- `timeline.html` — every inspiration post, newest first, grouped by month, kind filter.
+- `posts.js` — the inspiration posts (data). `site.js` renders them and runs the art switch.
+- `site.css` — styles for the homepage and Timeline ("Quiet column").
+- `assets/inspiration/<post-id>/` — each post's art in flat / grainy / collage (+ `-sm`).
+- `work/*.html` — case-study pages. They still use `../styles.css` ("Aurora").
 
 ## Design System
-Always read `DESIGN.md` before making any visual or UI decision. Fonts (Geist /
-Geist Mono), colors (near-black + signal red `#ff4438`), spacing, and the Swiss
-"Obsidian" aesthetic are defined there. Do not deviate without explicit approval.
-Flag any code that doesn't match `DESIGN.md`.
+Always read `DESIGN.md` before making any visual or UI decision. The homepage and
+Timeline follow "Quiet column"; case studies follow "Aurora". Do not deviate without
+explicit approval. Flag any code that doesn't match `DESIGN.md`.
