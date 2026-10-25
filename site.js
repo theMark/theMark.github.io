@@ -26,6 +26,15 @@
     return new Date(+p[0], +p[1] - 1, +p[2]);
   }
   function shortDate(d) { return MONTHS[d.getMonth()].slice(0, 3) + " " + d.getDate(); }
+  function ago(d) {
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+    var days = Math.round((today - d) / 864e5);
+    if (days <= 0) return "today";
+    if (days === 1) return "yesterday";
+    if (days < 30) return days + " days ago";
+    return "on " + shortDate(d) + ", " + d.getFullYear();
+  }
 
   var posts = (window.POSTS || []).slice().sort(function (a, b) {
     return a.date < b.date ? 1 : a.date > b.date ? -1 : 0;
@@ -66,6 +75,14 @@
       el("a", { href: "timeline.html#" + p.id }, byline(p)),
       " · " + shortDate(d) + ", " + d.getFullYear()
     ]));
+    if (p.why) latest.appendChild(el("p", { "class": "why" }, p.why));
+
+    var lately = document.getElementById("lately");
+    if (lately) {
+      lately.appendChild(document.createTextNode("Lately inspired by "));
+      lately.appendChild(el("a", { href: "timeline.html#" + p.id }, p.by ? p.title + " by " + p.by : p.title));
+      lately.appendChild(document.createTextNode(", added " + ago(d) + "."));
+    }
   }
 
   // Timeline: newest first, grouped by month, filterable by kind.
@@ -89,7 +106,7 @@
           title,
           el("p", { "class": "muted" }, KINDS[p.kind][0] + " · " + shortDate(d)),
           el("p", {}, quoted(p, p.excerpt || p.line))
-        ])
+        ].concat(p.why ? [el("p", { "class": "muted" }, p.why)] : []))
       ]));
     });
 

@@ -11,6 +11,7 @@
 // kind:    song | book | film | outside
 // line:    the lyric, quote or one line about it
 // excerpt: optional shorter line for the Timeline (defaults to line)
+// why:     what it means to me and why it inspires me, 1-3 sentences, first person
 // alt:     what the drawing shows (the style name is added for you)
 // size:    pixel size of the full art, [width, height]
 
@@ -23,6 +24,7 @@ window.POSTS = [
     by: "Thrice",
     line: "Every time I play with passion, I start breaking strings, and my voice cracks when I sing from the heart.",
     excerpt: "…my voice cracks when I sing from the heart.",
+    why: "[Placeholder: what this song means to me and why it inspires me, in 1 to 3 sentences. Mark to write.]",
     alt: "A singer at the mic with eyes shut, a red guitar and an amp stack behind",
     size: [1224, 963]
   }

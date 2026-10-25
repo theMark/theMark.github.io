@@ -21,6 +21,7 @@
   Timeline.
 - **Links:** underlines appear on hover; selected switch/filter items get a solid underline.
 - **Motion:** only a 0.28s crossfade between art styles; none under reduced motion.
+- **Homepage order:** drawing → lyric → "title · by · date" → the post's `why` (what it means to me) → intro (name, first-person bio, "Lately inspired by … added N days ago") → Work → links.
 - **Content:** posts live in `posts.js` (see README). Site copy is first person.
 
 ---
