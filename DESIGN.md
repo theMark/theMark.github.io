@@ -11,7 +11,8 @@
 - **Layout:** single column, max-width `560px`, 16px side gutter. Sticky top bar: page link
   on the left, a sun / moon icon button for light and dark on the right. Sections separated by space, not boxes.
 - **Type:** **Geist** 400/500 at 1.5em/1.4 (24px) for everything, 1.25em on phones
-  (`--text`, Mark's pick to match pengzhe.ng, 2026-10-26). No display headlines.
+  (`--text`, Mark's pick to match pengzhe.ng, 2026-10-26). The homepage Work list and
+  footer links are smaller, 1rem (16px). No display headlines.
 - **Color, dark:** bg `#111214` · ink `#e9e9e6` · soft `#c9c9c5` (the Lately line) ·
   muted `#8f8f8b` · rule `#2a2b2e` · now `#f0a75a` (the "● Now" marker, favicon dot) · focus `#9fc3ff`.
 - **Color, light:** bg `#f6f6f3` · ink `#1c1c1b` · soft `#3d3d3a` · muted `#6a6a66` ·
