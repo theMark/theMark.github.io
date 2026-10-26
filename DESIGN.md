@@ -8,11 +8,13 @@
 - **Idea:** a personal site, not a portfolio pitch. The newest thing that's inspiring me
   sits at the top as a drawing with its line; a short first-person bio; Work as a plain list.
   The Timeline page lists every post, newest first, grouped by month.
-- **Layout:** single column, max-width `560px`, 16px side gutter. Sticky top bar: page link
-  on the left, a sun / moon icon button for light and dark on the right. Sections separated by space, not boxes.
+- **Layout:** single column, max-width `560px`, 16px side gutter. Sticky top bar with a
+  "← Mark Weiss" link (not on the homepage). Fixed bottom bar on every page (2026-10-26):
+  Email | LinkedIn | GitHub at 1rem with thin divider lines, and the sun / moon icon for light
+  and dark on the right. Sections separated by space, not boxes.
 - **Type:** **Geist** 400/500 at 1.5em/1.4 (24px) for everything, 1.25em on phones
   (`--text`, Mark's pick to match pengzhe.ng, 2026-10-26). The homepage Work list and
-  footer links are smaller, 1rem (16px). No display headlines.
+  bottom bar are smaller, 1rem (16px). No display headlines.
 - **Color, dark:** bg `#111214` · ink `#e9e9e6` · soft `#c9c9c5` (work page prose) ·
   muted `#8f8f8b` · rule `#2a2b2e` · now `#f0a75a` (the "● Now" marker, favicon dot) · focus `#9fc3ff`.
 - **Color, light:** bg `#f6f6f3` · ink `#1c1c1b` · soft `#3d3d3a` · muted `#6a6a66` ·
@@ -24,7 +26,7 @@
   (Grainy gradient and paper collage were tried and dropped on 2026-10-26.)
 - **Links:** underlines appear on hover; selected filter items get a solid underline.
 - **Motion:** none beyond small hover color changes.
-- **Homepage order (direction C, 2026-10-26):** who I am comes first; all homepage text is centered (Timeline stays left-aligned). A 300px drawing of the newest post (links to it on the Timeline) → one paragraph (Mark's words, 2026-10-26): "I'm Mark Weiss, a product designer who builds with AI. I was inspired by the song “<title>” by <by>. <lately> More →", all in ink → Work → links. Lyrics and the longer "why" live on the Timeline.
+- **Homepage order (direction C, 2026-10-26):** who I am comes first; all homepage text is centered (Timeline stays left-aligned). A 300px drawing of the newest post (links to it on the Timeline) → one paragraph (Mark's words, 2026-10-26): "I'm Mark Weiss, a product designer who builds with AI. I was inspired by the song “<title>” by <by>. <lately> More →", all in ink → Work. Contact links live in the bottom bar. Lyrics and the longer "why" live on the Timeline.
 - **Work pages (`work/*.html`, 2026-10-26):** same bar, column and type as the Timeline,
   left-aligned. Name → muted "role · years" → one intro paragraph → plain sections (h2 at
   body size, weight 500; prose in `--soft`) → images only where real work exists (magined:
