@@ -9,7 +9,7 @@
   sits at the top as a drawing with its line; a short first-person bio; Work as a plain list.
   The Timeline page lists every post, newest first, grouped by month.
 - **Layout:** single column, max-width `560px`, 16px side gutter. Sticky top bar with a
-  "← Mark Weiss" link (not on the homepage). Fixed bottom bar on every page (2026-10-26):
+  "← Mark Weiss" link (not on the homepage). Fixed bottom bar on every page, edge to edge (2026-10-26):
   Email | LinkedIn | GitHub at 1rem with thin divider lines, and the sun / moon icon for light
   and dark on the right. Sections separated by space, not boxes.
 - **Type:** **Geist** 400/500 at 1.5em/1.4 (24px) for everything, 1.25em on phones

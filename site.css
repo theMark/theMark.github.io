@@ -86,7 +86,7 @@ main { display: flex; flex-direction: column; padding-top: 20px; }
 .work li a:hover { text-decoration-color: var(--muted); }
 .work li span { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .work li a:hover span { color: var(--ink); }
-/* bottom bar on every page: contact links, then light / dark on the right */
+/* bottom bar on every page, edge to edge: contact links left, light / dark right */
 .foot {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 5;
   background: var(--bg); border-top: 1px solid var(--rule); color: var(--muted);
