@@ -11,7 +11,7 @@ served by GitHub Pages from `main`.
    `assets/inspiration/<id>/` as `flat.webp` and `flat-sm.webp`.
 3. Add a block to `posts.js` (the comment at the top lists the fields).
 4. Commit and push. The newest post becomes the drawing and the inspiration line on the
-   homepage, and the Timeline picks it up with a "Now" marker. Kind filters appear once there's more
+   homepage, and the Inspiration page picks it up with a "Now" marker. Kind filters appear once there's more
    than one kind.
 
 ## Running locally

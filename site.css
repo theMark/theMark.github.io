@@ -1,4 +1,4 @@
-/* Homepage, Timeline and work pages. One quiet column. Dark and light.
+/* Homepage, Inspiration page and work pages. One quiet column. Dark and light.
    See DESIGN.md ("Quiet column"). */
 :root {
   --bg: #111214;
@@ -143,4 +143,19 @@ main { display: flex; flex-direction: column; padding-top: 20px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .kinds button { transition: none; }
+}
+
+/* page transitions (Chrome, Edge, Safari 18.2+; others just load the page).
+   The text fades out and in; the newest drawing moves between its spot on the
+   homepage and on the Inspiration page; the bars stay put. */
+@view-transition { navigation: auto; }
+.bar { view-transition-name: bar; }
+.foot { view-transition-name: foot; }
+::view-transition-old(root) { animation: vt-out 150ms ease-in both; }
+::view-transition-new(root) { animation: vt-in 250ms ease-out 120ms both; }
+::view-transition-group(art) { animation-duration: 420ms; animation-timing-function: cubic-bezier(.3, .7, .2, 1); }
+@keyframes vt-out { to { opacity: 0; } }
+@keyframes vt-in { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  @view-transition { navigation: none; }
 }

@@ -1,4 +1,4 @@
-// What's inspiring me. Every post shows on the Timeline; the newest is the
+// What's inspiring me. Every post shows on the Inspiration page; the newest is the
 // object at the top of the homepage.
 //
 // To add a post:
@@ -9,11 +9,11 @@
 //
 // kind:    song | book | film | outside
 // line:    the lyric, quote or one line about it
-// excerpt: optional shorter line for the Timeline (defaults to line)
+// excerpt: optional shorter line for the Inspiration page (defaults to line)
 // lately:  optional sentence after the homepage line "I was recently inspired by the <kind>
 //          <title> by <by>." Keep it short.
 // why:     what it means to me and why it inspires me, a few sentences, first
-//          person (shown on the Timeline)
+//          person (shown on the Inspiration page)
 // alt:     what the drawing shows
 // size:    pixel size of the full art, [width, height]
 

@@ -1,4 +1,4 @@
-// Renders the homepage drawing and the Timeline from posts.js, and runs the
+// Renders the homepage drawing and the Inspiration page from posts.js, and runs the
 // light / dark switch (follows the system until a visitor picks one).
 (function () {
   var root = document.documentElement;
@@ -41,6 +41,9 @@
     }));
   }
 
+  // The newest drawing shares a name on both pages, so it moves between them.
+  function named(n) { n.style.viewTransitionName = "art"; return n; }
+
   function quoted(post, text) {
     return post.kind === "song" ? "“" + text + "”" : text;
   }
@@ -52,17 +55,18 @@
   var lately = document.getElementById("lately");
   if (latest && posts.length) {
     var p = posts[0];
-    var link = el("a", { href: "timeline.html#" + p.id }, art(p, false, true));
+    var link = el("a", { href: "inspiration.html#" + p.id }, art(p, false, true));
+    link.firstChild.style.viewTransitionName = "art";
     latest.appendChild(link);
     if (lately) {
       lately.appendChild(document.createTextNode(" Inspiration is all around us. I was recently inspired by " + (p.kind === "outside" ? "" : "the " + KINDS[p.kind][0].toLowerCase() + " ")));
-      lately.appendChild(el("a", { href: "timeline.html#" + p.id }, quoted(p, p.title) + (p.by ? " by " + p.by : "")));
+      lately.appendChild(el("a", { href: "inspiration.html#" + p.id }, quoted(p, p.title) + (p.by ? " by " + p.by : "")));
       lately.appendChild(document.createTextNode(". " + (p.lately ? p.lately + " " : "")));
-      lately.appendChild(el("a", { "class": "more", href: "timeline.html#" + p.id }, "Here\u2019s why \u2192"));
+      lately.appendChild(el("a", { "class": "more", href: "inspiration.html#" + p.id }, "Here\u2019s why \u2192"));
     }
   }
 
-  // Timeline: newest first, grouped by month, filterable by kind.
+  // Inspiration page: newest first, grouped by month, filterable by kind.
   var list = document.getElementById("entries");
   var filters = document.getElementById("kinds");
   if (list) {
@@ -78,7 +82,7 @@
       var title = el("h3", {}, byline(p));
       if (i === 0) title.appendChild(el("span", { "class": "now" }, "● Now"));
       list.appendChild(el("article", { "class": "entry", id: p.id, "data-kind": p.kind, "data-month": month }, [
-        art(p, true, false),
+        i === 0 ? named(art(p, true, false)) : art(p, true, false),
         el("div", { "class": "text" }, [
           title,
           el("p", { "class": "muted" }, KINDS[p.kind][0] + " · " + shortDate(d)),
