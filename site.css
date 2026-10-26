@@ -54,7 +54,8 @@ main { display: flex; flex-direction: column; padding-top: 20px; }
   min-height: 64px;
 }
 .bar > a { text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; }
-.theme { margin-left: auto; min-height: 44px; padding: 0 0 0 12px; color: var(--muted); }
+.theme { margin-left: auto; width: 44px; height: 44px; margin-right: -11px; display: inline-grid; place-items: center; color: var(--muted); }
+.theme svg { display: block; }
 .theme:hover { color: var(--ink); }
 .kinds button {
   min-height: 44px; padding: 0 9px; color: var(--muted);
@@ -85,8 +86,7 @@ main { display: flex; flex-direction: column; padding-top: 20px; }
 .work li a { text-decoration-color: transparent; }
 .work li a:hover { text-decoration-color: var(--muted); }
 .work li span { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
-.work .did { color: var(--muted); }
-.work .did a:hover { color: var(--ink); }
+.work li a:hover span { color: var(--ink); }
 .foot { display: flex; flex-wrap: wrap; gap: 4px 16px; color: var(--muted); }
 .foot a { text-decoration: none; }
 .foot a:hover { color: var(--ink); }

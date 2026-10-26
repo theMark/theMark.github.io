@@ -9,7 +9,7 @@
   sits at the top as a drawing with its line; a short first-person bio; Work as a plain list.
   The Timeline page lists every post, newest first, grouped by month.
 - **Layout:** single column, max-width `560px`, 16px side gutter. Sticky top bar: page link
-  on the left, Light / Dark switch on the right. Sections separated by space, not boxes.
+  on the left, a sun / moon icon button for light and dark on the right. Sections separated by space, not boxes.
 - **Type:** **Geist** 400/500 at 1.5em/1.4 (24px) for everything, 1.25em on phones
   (`--text`, Mark's pick to match pengzhe.ng, 2026-10-26). No display headlines.
 - **Color, dark:** bg `#111214` · ink `#e9e9e6` · soft `#c9c9c5` (the Lately line) ·
@@ -79,7 +79,7 @@
 - Favicon: aurora-gradient disc on the near-black base.
 
 ## Case Study Pages
-- **Structure:** narrow reading column (`760px`). Back link → eyebrow (`Case study · 0N of 04`) → year → `h1` → `.case-facts` (Role / Timeline / Platform / Tools) → summary → hero visual → body sections → prev/next nav.
+- **Structure:** narrow reading column (`760px`). Back link → eyebrow (`Case study · 0N of 03`) → year → `h1` → `.case-facts` (Role / Timeline / Platform / Tools) → summary → hero visual → body sections → prev/next nav.
 - **Body:** `.case-body section` with a mono teal `h2` (numbered `01 · …`), prose, `→`-bulleted lists, and `.pull` block-quotes (gradient left border).
 - **Imagery:** real work shown where it exists. magined uses `.shot-strip` (3-up), a `.ba` before/after pair (tagged), and a `.gallery`. Text-only studies use gradient `.case-hero-image` panels (`hero-1/2/3`).
 - **Content is real** (restored from history), not placeholder. `work/magined.html` is the featured case study.
