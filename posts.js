@@ -2,10 +2,9 @@
 // object at the top of the homepage.
 //
 // To add a post:
-//   1. Render its art in all three styles (flat, grainy, collage), cut out on
-//      a transparent ground, plus a 400px-wide "-sm" copy of each.
-//   2. Put the six files in assets/inspiration/<id>/ as flat.webp, flat-sm.webp,
-//      grainy.webp, grainy-sm.webp, collage.webp, collage-sm.webp.
+//   1. Draw its art in the flat vector style, cut out on a transparent ground,
+//      plus a 400px-wide "-sm" copy.
+//   2. Put both in assets/inspiration/<id>/ as flat.webp and flat-sm.webp.
 //   3. Add a block below. Order doesn't matter; posts are sorted by date.
 //
 // kind:    song | book | film | outside
@@ -15,7 +14,7 @@
 //          to <title> by <by>, …"
 // why:     what it means to me and why it inspires me, a few sentences, first
 //          person (shown on the Timeline)
-// alt:     what the drawing shows (the style name is added for you)
+// alt:     what the drawing shows
 // size:    pixel size of the full art, [width, height]
 
 window.POSTS = [

@@ -1,8 +1,7 @@
-// Renders the homepage object and the Timeline from posts.js, and runs the
-// Flat / Grainy / Collage art switch (remembered per visitor).
+// Renders the homepage drawing and the Timeline from posts.js, and runs the
+// light / dark switch (follows the system until a visitor picks one).
 (function () {
   var root = document.documentElement;
-  var STYLES = { flat: "flat vector", grainy: "grainy gradient", collage: "torn paper collage" };
   var KINDS = {
     song: ["Song", "Songs"],
     book: ["Book", "Books"],
@@ -31,22 +30,15 @@
     return a.date < b.date ? 1 : a.date > b.date ? -1 : 0;
   });
 
-  // Three stacked drawings; CSS shows the one matching data-art on <html>.
   function art(post, small, describe) {
     var w = small ? 400 : post.size[0];
-    var h = Math.round(w * post.size[1] / post.size[0]);
-    var box = el("div", { "class": "art", style: "aspect-ratio:" + post.size[0] + " / " + post.size[1] });
-    Object.keys(STYLES).forEach(function (s) {
-      box.appendChild(el("img", {
-        "class": s,
-        src: "assets/inspiration/" + post.id + "/" + s + (small ? "-sm" : "") + ".webp",
-        alt: describe ? post.alt + ", drawn as " + STYLES[s] : "",
-        width: w, height: h,
-        loading: small ? "lazy" : "eager",
-        decoding: "async"
-      }));
-    });
-    return box;
+    return el("div", { "class": "art" }, el("img", {
+      src: "assets/inspiration/" + post.id + "/flat" + (small ? "-sm" : "") + ".webp",
+      alt: describe ? post.alt : "",
+      width: w, height: Math.round(w * post.size[1] / post.size[0]),
+      loading: small ? "lazy" : "eager",
+      decoding: "async"
+    }));
   }
 
   function quoted(post, text) {
@@ -123,20 +115,23 @@
     });
   }
 
-  // Art switch. The <head> already set data-art from storage to avoid a flash.
-  function setArt(name) {
-    if (!STYLES[name]) name = "flat";
-    root.dataset.art = name;
-    document.querySelectorAll(".switch button").forEach(function (b) {
-      b.setAttribute("aria-pressed", String(b.dataset.art === name));
-    });
-    document.querySelectorAll(".art img[alt]:not([alt=''])").forEach(function (img) {
-      img.setAttribute("aria-hidden", String(!img.classList.contains(name)));
-    });
-    try { localStorage.setItem("artStyle", name); } catch (e) {}
+  // Light / dark. The <head> already applied a saved choice to avoid a flash.
+  var toggle = document.getElementById("theme");
+  var dark = window.matchMedia("(prefers-color-scheme: dark)");
+  function current() { return root.dataset.theme || (dark.matches ? "dark" : "light"); }
+  function label() {
+    var next = current() === "dark" ? "light" : "dark";
+    toggle.textContent = next === "light" ? "Light" : "Dark";
+    toggle.setAttribute("aria-label", "Switch to " + next + " mode");
   }
-  setArt(root.dataset.art);
-  document.querySelectorAll(".switch button").forEach(function (b) {
-    b.addEventListener("click", function () { setArt(b.dataset.art); });
-  });
+  if (toggle) {
+    label();
+    toggle.addEventListener("click", function () {
+      var next = current() === "dark" ? "light" : "dark";
+      root.dataset.theme = next;
+      try { localStorage.setItem("theme", next); } catch (e) {}
+      label();
+    });
+    if (dark.addEventListener) dark.addEventListener("change", label);
+  }
 })();

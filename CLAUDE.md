@@ -5,9 +5,9 @@ deployed via GitHub Pages at https://themark.github.io.
 
 - `index.html` — homepage: newest inspiration drawing + line, bio, Work list, footer links.
 - `timeline.html` — every inspiration post, newest first, grouped by month, kind filter.
-- `posts.js` — the inspiration posts (data). `site.js` renders them and runs the art switch.
+- `posts.js` — the inspiration posts (data). `site.js` renders them and runs the light / dark switch.
 - `site.css` — styles for the homepage and Timeline ("Quiet column").
-- `assets/inspiration/<post-id>/` — each post's art in flat / grainy / collage (+ `-sm`).
+- `assets/inspiration/<post-id>/` — each post's flat art (`flat.webp` + `flat-sm.webp`).
 - `work/*.html` — case-study pages. They still use `../styles.css` ("Aurora").
 
 ## Design System
