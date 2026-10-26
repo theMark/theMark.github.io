@@ -78,6 +78,9 @@ main { display: flex; flex-direction: column; padding-top: 20px; }
 .intro { display: flex; flex-direction: column; gap: 14px; max-width: 62ch; }
 .more { color: var(--muted); text-decoration: none; white-space: nowrap; }
 .more:hover { color: var(--ink); }
+.all { font-size: 1rem; }
+.all a { color: var(--muted); text-decoration: none; }
+.all a:hover { color: var(--ink); }
 /* Work list and footer links sit smaller, at 1rem (16px), Mark's pick 2026-10-26 */
 .work, .foot { font-size: 1rem; }
 .work h2, .tl-head h1 { font-size: inherit; font-weight: 500; }

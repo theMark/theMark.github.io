@@ -26,7 +26,7 @@
   (Grainy gradient and paper collage were tried and dropped on 2026-10-26.)
 - **Links:** underlines appear on hover; selected filter items get a solid underline.
 - **Motion:** none beyond small hover color changes.
-- **Homepage order (direction C, 2026-10-26):** who I am comes first; all homepage text is centered (Timeline stays left-aligned). A 300px drawing of the newest post (links to it on the Timeline) → one paragraph (Mark's words, 2026-10-26; "Mark Weiss" links to about.html): "I'm Mark Weiss, a product designer who builds with AI. I was inspired by the song “<title>” by <by>. <lately> Here’s why →" (opens the post on the Timeline), all in ink → Work. Contact links live in the bottom bar. Lyrics and the longer "why" live on the Timeline.
+- **Homepage order (direction C, 2026-10-26):** who I am comes first; all homepage text is centered (Timeline stays left-aligned). A 300px drawing of the newest post (links to it on the Timeline) → one paragraph (Mark's words, 2026-10-26; "Mark Weiss" links to about.html): "I'm Mark Weiss, a product designer who builds with AI. Inspiration is all around us. I was recently inspired by the song “<title>” by <by>. Here’s why →" (opens the post on the Timeline), then a small muted "View all inspiration →" link to the Timeline at 1rem, all in ink → Work. Contact links live in the bottom bar. Lyrics and the longer "why" live on the Timeline.
 - **Work pages (`work/*.html`, 2026-10-26):** same bar, column and type as the Timeline,
   left-aligned. Name → muted "role · years" → one intro paragraph → plain sections (h2 at
   body size, weight 500; prose in `--soft`) → images only where real work exists (magined:
