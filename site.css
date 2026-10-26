@@ -73,7 +73,6 @@ main { display: flex; flex-direction: column; padding-top: 20px; }
 /* homepage text is centered, like pengzhe.ng */
 .home { text-align: center; }
 .home .intro { align-self: center; }
-.home .work li { justify-content: center; gap: 8px; }
 .home .foot { justify-content: center; }
 .latest a { display: block; }
 .intro { display: flex; flex-direction: column; gap: 14px; max-width: 62ch; }
@@ -82,11 +81,12 @@ main { display: flex; flex-direction: column; padding-top: 20px; }
 .more { color: var(--muted); text-decoration: none; white-space: nowrap; }
 .more:hover { color: var(--ink); }
 .work h2, .tl-head h1 { font-size: inherit; font-weight: 500; }
-.work ul { list-style: none; margin: 6px 0 0; padding: 0; }
-.work li { display: flex; justify-content: space-between; gap: 16px; padding: 5px 0; }
+.work ul { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
 .work li a { text-decoration-color: transparent; }
 .work li a:hover { text-decoration-color: var(--muted); }
 .work li span { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.work .did { color: var(--muted); }
+.work .did a:hover { color: var(--ink); }
 .foot { display: flex; flex-wrap: wrap; gap: 4px 16px; color: var(--muted); }
 .foot a { text-decoration: none; }
 .foot a:hover { color: var(--ink); }
