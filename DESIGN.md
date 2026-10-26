@@ -10,7 +10,7 @@
   The Timeline page lists every post, newest first, grouped by month.
 - **Layout:** single column, max-width `560px`, 16px side gutter. Sticky top bar: page link
   on the left, art switch on the right. Sections separated by space (44px), not boxes.
-- **Type:** **Geist** 400/500 at 14px/1.55 for everything (`--text`, matched to pengzhe.ng at Mark's request, 2026-10-26). **Geist Mono**
+- **Type:** **Geist** 400/500 at 1.5em/1.4 (24px) for everything, 1.25em on phones (`--text`, Mark's pick to match pengzhe.ng, 2026-10-26). **Geist Mono**
   only for the tiny uppercase "ART" label. No display headlines.
 - **Color (dark only for now):** bg `#111214` · ink `#e9e9e6` · soft `#c9c9c5` (the Lately line) · muted `#8f8f8b` ·
   rule `#2a2b2e` · now `#f0a75a` (the "● Now" marker, favicon dot) · focus `#9fc3ff`.
