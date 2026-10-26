@@ -10,7 +10,7 @@
   The Timeline page lists every post, newest first, grouped by month.
 - **Layout:** single column, max-width `560px`, 16px side gutter. Sticky top bar: page link
   on the left, art switch on the right. Sections separated by space (44px), not boxes.
-- **Type:** **Geist** 400/500 at 15px/1.6 for everything; the lyric is 19px. **Geist Mono**
+- **Type:** **Geist** 400/500 at 14px/1.55 for everything (`--text`, matched to pengzhe.ng at Mark's request, 2026-10-26). **Geist Mono**
   only for the tiny uppercase "ART" label. No display headlines.
 - **Color (dark only for now):** bg `#111214` · ink `#e9e9e6` · soft `#c9c9c5` (the Lately line) · muted `#8f8f8b` ·
   rule `#2a2b2e` · now `#f0a75a` (the "● Now" marker, favicon dot) · focus `#9fc3ff`.
@@ -21,7 +21,7 @@
   Timeline.
 - **Links:** underlines appear on hover; selected switch/filter items get a solid underline.
 - **Motion:** only a 0.28s crossfade between art styles; none under reduced motion.
-- **Homepage order (direction C, 2026-10-26):** who I am comes first. A 300px drawing of the newest post (links to it on the Timeline) → name → one short bio paragraph → one line, "Lately I keep coming back to <title> by <by>, <lately>. More →" → Work → links. Lyrics and the longer "why" live on the Timeline.
+- **Homepage order (direction C, 2026-10-26):** who I am comes first; all homepage text is centered (Timeline stays left-aligned). A 300px drawing of the newest post (links to it on the Timeline) → name → one short bio paragraph → one line, "Lately I keep coming back to <title> by <by>, <lately>. More →" → Work → links. Lyrics and the longer "why" live on the Timeline.
 - **Content:** posts live in `posts.js` (see README). Site copy is first person.
 
 ---
