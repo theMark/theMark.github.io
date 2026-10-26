@@ -1,8 +1,7 @@
-// Renders the homepage object and the Timeline from posts.js, and runs the
-// Flat / Grainy / Collage art switch (remembered per visitor).
+// Renders the homepage drawing and the Timeline from posts.js, and runs the
+// light / dark switch (follows the system until a visitor picks one).
 (function () {
   var root = document.documentElement;
-  var STYLES = { flat: "flat vector", grainy: "grainy gradient", collage: "torn paper collage" };
   var KINDS = {
     song: ["Song", "Songs"],
     book: ["Book", "Books"],
@@ -31,22 +30,15 @@
     return a.date < b.date ? 1 : a.date > b.date ? -1 : 0;
   });
 
-  // Three stacked drawings; CSS shows the one matching data-art on <html>.
   function art(post, small, describe) {
     var w = small ? 400 : post.size[0];
-    var h = Math.round(w * post.size[1] / post.size[0]);
-    var box = el("div", { "class": "art", style: "aspect-ratio:" + post.size[0] + " / " + post.size[1] });
-    Object.keys(STYLES).forEach(function (s) {
-      box.appendChild(el("img", {
-        "class": s,
-        src: "assets/inspiration/" + post.id + "/" + s + (small ? "-sm" : "") + ".webp",
-        alt: describe ? post.alt + ", drawn as " + STYLES[s] : "",
-        width: w, height: h,
-        loading: small ? "lazy" : "eager",
-        decoding: "async"
-      }));
-    });
-    return box;
+    return el("div", { "class": "art" }, el("img", {
+      src: "assets/inspiration/" + post.id + "/flat" + (small ? "-sm" : "") + ".webp",
+      alt: describe ? post.alt : "",
+      width: w, height: Math.round(w * post.size[1] / post.size[0]),
+      loading: small ? "lazy" : "eager",
+      decoding: "async"
+    }));
   }
 
   function quoted(post, text) {
@@ -55,17 +47,19 @@
 
   function byline(post) { return post.by ? post.title + " · " + post.by : post.title; }
 
-  // Homepage: the newest post.
+  // Homepage: the newest drawing on top, one line about it in the intro.
   var latest = document.getElementById("latest");
+  var lately = document.getElementById("lately");
   if (latest && posts.length) {
     var p = posts[0];
-    var d = parseDate(p.date);
-    latest.appendChild(art(p, false, true));
-    latest.appendChild(el("blockquote", {}, quoted(p, p.line)));
-    latest.appendChild(el("figcaption", {}, [
-      el("a", { href: "timeline.html#" + p.id }, byline(p)),
-      " · " + shortDate(d) + ", " + d.getFullYear()
-    ]));
+    var link = el("a", { href: "timeline.html#" + p.id }, art(p, false, true));
+    latest.appendChild(link);
+    if (lately) {
+      lately.appendChild(document.createTextNode("Lately I keep coming back to "));
+      lately.appendChild(el("a", { href: "timeline.html#" + p.id }, p.by ? p.title + " by " + p.by : p.title));
+      lately.appendChild(document.createTextNode((p.lately ? ", " + p.lately : "") + ". "));
+      lately.appendChild(el("a", { "class": "more", href: "timeline.html" }, "More \u2192"));
+    }
   }
 
   // Timeline: newest first, grouped by month, filterable by kind.
@@ -89,7 +83,7 @@
           title,
           el("p", { "class": "muted" }, KINDS[p.kind][0] + " · " + shortDate(d)),
           el("p", {}, quoted(p, p.excerpt || p.line))
-        ])
+        ].concat(p.why ? [el("p", { "class": "muted" }, p.why)] : []))
       ]));
     });
 
@@ -121,20 +115,23 @@
     });
   }
 
-  // Art switch. The <head> already set data-art from storage to avoid a flash.
-  function setArt(name) {
-    if (!STYLES[name]) name = "flat";
-    root.dataset.art = name;
-    document.querySelectorAll(".switch button").forEach(function (b) {
-      b.setAttribute("aria-pressed", String(b.dataset.art === name));
-    });
-    document.querySelectorAll(".art img[alt]:not([alt=''])").forEach(function (img) {
-      img.setAttribute("aria-hidden", String(!img.classList.contains(name)));
-    });
-    try { localStorage.setItem("artStyle", name); } catch (e) {}
+  // Light / dark. The <head> already applied a saved choice to avoid a flash.
+  var toggle = document.getElementById("theme");
+  var dark = window.matchMedia("(prefers-color-scheme: dark)");
+  function current() { return root.dataset.theme || (dark.matches ? "dark" : "light"); }
+  function label() {
+    var next = current() === "dark" ? "light" : "dark";
+    toggle.textContent = next === "light" ? "Light" : "Dark";
+    toggle.setAttribute("aria-label", "Switch to " + next + " mode");
   }
-  setArt(root.dataset.art);
-  document.querySelectorAll(".switch button").forEach(function (b) {
-    b.addEventListener("click", function () { setArt(b.dataset.art); });
-  });
+  if (toggle) {
+    label();
+    toggle.addEventListener("click", function () {
+      var next = current() === "dark" ? "light" : "dark";
+      root.dataset.theme = next;
+      try { localStorage.setItem("theme", next); } catch (e) {}
+      label();
+    });
+    if (dark.addEventListener) dark.addEventListener("change", label);
+  }
 })();

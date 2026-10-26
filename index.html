@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-art="flat">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,40 +8,30 @@
     <meta property="og:title" content="Mark Weiss" />
     <meta property="og:description" content="Product designer who builds with AI. Work, and what's inspiring me lately." />
     <meta property="og:type" content="website" />
-    <meta name="color-scheme" content="dark" />
+    <meta name="color-scheme" content="dark light" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23111214'/%3E%3Ccircle cx='50' cy='50' r='16' fill='%23f0a75a'/%3E%3C/svg%3E" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="site.css" />
     <script>
-      try { document.documentElement.dataset.art = localStorage.getItem("artStyle") || "flat"; }
-      catch (e) { document.documentElement.dataset.art = "flat"; }
+      try { var t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
     </script>
   </head>
 
   <body>
     <div class="wrap">
       <nav class="bar" aria-label="Site">
-        <a href="timeline.html">Timeline</a>
-        <div class="switch" role="group" aria-label="Art style">
-          <span class="label" aria-hidden="true">Art</span>
-          <button type="button" data-art="flat" aria-pressed="true" title="Flat vector">Flat</button>
-          <button type="button" data-art="grainy" aria-pressed="false" title="Grainy gradient">Grainy</button>
-          <button type="button" data-art="collage" aria-pressed="false" title="Torn paper collage">Collage</button>
-        </div>
+        <button type="button" class="theme" id="theme" aria-label="Switch to light mode">Light</button>
       </nav>
 
       <main class="home">
-        <h1 class="sr">Mark Weiss</h1>
-        <figure class="latest" id="latest" aria-label="What's inspiring me now"></figure>
-        <noscript><p class="muted">The drawing up here needs JavaScript. The <a href="timeline.html">Timeline</a> has every post.</p></noscript>
+        <div class="latest" id="latest"></div>
 
-        <p class="bio">
-          I'm Mark Weiss, a product designer who builds with AI. I've spent twenty years
-          designing product, mostly mobile-first. I founded magined, and before that worked
-          at Freedom Forever and MetPro. I live in Chico, California.
-        </p>
+        <section class="intro" aria-labelledby="me">
+          <h1 id="me">I'm Mark Weiss, a product designer who builds with AI.</h1>
+          <p class="lately" id="lately"><noscript>See the <a href="timeline.html">Timeline</a> for what's inspiring me lately.</noscript></p>
+        </section>
 
         <section class="work" id="work" aria-labelledby="work-h">
           <h2 id="work-h">Work</h2>
