@@ -1,5 +1,5 @@
-/* Homepage + Timeline. One quiet column. Dark and light.
-   See DESIGN.md ("Quiet column"). Case studies still use styles.css. */
+/* Homepage, Timeline and work pages. One quiet column. Dark and light.
+   See DESIGN.md ("Quiet column"). */
 :root {
   --bg: #111214;
   --ink: #e9e9e6;
@@ -104,6 +104,22 @@ main { display: flex; flex-direction: column; padding-top: 20px; }
 .entry .text { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
 .entry h3 { font-size: inherit; font-weight: 400; }
 .now { color: var(--now); margin-left: 6px; white-space: nowrap; }
+
+/* case studies: same column, left-aligned reading */
+.case { gap: 32px; }
+.case-head { display: flex; flex-direction: column; gap: 2px; }
+.case h1, .case h2 { font-size: inherit; font-weight: 500; }
+.case section { display: flex; flex-direction: column; gap: 10px; }
+.case section p, .case > p { color: var(--soft); }
+.case figure { margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.case figure > div { display: grid; gap: 8px; }
+.pair > div { grid-template-columns: 1fr 1fr; }
+.trio > div { grid-template-columns: repeat(3, 1fr); }
+.case figure img { width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: cover; display: block; border-radius: 4px; }
+.case figcaption { font-size: .75em; }
+.case-nav { display: flex; justify-content: space-between; gap: 16px; border-top: 1px solid var(--rule); padding-top: 16px; color: var(--muted); }
+.case-nav a { text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; }
+.case-nav a:hover { color: var(--ink); }
 
 @media (max-width: 480px) {
   :root { --text: 1.25em; }

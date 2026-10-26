@@ -1,10 +1,10 @@
 # Design System — Mark Weiss Personal Site
 
 > **Homepage + Timeline: "Quiet column"** (Oct 2026). One narrow column, small type,
-> one drawn object at the top. Reference feel: pengzhe.ng. The case studies in `work/`
-> still use the older "Aurora" system documented further down, until they're redone.
+> one drawn object at the top. Reference feel: pengzhe.ng. Since 2026-10-26 the case
+> studies in `work/` use it too. The older "Aurora" system below is retired and kept for history.
 
-## Quiet column (index.html, timeline.html, site.css)
+## Quiet column (index.html, timeline.html, work/*.html, site.css)
 - **Idea:** a personal site, not a portfolio pitch. The newest thing that's inspiring me
   sits at the top as a drawing with its line; a short first-person bio; Work as a plain list.
   The Timeline page lists every post, newest first, grouped by month.
@@ -24,11 +24,16 @@
 - **Links:** underlines appear on hover; selected filter items get a solid underline.
 - **Motion:** none beyond small hover color changes.
 - **Homepage order (direction C, 2026-10-26):** who I am comes first; all homepage text is centered (Timeline stays left-aligned). A 300px drawing of the newest post (links to it on the Timeline) → opening line "I'm Mark Weiss, a product designer who builds with AI." → one line, "Lately I keep coming back to <title> by <by>, <lately>. More →" → Work → links. Lyrics and the longer "why" live on the Timeline.
+- **Work pages (`work/*.html`, 2026-10-26):** same bar, column and type as the Timeline,
+  left-aligned. Name → muted "role · years" → one intro paragraph → plain sections (h2 at
+  body size, weight 500; prose in `--soft`) → images only where real work exists (magined:
+  a 2-up before/after and a 3-up row, 4px radius, small muted caption) → a prev / next line
+  above a hairline. No eyebrows, fact grids, pull quotes, numbered headings or gradient panels.
 - **Content:** posts live in `posts.js` (see README). Site copy is first person.
 
 ---
 
-# Aurora (case-study pages, styles.css)
+# Aurora (retired 2026-10-26)
 
 > "Aurora" — glassmorphism on a slow, drifting aurora mesh. Dark and premium.
 
@@ -91,3 +96,4 @@
 | 2026-07-07 | Redesigned to **"Aurora"** | Via /design-shotgun + /frontend-design. Explored 6 high-craft directions (Atelier/Kinetic/Spotlight/Bento/Riso/Aurora); chose Aurora (glassmorphism on animated aurora mesh). Retired signal red → aurora spectrum (iris/teal/rose/amber); Geist → Onest. Now features real magined work imagery; fully responsive + reduced-motion. |
 | 2026-10-24 | Homepage + Timeline moved to **"Quiet column"** | Mark asked for something creative, simple and not "AI slop", modelled on pengzhe.ng. Picked layout G (latest object, bio, Work list) + G3 Timeline, with hand-drawn art in three styles behind a Flat / Grainy / Collage switch. Case studies stay on Aurora for now. |
 | 2026-10-26 | Homepage simplified (direction C), flat art only, light mode added | Mark: "it's my personal site, people need to know who I am." Picked C from four canvas sketches; chose flat over grainy/collage; asked for 24px type and centered homepage text like pengzhe.ng. |
+| 2026-10-26 | Work pages moved to **Quiet column**; Aurora retired | Mark: clicking Work "looks like a completely different website"; asked for the work pages to be simple and match the homepage. styles.css removed. |
