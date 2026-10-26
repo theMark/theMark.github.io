@@ -21,7 +21,7 @@
   Timeline.
 - **Links:** underlines appear on hover; selected switch/filter items get a solid underline.
 - **Motion:** only a 0.28s crossfade between art styles; none under reduced motion.
-- **Homepage order (direction C, 2026-10-26):** who I am comes first; all homepage text is centered (Timeline stays left-aligned). A 300px drawing of the newest post (links to it on the Timeline) → name → one short bio paragraph → one line, "Lately I keep coming back to <title> by <by>, <lately>. More →" → Work → links. Lyrics and the longer "why" live on the Timeline.
+- **Homepage order (direction C, 2026-10-26):** who I am comes first; all homepage text is centered (Timeline stays left-aligned). A 300px drawing of the newest post (links to it on the Timeline) → opening line "I'm Mark Weiss, a product designer who builds with AI." → one line, "Lately I keep coming back to <title> by <by>, <lately>. More →" → Work → links. Lyrics and the longer "why" live on the Timeline.
 - **Content:** posts live in `posts.js` (see README). Site copy is first person.
 
 ---
