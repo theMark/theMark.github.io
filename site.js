@@ -58,7 +58,7 @@
       lately.appendChild(document.createTextNode(" I was inspired by " + (p.kind === "outside" ? "" : "the " + KINDS[p.kind][0].toLowerCase() + " ")));
       lately.appendChild(el("a", { href: "timeline.html#" + p.id }, quoted(p, p.title) + (p.by ? " by " + p.by : "")));
       lately.appendChild(document.createTextNode(". " + (p.lately ? p.lately + " " : "")));
-      lately.appendChild(el("a", { "class": "more", href: "timeline.html" }, "More \u2192"));
+      lately.appendChild(el("a", { "class": "more", href: "timeline.html#" + p.id }, "Here\u2019s why \u2192"));
     }
   }
 
