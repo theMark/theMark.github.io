@@ -112,6 +112,11 @@ main { display: flex; flex-direction: column; padding-top: 20px; }
 .entry h3 { font-size: inherit; font-weight: 400; }
 .now { color: var(--now); margin-left: 6px; white-space: nowrap; }
 
+/* about */
+.about { gap: 24px; }
+.about h1 { font-size: inherit; font-weight: 500; }
+.about p { color: var(--soft); }
+
 /* case studies: same column, left-aligned reading */
 .case { gap: 32px; }
 .case-head { display: flex; flex-direction: column; gap: 2px; }

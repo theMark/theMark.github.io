@@ -10,7 +10,7 @@
   The Timeline page lists every post, newest first, grouped by month.
 - **Layout:** single column, max-width `560px`, 16px side gutter. Sticky top bar with a
   "← Mark Weiss" link (not on the homepage). Fixed bottom bar on every page, edge to edge (2026-10-26):
-  Email | LinkedIn | GitHub at 1rem with thin divider lines, and the sun / moon icon for light
+  About | Email | LinkedIn | GitHub at 1rem with thin divider lines, and the sun / moon icon for light
   and dark on the right. Sections separated by space, not boxes.
 - **Type:** **Geist** 400/500 at 1.5em/1.4 (24px) for everything, 1.25em on phones
   (`--text`, Mark's pick to match pengzhe.ng, 2026-10-26). The homepage Work list and
@@ -26,7 +26,7 @@
   (Grainy gradient and paper collage were tried and dropped on 2026-10-26.)
 - **Links:** underlines appear on hover; selected filter items get a solid underline.
 - **Motion:** none beyond small hover color changes.
-- **Homepage order (direction C, 2026-10-26):** who I am comes first; all homepage text is centered (Timeline stays left-aligned). A 300px drawing of the newest post (links to it on the Timeline) → one paragraph (Mark's words, 2026-10-26): "I'm Mark Weiss, a product designer who builds with AI. I was inspired by the song “<title>” by <by>. <lately> More →", all in ink → Work. Contact links live in the bottom bar. Lyrics and the longer "why" live on the Timeline.
+- **Homepage order (direction C, 2026-10-26):** who I am comes first; all homepage text is centered (Timeline stays left-aligned). A 300px drawing of the newest post (links to it on the Timeline) → one paragraph (Mark's words, 2026-10-26; "Mark Weiss" links to about.html): "I'm Mark Weiss, a product designer who builds with AI. I was inspired by the song “<title>” by <by>. <lately> More →", all in ink → Work. Contact links live in the bottom bar. Lyrics and the longer "why" live on the Timeline.
 - **Work pages (`work/*.html`, 2026-10-26):** same bar, column and type as the Timeline,
   left-aligned. Name → muted "role · years" → one intro paragraph → plain sections (h2 at
   body size, weight 500; prose in `--soft`) → images only where real work exists (magined:
