@@ -10,8 +10,8 @@
 // kind:    song | book | film | outside
 // line:    the lyric, quote or one line about it
 // excerpt: optional shorter line for the Timeline (defaults to line)
-// lately:  optional words that finish the homepage line "Lately I keep coming back
-//          to <title> by <by>, …"
+// lately:  optional sentence after the homepage line "I was inspired by the <kind>
+//          <title> by <by>." Keep it short.
 // why:     what it means to me and why it inspires me, a few sentences, first
 //          person (shown on the Timeline)
 // alt:     what the drawing shows
@@ -26,7 +26,7 @@ window.POSTS = [
     by: "Thrice",
     line: "Every time I play with passion, I start breaking strings, and my voice cracks when I sing from the heart.",
     excerpt: "…my voice cracks when I sing from the heart.",
-    lately: "and the line about breaking strings when you play with passion",
+    lately: "An old song, but it still resonates.",
     why: "This line has stuck with me for over 20 years. Sometimes when we do something we're passionate about, it's not perfect. Things break. It might not be polished, but we do it anyway. It's like building a prototype: not perfect, not polished, but we build it, and we're passionate about it.",
     alt: "A singer at the mic with eyes shut, a red guitar and an amp stack behind",
     size: [1224, 963]

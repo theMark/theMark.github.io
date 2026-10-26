@@ -13,7 +13,7 @@
 - **Type:** **Geist** 400/500 at 1.5em/1.4 (24px) for everything, 1.25em on phones
   (`--text`, Mark's pick to match pengzhe.ng, 2026-10-26). The homepage Work list and
   footer links are smaller, 1rem (16px). No display headlines.
-- **Color, dark:** bg `#111214` · ink `#e9e9e6` · soft `#c9c9c5` (the Lately line) ·
+- **Color, dark:** bg `#111214` · ink `#e9e9e6` · soft `#c9c9c5` (work page prose) ·
   muted `#8f8f8b` · rule `#2a2b2e` · now `#f0a75a` (the "● Now" marker, favicon dot) · focus `#9fc3ff`.
 - **Color, light:** bg `#f6f6f3` · ink `#1c1c1b` · soft `#3d3d3a` · muted `#6a6a66` ·
   rule `#d9d9d4` · now `#b25a0c` · focus `#2a62c9`.
@@ -24,7 +24,7 @@
   (Grainy gradient and paper collage were tried and dropped on 2026-10-26.)
 - **Links:** underlines appear on hover; selected filter items get a solid underline.
 - **Motion:** none beyond small hover color changes.
-- **Homepage order (direction C, 2026-10-26):** who I am comes first; all homepage text is centered (Timeline stays left-aligned). A 300px drawing of the newest post (links to it on the Timeline) → opening line "I'm Mark Weiss, a product designer who builds with AI." → one line, "Lately I keep coming back to <title> by <by>, <lately>. More →" → Work → links. Lyrics and the longer "why" live on the Timeline.
+- **Homepage order (direction C, 2026-10-26):** who I am comes first; all homepage text is centered (Timeline stays left-aligned). A 300px drawing of the newest post (links to it on the Timeline) → one paragraph (Mark's words, 2026-10-26): "I'm Mark Weiss, a product designer who builds with AI. I was inspired by the song “<title>” by <by>. <lately> More →", all in ink → Work → links. Lyrics and the longer "why" live on the Timeline.
 - **Work pages (`work/*.html`, 2026-10-26):** same bar, column and type as the Timeline,
   left-aligned. Name → muted "role · years" → one intro paragraph → plain sections (h2 at
   body size, weight 500; prose in `--soft`) → images only where real work exists (magined:

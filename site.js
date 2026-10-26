@@ -47,7 +47,7 @@
 
   function byline(post) { return post.by ? post.title + " · " + post.by : post.title; }
 
-  // Homepage: the newest drawing on top, one line about it in the intro.
+  // Homepage: the newest drawing on top, and a line about it at the end of the intro.
   var latest = document.getElementById("latest");
   var lately = document.getElementById("lately");
   if (latest && posts.length) {
@@ -55,9 +55,9 @@
     var link = el("a", { href: "timeline.html#" + p.id }, art(p, false, true));
     latest.appendChild(link);
     if (lately) {
-      lately.appendChild(document.createTextNode("Lately I keep coming back to "));
-      lately.appendChild(el("a", { href: "timeline.html#" + p.id }, p.by ? p.title + " by " + p.by : p.title));
-      lately.appendChild(document.createTextNode((p.lately ? ", " + p.lately : "") + ". "));
+      lately.appendChild(document.createTextNode(" I was inspired by " + (p.kind === "outside" ? "" : "the " + KINDS[p.kind][0].toLowerCase() + " ")));
+      lately.appendChild(el("a", { href: "timeline.html#" + p.id }, quoted(p, p.title) + (p.by ? " by " + p.by : "")));
+      lately.appendChild(document.createTextNode(". " + (p.lately ? p.lately + " " : "")));
       lately.appendChild(el("a", { "class": "more", href: "timeline.html" }, "More \u2192"));
     }
   }
