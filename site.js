@@ -26,15 +26,6 @@
     return new Date(+p[0], +p[1] - 1, +p[2]);
   }
   function shortDate(d) { return MONTHS[d.getMonth()].slice(0, 3) + " " + d.getDate(); }
-  function ago(d) {
-    var today = new Date();
-    today.setHours(0, 0, 0, 0);
-    var days = Math.round((today - d) / 864e5);
-    if (days <= 0) return "today";
-    if (days === 1) return "yesterday";
-    if (days < 30) return days + " days ago";
-    return "on " + shortDate(d) + ", " + d.getFullYear();
-  }
 
   var posts = (window.POSTS || []).slice().sort(function (a, b) {
     return a.date < b.date ? 1 : a.date > b.date ? -1 : 0;
@@ -64,24 +55,18 @@
 
   function byline(post) { return post.by ? post.title + " · " + post.by : post.title; }
 
-  // Homepage: the newest post.
+  // Homepage: the newest drawing on top, one line about it in the intro.
   var latest = document.getElementById("latest");
+  var lately = document.getElementById("lately");
   if (latest && posts.length) {
     var p = posts[0];
-    var d = parseDate(p.date);
-    latest.appendChild(art(p, false, true));
-    latest.appendChild(el("blockquote", {}, quoted(p, p.line)));
-    latest.appendChild(el("figcaption", {}, [
-      el("a", { href: "timeline.html#" + p.id }, byline(p)),
-      " · " + shortDate(d) + ", " + d.getFullYear()
-    ]));
-    if (p.why) latest.appendChild(el("p", { "class": "why" }, p.why));
-
-    var lately = document.getElementById("lately");
+    var link = el("a", { href: "timeline.html#" + p.id }, art(p, false, true));
+    latest.appendChild(link);
     if (lately) {
-      lately.appendChild(document.createTextNode("Lately inspired by "));
+      lately.appendChild(document.createTextNode("Lately I keep coming back to "));
       lately.appendChild(el("a", { href: "timeline.html#" + p.id }, p.by ? p.title + " by " + p.by : p.title));
-      lately.appendChild(document.createTextNode(", added " + ago(d) + "."));
+      lately.appendChild(document.createTextNode((p.lately ? ", " + p.lately : "") + ". "));
+      lately.appendChild(el("a", { "class": "more", href: "timeline.html" }, "More \u2192"));
     }
   }
 
