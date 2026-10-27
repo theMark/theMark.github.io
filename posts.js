@@ -27,7 +27,7 @@ window.POSTS = [
     line: "Every time I play with passion, I start breaking strings, and my voice cracks when I sing from the heart.",
     excerpt: "…my voice cracks when I sing from the heart.",
     why: "This line has stuck with me for over 20 years. Sometimes when we do something we're passionate about, it's not perfect. Things break. It might not be polished, but we do it anyway. It's like building a prototype: not perfect, not polished, but we build it, and we're passionate about it.",
-    alt: "A singer at the mic with eyes shut and a red guitar, standing on a small stage beside a cymbal and a full amp stack",
-    size: [1259, 1496]
+    alt: "A singer at the mic with eyes shut and a red guitar, standing wide in ripped jeans and boots on a small stage beside a cymbal and a full amp stack",
+    size: [1259, 1497]
   }
 ];
