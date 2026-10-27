@@ -14,7 +14,8 @@
   and dark on the right. Sections separated by space, not boxes.
 - **Type:** **Geist** 400/500 at 1em/1.5 (16px, the browser standard) for everything,
   phones included (`--text`; Mark asked for the standard paragraph size on 2026-10-27,
-  replacing the earlier 1.5em). No display headlines.
+  replacing the earlier 1.5em). The one exception is the homepage inspiration line under the
+  drawing: 1.5em/1.4 (1.25em on phones), Mark's ask 2026-10-27. No display headlines.
 - **Color, dark:** bg `#111214` · ink `#e9e9e6` · soft `#c9c9c5` (work page prose) ·
   muted `#8f8f8b` · rule `#2a2b2e` · now `#f0a75a` (the "● Now" marker, favicon dot) · focus `#9fc3ff`.
 - **Color, light:** bg `#f6f6f3` · ink `#1c1c1b` · soft `#3d3d3a` · muted `#6a6a66` ·
@@ -22,11 +23,11 @@
 - **Mode:** follows the visitor's system setting; the top-bar switch overrides it and is
   remembered (`localStorage.theme`, set as `data-theme` on `<html>`).
 - **Art:** each post has a custom flat vector illustration cut out on a transparent ground
-  (no frame or box). 300px on the homepage, 128px (96px on phones) on the Inspiration page.
+  (no frame or box). 400px on the homepage, 128px (96px on phones) on the Inspiration page.
   (Grainy gradient and paper collage were tried and dropped on 2026-10-26.)
 - **Links:** underlines appear on hover; selected filter items get a solid underline.
 - **Motion:** small hover color changes, plus page transitions (2026-10-26, option C): text crossfades, the newest drawing moves between the homepage and the Inspiration page, the top and bottom bars stay put. Off under reduced motion; browsers without view transitions just load the page.
-- **Homepage order (direction C, 2026-10-26):** who I am comes first; all homepage text is centered (Inspiration page stays left-aligned). A 300px drawing of the newest post (links to it on the Inspiration page) → one paragraph (Mark's words, 2026-10-26; "Mark Weiss" links to about.html): "I'm Mark Weiss, a product designer who builds with AI. Inspiration is all around us. I was recently inspired by the song “<title>” by <by>. More →" (More opens the Inspiration page), all in ink → Work. Contact links live in the bottom bar. Lyrics and the longer "why" live on the Inspiration page.
+- **Homepage order (direction C, 2026-10-26):** who I am comes first; all homepage text is centered (Inspiration page stays left-aligned). A 400px drawing of the newest post (links to it on the Inspiration page) → one paragraph (Mark's words, 2026-10-26; "Mark Weiss" links to about.html): "I'm Mark Weiss, a product designer who builds with AI. Inspiration is all around us. I was recently inspired by the song “<title>” by <by>. More →" (More opens the Inspiration page), all in ink → Work. Contact links live in the bottom bar. Lyrics and the longer "why" live on the Inspiration page.
 - **Work pages (`work/*.html`, 2026-10-26):** same bar, column and type as the Inspiration page,
   left-aligned. Name → muted "role · years" → one intro paragraph → plain sections (h2 at
   body size, weight 500; prose in `--soft`) → images only where real work exists (magined:
