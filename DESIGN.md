@@ -1,34 +1,42 @@
 # Design System — Mark Weiss Personal Site
 
-> **Homepage + Timeline: "Quiet column"** (Oct 2026). One narrow column, small type,
-> one drawn object at the top. Reference feel: pengzhe.ng. The case studies in `work/`
-> still use the older "Aurora" system documented further down, until they're redone.
+> **Homepage + Inspiration page: "Quiet column"** (Oct 2026). One narrow column, small type,
+> one drawn object at the top. Reference feel: pengzhe.ng. Since 2026-10-26 the case
+> studies in `work/` use it too. The older "Aurora" system below is retired and kept for history.
 
-## Quiet column (index.html, timeline.html, site.css)
+## Quiet column (index.html, inspiration.html, work/*.html, site.css)
 - **Idea:** a personal site, not a portfolio pitch. The newest thing that's inspiring me
   sits at the top as a drawing with its line; a short first-person bio; Work as a plain list.
-  The Timeline page lists every post, newest first, grouped by month.
-- **Layout:** single column, max-width `560px`, 16px side gutter. Sticky top bar: page link
-  on the left, Light / Dark switch on the right. Sections separated by space, not boxes.
-- **Type:** **Geist** 400/500 at 1.5em/1.4 (24px) for everything, 1.25em on phones
-  (`--text`, Mark's pick to match pengzhe.ng, 2026-10-26). No display headlines.
-- **Color, dark:** bg `#111214` · ink `#e9e9e6` · soft `#c9c9c5` (the Lately line) ·
+  The Inspiration page lists every post, newest first, grouped by month.
+- **Layout:** single column, max-width `560px`, 16px side gutter. Sticky top bar with a
+  "← Mark Weiss" link (not on the homepage). Fixed bottom bar on every page, edge to edge (2026-10-26):
+  About | Email | LinkedIn | GitHub at 1rem with thin divider lines, and the sun / moon icon for light
+  and dark on the right. Sections separated by space, not boxes.
+- **Type:** **Geist** 400/500 at 1em/1.5 (16px, the browser standard) for everything,
+  phones included (`--text`; Mark asked for the standard paragraph size on 2026-10-27,
+  replacing the earlier 1.5em). No display headlines.
+- **Color, dark:** bg `#111214` · ink `#e9e9e6` · soft `#c9c9c5` (work page prose) ·
   muted `#8f8f8b` · rule `#2a2b2e` · now `#f0a75a` (the "● Now" marker, favicon dot) · focus `#9fc3ff`.
 - **Color, light:** bg `#f6f6f3` · ink `#1c1c1b` · soft `#3d3d3a` · muted `#6a6a66` ·
   rule `#d9d9d4` · now `#b25a0c` · focus `#2a62c9`.
 - **Mode:** follows the visitor's system setting; the top-bar switch overrides it and is
   remembered (`localStorage.theme`, set as `data-theme` on `<html>`).
 - **Art:** each post has a custom flat vector illustration cut out on a transparent ground
-  (no frame or box). 300px on the homepage, 128px (96px on phones) on the Timeline.
+  (no frame or box). 300px on the homepage, 128px (96px on phones) on the Inspiration page.
   (Grainy gradient and paper collage were tried and dropped on 2026-10-26.)
 - **Links:** underlines appear on hover; selected filter items get a solid underline.
-- **Motion:** none beyond small hover color changes.
-- **Homepage order (direction C, 2026-10-26):** who I am comes first; all homepage text is centered (Timeline stays left-aligned). A 300px drawing of the newest post (links to it on the Timeline) → opening line "I'm Mark Weiss, a product designer who builds with AI." → one line, "Lately I keep coming back to <title> by <by>, <lately>. More →" → Work → links. Lyrics and the longer "why" live on the Timeline.
+- **Motion:** small hover color changes, plus page transitions (2026-10-26, option C): text crossfades, the newest drawing moves between the homepage and the Inspiration page, the top and bottom bars stay put. Off under reduced motion; browsers without view transitions just load the page.
+- **Homepage order (direction C, 2026-10-26):** who I am comes first; all homepage text is centered (Inspiration page stays left-aligned). A 300px drawing of the newest post (links to it on the Inspiration page) → one paragraph (Mark's words, 2026-10-26; "Mark Weiss" links to about.html): "I'm Mark Weiss, a product designer who builds with AI. Inspiration is all around us. I was recently inspired by the song “<title>” by <by>. More →" (More opens the Inspiration page), all in ink → Work. Contact links live in the bottom bar. Lyrics and the longer "why" live on the Inspiration page.
+- **Work pages (`work/*.html`, 2026-10-26):** same bar, column and type as the Inspiration page,
+  left-aligned. Name → muted "role · years" → one intro paragraph → plain sections (h2 at
+  body size, weight 500; prose in `--soft`) → images only where real work exists (magined:
+  a 2-up before/after and a 3-up row, 4px radius, small muted caption) → a prev / next line
+  above a hairline. No eyebrows, fact grids, pull quotes, numbered headings or gradient panels.
 - **Content:** posts live in `posts.js` (see README). Site copy is first person.
 
 ---
 
-# Aurora (case-study pages, styles.css)
+# Aurora (retired 2026-10-26)
 
 > "Aurora" — glassmorphism on a slow, drifting aurora mesh. Dark and premium.
 
@@ -79,7 +87,7 @@
 - Favicon: aurora-gradient disc on the near-black base.
 
 ## Case Study Pages
-- **Structure:** narrow reading column (`760px`). Back link → eyebrow (`Case study · 0N of 04`) → year → `h1` → `.case-facts` (Role / Timeline / Platform / Tools) → summary → hero visual → body sections → prev/next nav.
+- **Structure:** narrow reading column (`760px`). Back link → eyebrow (`Case study · 0N of 03`) → year → `h1` → `.case-facts` (Role / Inspiration page / Platform / Tools) → summary → hero visual → body sections → prev/next nav.
 - **Body:** `.case-body section` with a mono teal `h2` (numbered `01 · …`), prose, `→`-bulleted lists, and `.pull` block-quotes (gradient left border).
 - **Imagery:** real work shown where it exists. magined uses `.shot-strip` (3-up), a `.ba` before/after pair (tagged), and a `.gallery`. Text-only studies use gradient `.case-hero-image` panels (`hero-1/2/3`).
 - **Content is real** (restored from history), not placeholder. `work/magined.html` is the featured case study.
@@ -89,5 +97,6 @@
 |------|----------|-----------|
 | 2026-07-07 | Adopted "Obsidian" Swiss-dark system | Created via /design-consultation. Chose poster layout over editorial-serif and restraint; dark Swiss over terminal and dev-tool-UI. Cyan → signal red, Inter/JetBrains → Geist. |
 | 2026-07-07 | Redesigned to **"Aurora"** | Via /design-shotgun + /frontend-design. Explored 6 high-craft directions (Atelier/Kinetic/Spotlight/Bento/Riso/Aurora); chose Aurora (glassmorphism on animated aurora mesh). Retired signal red → aurora spectrum (iris/teal/rose/amber); Geist → Onest. Now features real magined work imagery; fully responsive + reduced-motion. |
-| 2026-10-24 | Homepage + Timeline moved to **"Quiet column"** | Mark asked for something creative, simple and not "AI slop", modelled on pengzhe.ng. Picked layout G (latest object, bio, Work list) + G3 Timeline, with hand-drawn art in three styles behind a Flat / Grainy / Collage switch. Case studies stay on Aurora for now. |
+| 2026-10-24 | Homepage + Timeline moved to **"Quiet column"** | Mark asked for something creative, simple and not "AI slop", modelled on pengzhe.ng. Picked layout G (latest object, bio, Work list) + G3 Inspiration page, with hand-drawn art in three styles behind a Flat / Grainy / Collage switch. Case studies stay on Aurora for now. |
 | 2026-10-26 | Homepage simplified (direction C), flat art only, light mode added | Mark: "it's my personal site, people need to know who I am." Picked C from four canvas sketches; chose flat over grainy/collage; asked for 24px type and centered homepage text like pengzhe.ng. |
+| 2026-10-26 | Work pages moved to **Quiet column**; Aurora retired | Mark: clicking Work "looks like a completely different website"; asked for the work pages to be simple and match the homepage. styles.css removed. |

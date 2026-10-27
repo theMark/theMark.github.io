@@ -1,4 +1,4 @@
-// Renders the homepage drawing and the Timeline from posts.js, and runs the
+// Renders the homepage drawing and the Inspiration page from posts.js, and runs the
 // light / dark switch (follows the system until a visitor picks one).
 (function () {
   var root = document.documentElement;
@@ -41,28 +41,32 @@
     }));
   }
 
+  // The newest drawing shares a name on both pages, so it moves between them.
+  function named(n) { n.style.viewTransitionName = "art"; return n; }
+
   function quoted(post, text) {
     return post.kind === "song" ? "“" + text + "”" : text;
   }
 
   function byline(post) { return post.by ? post.title + " · " + post.by : post.title; }
 
-  // Homepage: the newest drawing on top, one line about it in the intro.
+  // Homepage: the newest drawing on top, and a line about it at the end of the intro.
   var latest = document.getElementById("latest");
   var lately = document.getElementById("lately");
   if (latest && posts.length) {
     var p = posts[0];
-    var link = el("a", { href: "timeline.html#" + p.id }, art(p, false, true));
+    var link = el("a", { href: "inspiration.html#" + p.id }, art(p, false, true));
+    link.firstChild.style.viewTransitionName = "art";
     latest.appendChild(link);
     if (lately) {
-      lately.appendChild(document.createTextNode("Lately I keep coming back to "));
-      lately.appendChild(el("a", { href: "timeline.html#" + p.id }, p.by ? p.title + " by " + p.by : p.title));
-      lately.appendChild(document.createTextNode((p.lately ? ", " + p.lately : "") + ". "));
-      lately.appendChild(el("a", { "class": "more", href: "timeline.html" }, "More \u2192"));
+      lately.appendChild(document.createTextNode(" Inspiration is all around us. I was recently inspired by " + (p.kind === "outside" ? "" : "the " + KINDS[p.kind][0].toLowerCase() + " ")));
+      lately.appendChild(el("a", { href: "inspiration.html#" + p.id }, quoted(p, p.title) + (p.by ? " by " + p.by : "")));
+      lately.appendChild(document.createTextNode(". " + (p.lately ? p.lately + " " : "")));
+      lately.appendChild(el("a", { "class": "more", href: "inspiration.html" }, "More \u2192"));
     }
   }
 
-  // Timeline: newest first, grouped by month, filterable by kind.
+  // Inspiration page: newest first, grouped by month, filterable by kind.
   var list = document.getElementById("entries");
   var filters = document.getElementById("kinds");
   if (list) {
@@ -78,7 +82,7 @@
       var title = el("h3", {}, byline(p));
       if (i === 0) title.appendChild(el("span", { "class": "now" }, "● Now"));
       list.appendChild(el("article", { "class": "entry", id: p.id, "data-kind": p.kind, "data-month": month }, [
-        art(p, true, false),
+        i === 0 ? named(art(p, true, false)) : art(p, true, false),
         el("div", { "class": "text" }, [
           title,
           el("p", { "class": "muted" }, KINDS[p.kind][0] + " · " + shortDate(d)),
@@ -119,10 +123,17 @@
   var toggle = document.getElementById("theme");
   var dark = window.matchMedia("(prefers-color-scheme: dark)");
   function current() { return root.dataset.theme || (dark.matches ? "dark" : "light"); }
+  var ICONS = {
+    // shown in dark mode: a sun, to switch to light
+    light: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4"/></svg>',
+    // shown in light mode: a moon, to switch to dark
+    dark: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>'
+  };
   function label() {
     var next = current() === "dark" ? "light" : "dark";
-    toggle.textContent = next === "light" ? "Light" : "Dark";
+    toggle.innerHTML = ICONS[next];
     toggle.setAttribute("aria-label", "Switch to " + next + " mode");
+    toggle.title = "Switch to " + next + " mode";
   }
   if (toggle) {
     label();

@@ -1,5 +1,5 @@
-/* Homepage + Timeline. One quiet column. Dark and light.
-   See DESIGN.md ("Quiet column"). Case studies still use styles.css. */
+/* Homepage, Inspiration page and work pages. One quiet column. Dark and light.
+   See DESIGN.md ("Quiet column"). */
 :root {
   --bg: #111214;
   --ink: #e9e9e6;
@@ -10,7 +10,7 @@
   --focus: #9fc3ff;
   --sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-  --text: 1.5em;
+  --text: 1em;
   --col: 560px;
   color-scheme: dark;
 }
@@ -31,8 +31,8 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font: var(--text)/1.4 var(--sans);
-  padding: 0 max(16px, env(safe-area-inset-right)) 56px max(16px, env(safe-area-inset-left));
+  font: var(--text)/1.5 var(--sans);
+  padding: 0 max(16px, env(safe-area-inset-right)) 112px max(16px, env(safe-area-inset-left));
   -webkit-font-smoothing: antialiased;
 }
 a { color: inherit; text-underline-offset: 4px; text-decoration-color: var(--rule); }
@@ -46,7 +46,7 @@ p, h1, h2, h3, blockquote, figure { margin: 0; }
 .wrap { max-width: var(--col); margin: 0 auto; }
 main { display: flex; flex-direction: column; padding-top: 20px; }
 
-/* top bar: page link on the left, light / dark on the right */
+/* top bar: link back to the homepage (not on the homepage itself) */
 .bar {
   position: sticky; top: 0; z-index: 5;
   background: var(--bg);
@@ -54,7 +54,8 @@ main { display: flex; flex-direction: column; padding-top: 20px; }
   min-height: 64px;
 }
 .bar > a { text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; }
-.theme { margin-left: auto; min-height: 44px; padding: 0 0 0 12px; color: var(--muted); }
+.theme { margin-left: auto; width: 44px; height: 44px; margin-right: -11px; display: inline-grid; place-items: center; color: var(--muted); }
+.theme svg { display: block; }
 .theme:hover { color: var(--ink); }
 .kinds button {
   min-height: 44px; padding: 0 9px; color: var(--muted);
@@ -68,28 +69,34 @@ main { display: flex; flex-direction: column; padding-top: 20px; }
 .art img { width: 100%; height: auto; display: block; }
 
 /* home */
-.home { gap: 40px; }
+.home { gap: 40px; padding-top: 56px; }
 .latest { width: 300px; max-width: 100%; align-self: center; }
 /* homepage text is centered, like pengzhe.ng */
 .home { text-align: center; }
 .home .intro { align-self: center; }
-.home .work li { justify-content: center; gap: 8px; }
-.home .foot { justify-content: center; }
 .latest a { display: block; }
 .intro { display: flex; flex-direction: column; gap: 14px; max-width: 62ch; }
-.intro h1 { font-size: inherit; font-weight: 500; }
-.lately { color: var(--soft); }
 .more { color: var(--muted); text-decoration: none; white-space: nowrap; }
 .more:hover { color: var(--ink); }
+/* Work list and footer links sit smaller, at 1rem (16px), Mark's pick 2026-10-26 */
+.work, .foot { font-size: 1rem; }
 .work h2, .tl-head h1 { font-size: inherit; font-weight: 500; }
-.work ul { list-style: none; margin: 6px 0 0; padding: 0; }
-.work li { display: flex; justify-content: space-between; gap: 16px; padding: 5px 0; }
+.work ul { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
 .work li a { text-decoration-color: transparent; }
 .work li a:hover { text-decoration-color: var(--muted); }
 .work li span { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
-.foot { display: flex; flex-wrap: wrap; gap: 4px 16px; color: var(--muted); }
-.foot a { text-decoration: none; }
-.foot a:hover { color: var(--ink); }
+.work li a:hover span { color: var(--ink); }
+/* bottom bar on every page, edge to edge: contact links left, light / dark right */
+.foot {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 5;
+  background: var(--bg); border-top: 1px solid var(--rule); color: var(--muted);
+  padding: 0 max(16px, env(safe-area-inset-right)) env(safe-area-inset-bottom) max(16px, env(safe-area-inset-left));
+}
+.foot-in { display: flex; align-items: center; justify-content: space-between; min-height: 52px; }
+.foot nav { display: flex; align-items: center; }
+.foot nav a { text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; gap: 12px; padding-right: 12px; }
+.foot nav a + a::before { content: ""; width: 1px; height: 14px; background: var(--muted); opacity: .5; }
+.foot nav a:hover { color: var(--ink); }
 
 /* timeline */
 .timeline { gap: 30px; }
@@ -105,11 +112,46 @@ main { display: flex; flex-direction: column; padding-top: 20px; }
 .entry h3 { font-size: inherit; font-weight: 400; }
 .now { color: var(--now); margin-left: 6px; white-space: nowrap; }
 
+/* about */
+.about { gap: 24px; }
+.about h1 { font-size: inherit; font-weight: 500; }
+.about p { color: var(--soft); }
+
+/* case studies: same column, left-aligned reading */
+.case { gap: 32px; }
+.case-head { display: flex; flex-direction: column; gap: 2px; }
+.case h1, .case h2 { font-size: inherit; font-weight: 500; }
+.case section { display: flex; flex-direction: column; gap: 10px; }
+.case section p, .case > p { color: var(--soft); }
+.case figure { margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.case figure > div { display: grid; gap: 8px; }
+.pair > div { grid-template-columns: 1fr 1fr; }
+.trio > div { grid-template-columns: repeat(3, 1fr); }
+.case figure img { width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: cover; display: block; border-radius: 4px; }
+.case figcaption { font-size: .75em; }
+.case-nav { display: flex; justify-content: space-between; gap: 16px; border-top: 1px solid var(--rule); padding-top: 16px; color: var(--muted); }
+.case-nav a { text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; }
+.case-nav a:hover { color: var(--ink); }
+
 @media (max-width: 480px) {
-  :root { --text: 1.25em; }
   .entry { gap: 14px; }
   .entry .art { width: 96px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .kinds button { transition: none; }
+}
+
+/* page transitions (Chrome, Edge, Safari 18.2+; others just load the page).
+   The text fades out and in; the newest drawing moves between its spot on the
+   homepage and on the Inspiration page; the bars stay put. */
+@view-transition { navigation: auto; }
+.bar { view-transition-name: bar; }
+.foot { view-transition-name: foot; }
+::view-transition-old(root) { animation: vt-out 150ms ease-in both; }
+::view-transition-new(root) { animation: vt-in 250ms ease-out 120ms both; }
+::view-transition-group(art) { animation-duration: 420ms; animation-timing-function: cubic-bezier(.3, .7, .2, 1); }
+@keyframes vt-out { to { opacity: 0; } }
+@keyframes vt-in { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  @view-transition { navigation: none; }
 }

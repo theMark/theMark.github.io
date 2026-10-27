@@ -10,8 +10,8 @@ served by GitHub Pages from `main`.
 2. Pick an id like `2026-11-02-some-song` and put both files in
    `assets/inspiration/<id>/` as `flat.webp` and `flat-sm.webp`.
 3. Add a block to `posts.js` (the comment at the top lists the fields).
-4. Commit and push. The newest post becomes the drawing and the "Lately" line on the
-   homepage, and the Timeline picks it up with a "Now" marker. Kind filters appear once there's more
+4. Commit and push. The newest post becomes the drawing and the inspiration line on the
+   homepage, and the Inspiration page picks it up with a "Now" marker. Kind filters appear once there's more
    than one kind.
 
 ## Running locally

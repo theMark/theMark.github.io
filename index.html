@@ -21,35 +21,36 @@
 
   <body>
     <div class="wrap">
-      <nav class="bar" aria-label="Site">
-        <button type="button" class="theme" id="theme" aria-label="Switch to light mode">Light</button>
-      </nav>
-
       <main class="home">
         <div class="latest" id="latest"></div>
 
         <section class="intro" aria-labelledby="me">
-          <h1 id="me">I'm Mark Weiss, a product designer who builds with AI.</h1>
-          <p class="lately" id="lately"><noscript>See the <a href="timeline.html">Timeline</a> for what's inspiring me lately.</noscript></p>
+          <h1 class="sr" id="me">Mark Weiss</h1>
+          <p id="lately">I'm <a href="about.html">Mark Weiss</a>, a product designer who builds with AI.</p>
         </section>
 
         <section class="work" id="work" aria-labelledby="work-h">
           <h2 id="work-h">Work</h2>
           <ul>
-            <li><a href="work/magined.html">magined</a><span>2026</span></li>
-            <li><a href="work/freedom-field.html">Freedom Forever customer app</a><span>2021–2026</span></li>
-            <li><a href="work/internal-ops.html">Freedom Forever internal ops</a><span>2021–2026</span></li>
-            <li><a href="work/metpro.html">MetPro</a><span>2016–2021</span></li>
+            <li><a href="work/magined.html">magined <span>2026</span></a></li>
+            <li><a href="work/freedom-forever.html">Freedom Forever <span>2021–2026</span></a></li>
+            <li><a href="work/metpro.html">MetPro <span>2016–2021</span></a></li>
           </ul>
         </section>
-
-        <footer class="foot">
-          <a href="mailto:mark@magined.com">mark@magined.com</a>
-          <a href="https://www.linkedin.com/in/themarkweiss" rel="noopener">LinkedIn</a>
-          <a href="https://github.com/theMark" rel="noopener">GitHub</a>
-        </footer>
       </main>
     </div>
+
+    <footer class="foot">
+      <div class="foot-in">
+        <nav aria-label="About and contact">
+          <a href="about.html">About</a>
+          <a href="mailto:mark@magined.com">Email</a>
+          <a href="https://www.linkedin.com/in/themarkweiss" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/theMark" rel="noopener">GitHub</a>
+        </nav>
+        <button type="button" class="theme" id="theme" aria-label="Switch light and dark mode"></button>
+      </div>
+    </footer>
 
     <script src="posts.js"></script>
     <script src="site.js"></script>
