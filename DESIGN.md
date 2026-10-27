@@ -22,8 +22,9 @@
   rule `#d9d9d4` · now `#b25a0c` · focus `#2a62c9`.
 - **Mode:** follows the visitor's system setting; the top-bar switch overrides it and is
   remembered (`localStorage.theme`, set as `data-theme` on `<html>`).
-- **Art:** each post has a custom flat vector illustration cut out on a transparent ground
-  (no frame or box). 400px on the homepage, 128px (96px on phones) on the Inspiration page.
+- **Art:** each post has a custom flat vector illustration on a transparent ground (no frame
+  or box). It is a complete piece that stands on its own (2026-10-27, Mark): nothing cropped,
+  no fades at the edges, the subject grounded on its own base (T and C stands on a stage riser). 400px on the homepage, 128px (96px on phones) on the Inspiration page.
   (Grainy gradient and paper collage were tried and dropped on 2026-10-26.)
 - **Links:** underlines appear on hover; selected filter items get a solid underline.
 - **Motion:** small hover color changes, plus page transitions (2026-10-26, option C): text crossfades, the newest drawing moves between the homepage and the Inspiration page, the top and bottom bars stay put. Off under reduced motion; browsers without view transitions just load the page.
