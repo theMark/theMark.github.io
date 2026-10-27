@@ -62,7 +62,7 @@
       lately.appendChild(document.createTextNode(" Inspiration is all around us. I was recently inspired by " + (p.kind === "outside" ? "" : "the " + KINDS[p.kind][0].toLowerCase() + " ")));
       lately.appendChild(el("a", { href: "inspiration.html#" + p.id }, quoted(p, p.title) + (p.by ? " by " + p.by : "")));
       lately.appendChild(document.createTextNode(". " + (p.lately ? p.lately + " " : "")));
-      lately.appendChild(el("a", { "class": "more", href: "inspiration.html#" + p.id }, "Here\u2019s why \u2192"));
+      lately.appendChild(el("a", { "class": "more", href: "inspiration.html" }, "More \u2192"));
     }
   }
 
