@@ -12,9 +12,9 @@
   "← Mark Weiss" link (not on the homepage). Fixed bottom bar on every page, edge to edge (2026-10-26):
   About | Email | LinkedIn | GitHub at 1rem with thin divider lines, and the sun / moon icon for light
   and dark on the right. Sections separated by space, not boxes.
-- **Type:** **Geist** 400/500 at 1.5em/1.4 (24px) for everything, 1.25em on phones
-  (`--text`, Mark's pick to match pengzhe.ng, 2026-10-26). The homepage Work list and
-  bottom bar are smaller, 1rem (16px). No display headlines.
+- **Type:** **Geist** 400/500 at 1em/1.5 (16px, the browser standard) for everything,
+  phones included (`--text`; Mark asked for the standard paragraph size on 2026-10-27,
+  replacing the earlier 1.5em). No display headlines.
 - **Color, dark:** bg `#111214` · ink `#e9e9e6` · soft `#c9c9c5` (work page prose) ·
   muted `#8f8f8b` · rule `#2a2b2e` · now `#f0a75a` (the "● Now" marker, favicon dot) · focus `#9fc3ff`.
 - **Color, light:** bg `#f6f6f3` · ink `#1c1c1b` · soft `#3d3d3a` · muted `#6a6a66` ·
