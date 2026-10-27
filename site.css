@@ -70,12 +70,14 @@ main { display: flex; flex-direction: column; padding-top: 20px; }
 
 /* home */
 .home { gap: 40px; padding-top: 56px; }
-.latest { width: 300px; max-width: 100%; align-self: center; }
+.latest { width: 400px; max-width: 100%; align-self: center; }
 /* homepage text is centered, like pengzhe.ng */
 .home { text-align: center; }
 .home .intro { align-self: center; }
 .latest a { display: block; }
 .intro { display: flex; flex-direction: column; gap: 14px; max-width: 62ch; }
+/* the inspiration line under the drawing is the one big line on the site */
+#lately { font-size: 1.5em; line-height: 1.4; }
 .more { color: var(--muted); text-decoration: none; white-space: nowrap; }
 .more:hover { color: var(--ink); }
 /* Work list and footer links sit smaller, at 1rem (16px), Mark's pick 2026-10-26 */
@@ -134,6 +136,7 @@ main { display: flex; flex-direction: column; padding-top: 20px; }
 .case-nav a:hover { color: var(--ink); }
 
 @media (max-width: 480px) {
+  #lately { font-size: 1.25em; }
   .entry { gap: 14px; }
   .entry .art { width: 96px; }
 }

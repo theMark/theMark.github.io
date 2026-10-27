@@ -59,7 +59,7 @@
     link.firstChild.style.viewTransitionName = "art";
     latest.appendChild(link);
     if (lately) {
-      lately.appendChild(document.createTextNode(" Inspiration is all around us. I was recently inspired by " + (p.kind === "outside" ? "" : "the " + KINDS[p.kind][0].toLowerCase() + " ")));
+      lately.appendChild(document.createTextNode(" I was recently inspired by " + (p.kind === "outside" ? "" : "the " + KINDS[p.kind][0].toLowerCase() + " ")));
       lately.appendChild(el("a", { href: "inspiration.html#" + p.id }, quoted(p, p.title) + (p.by ? " by " + p.by : "")));
       lately.appendChild(document.createTextNode(". " + (p.lately ? p.lately + " " : "")));
       lately.appendChild(el("a", { "class": "more", href: "inspiration.html" }, "More \u2192"));
