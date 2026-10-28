@@ -30,9 +30,14 @@
   no fades at the edges, the subject grounded on its own base (T and C stands on a stage riser). 240px on the homepage (2026-10-28); on the Inspiration page it sits in a 240×200 box, bottom-aligned.
   (Grainy gradient and paper collage were tried and dropped on 2026-10-26.)
 - **Links:** underlined at rest in the accent so they read as links (2026-10-28); bar and nav
-  links have no underline. Selected filter items get a solid underline.
+  links have no underline.
 - **Motion:** small hover color changes, plus page transitions (2026-10-26, option C): text crossfades, the newest drawing moves between the homepage and the Inspiration page, the top and bottom bars stay put. Off under reduced motion; browsers without view transitions just load the page.
 - **Homepage order (direction C, 2026-10-26):** who I am comes first; all homepage text is centered (Inspiration page stays left-aligned). Updated 2026-10-28 from the design canvas: a 240px drawing of the newest post with a small muted caption, "Lately: “<title>” by <by> →" ("Lately:" in the accent; both link to the post on the Inspiration page) → one line, "I'm Mark Weiss, a product designer who builds with AI, based in Chico, California." ("Mark Weiss" links to about.html) → Work: muted heading, then each place name (weight 500) with its years in muted. Contact links live in the bottom bar. Lyrics and the longer "why" live on the Inspiration page.
+- **Inspiration page (2026-10-28, "Timeline A"):** column widens to 760px (`body.wide`). Heading:
+  "Inspiration" then "A running log of things that caught my eye and stuck with me." at 1.25em.
+  No kind filters. Month headings over a hairline. Every entry is expanded and looks the same:
+  drawing on the left, then title · by (weight 500, "● Now" on the newest), muted kind · date,
+  the line at 1.25em, and the why in `--soft`. At 640px and below the drawing stacks above the text.
 - **Work pages (`work/*.html`, 2026-10-26):** same bar, column and type as the Inspiration page,
   left-aligned. Name → muted "role · years" → one intro paragraph → plain sections (h2 at
   body size, weight 500; prose in `--soft`) → images only where real work exists (magined:
