@@ -67,13 +67,13 @@ main { display: flex; flex-direction: column; padding-top: 20px; }
 /* home: everything centered, like pengzhe.ng */
 .home { gap: 40px; padding-top: 40px; text-align: center; }
 .latest { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 10px; }
-.latest .art-link { display: block; width: 240px; max-width: 100%; }
+.latest .art-link { display: block; width: 400px; max-width: 100%; }
 .latest figcaption { font-size: .875em; }
 .latest figcaption a { color: var(--muted); text-decoration: none; }
 .latest figcaption a:hover { color: var(--ink); }
 .lately { color: var(--accent); }
 .intro { align-self: center; margin-top: -8px; }
-.intro p { font-size: 1.25em; line-height: 1.4; max-width: 30ch; }
+.intro p { font-size: 1.5rem; line-height: 1.4; max-width: 30ch; }
 .work { display: flex; flex-direction: column; gap: 14px; }
 .work h2, .tl-head h1 { font-size: inherit; font-weight: 500; }
 .home .work h2 { color: var(--muted); }
@@ -133,6 +133,7 @@ main { display: flex; flex-direction: column; padding-top: 20px; }
 .case-nav a:hover { color: var(--ink); }
 
 @media (max-width: 480px) {
+  .intro p { font-size: 1.25rem; }
   .foot nav { gap: 16px; }
 }
 

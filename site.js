@@ -62,10 +62,10 @@
     var p = posts[0];
     var href = "inspiration.html#" + p.id;
     var pic = art(p, true, true);
-    // shown at 240px: the 400px copy covers most screens, the full art covers sharp ones
+    // shown at up to 400px: the 400px copy covers most screens, the full art covers sharp ones
     var img = pic.firstChild;
     img.setAttribute("srcset", "assets/inspiration/" + p.id + "/flat-sm.webp 400w, assets/inspiration/" + p.id + "/flat.webp " + p.size[0] + "w");
-    img.setAttribute("sizes", "240px");
+    img.setAttribute("sizes", "(max-width: 432px) calc(100vw - 32px), 400px");
     img.setAttribute("loading", "eager");
     latest.appendChild(el("a", { "class": "art-link", href: href }, named(pic)));
     latest.appendChild(el("figcaption", {}, el("a", { href: href }, [
