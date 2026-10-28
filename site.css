@@ -73,7 +73,7 @@ main { display: flex; flex-direction: column; padding-top: 20px; }
 .latest figcaption a:hover { color: var(--ink); }
 .lately { color: var(--accent); }
 .intro { align-self: center; margin-top: -8px; }
-.intro p { font-size: 1.25em; line-height: 1.4; max-width: 30ch; }
+.intro p { font-size: 1.5rem; line-height: 1.4; max-width: 30ch; }
 .work { display: flex; flex-direction: column; gap: 14px; }
 .work h2, .tl-head h1 { font-size: inherit; font-weight: 500; }
 .home .work h2 { color: var(--muted); }
@@ -133,6 +133,7 @@ main { display: flex; flex-direction: column; padding-top: 20px; }
 .case-nav a:hover { color: var(--ink); }
 
 @media (max-width: 480px) {
+  .intro p { font-size: 1.25rem; }
   .foot nav { gap: 16px; }
 }
 
