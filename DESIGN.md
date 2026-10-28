@@ -9,26 +9,35 @@
   sits at the top as a drawing with its line; a short first-person bio; Work as a plain list.
   The Inspiration page lists every post, newest first, grouped by month.
 - **Layout:** single column, max-width `560px`, 16px side gutter. Sticky top bar with a
-  "← Mark Weiss" link (not on the homepage). Fixed bottom bar on every page, edge to edge (2026-10-26):
-  About | Email | LinkedIn | GitHub at 1rem with thin divider lines, and the sun / moon icon for light
-  and dark on the right. Sections separated by space, not boxes.
+  "← Mark Weiss" link (not on the homepage). Fixed bottom bar on every page (2026-10-28): the rule runs edge to edge,
+  the links sit in the 560px column: Work · Inspiration · About · Email at 1rem (Résumé joins once
+  there's a PDF), and the sun / moon icon for light and dark on the right. LinkedIn and GitHub live on About. Sections separated by space, not boxes.
 - **Type:** **Geist** 400/500 at 1em/1.5 (16px, the browser standard) for everything,
   phones included (`--text`; Mark asked for the standard paragraph size on 2026-10-27,
   replacing the earlier 1.5em). The one exception is the homepage inspiration line under the
-  drawing: 1.5em/1.4 (1.25em on phones), Mark's ask 2026-10-27. No display headlines.
+  intro: 1.25em/1.4, max 30ch (2026-10-28). No display headlines.
 - **Color, dark:** bg `#111214` · ink `#e9e9e6` · soft `#c9c9c5` (work page prose) ·
   muted `#8f8f8b` · rule `#2a2b2e` · now `#f0a75a` (the "● Now" marker, favicon dot) · focus `#9fc3ff`.
+- **Accent (2026-10-28):** one color picked from the newest drawing (`accent` in posts.js, a
+  dark-mode and a light-mode value; T and C is amber `#f0a75a` / `#b25a0c`). Used only on link
+  underlines (70%) and the homepage "Lately:" label. Never as a fill, button or background.
 - **Color, light:** bg `#f6f6f3` · ink `#1c1c1b` · soft `#3d3d3a` · muted `#6a6a66` ·
   rule `#d9d9d4` · now `#b25a0c` · focus `#2a62c9`.
 - **Mode:** follows the visitor's system setting; the top-bar switch overrides it and is
   remembered (`localStorage.theme`, set as `data-theme` on `<html>`).
 - **Art:** each post has a custom flat vector illustration on a transparent ground (no frame
   or box). It is a complete piece that stands on its own (2026-10-27, Mark): nothing cropped,
-  no fades at the edges, the subject grounded on its own base (T and C stands on a stage riser). 400px on the homepage, 128px (96px on phones) on the Inspiration page.
+  no fades at the edges, the subject grounded on its own base (T and C stands on a stage riser). 240px on the homepage (2026-10-28); on the Inspiration page it sits in a 240×200 box, bottom-aligned.
   (Grainy gradient and paper collage were tried and dropped on 2026-10-26.)
-- **Links:** underlines appear on hover; selected filter items get a solid underline.
+- **Links:** underlined at rest in the accent so they read as links (2026-10-28); bar and nav
+  links have no underline.
 - **Motion:** small hover color changes, plus page transitions (2026-10-26, option C): text crossfades, the newest drawing moves between the homepage and the Inspiration page, the top and bottom bars stay put. Off under reduced motion; browsers without view transitions just load the page.
-- **Homepage order (direction C, 2026-10-26):** who I am comes first; all homepage text is centered (Inspiration page stays left-aligned). A 400px drawing of the newest post (links to it on the Inspiration page) → one paragraph (Mark's words, 2026-10-26, "Inspiration is all around us" dropped 2026-10-27; "Mark Weiss" links to about.html): "I'm Mark Weiss, a product designer who builds with AI. I was recently inspired by the song “<title>” by <by>. More →" (More opens the Inspiration page), all in ink → Work. Contact links live in the bottom bar. Lyrics and the longer "why" live on the Inspiration page.
+- **Homepage order (direction C, 2026-10-26):** who I am comes first; all homepage text is centered (Inspiration page stays left-aligned). Updated 2026-10-28 from the design canvas: a 240px drawing of the newest post with a small muted caption, "Lately: “<title>” by <by> →" ("Lately:" in the accent; both link to the post on the Inspiration page) → one line, "I'm Mark Weiss, a product designer who builds with AI, based in Chico, California." ("Mark Weiss" links to about.html) → Work: muted heading, then each place name (weight 500) with its years in muted. Contact links live in the bottom bar. Lyrics and the longer "why" live on the Inspiration page.
+- **Inspiration page (2026-10-28, "Timeline A"):** column widens to 760px (`body.wide`). Heading:
+  "Inspiration" then "A running log of things that caught my eye and stuck with me." at 1.25em.
+  No kind filters. Month headings over a hairline. Every entry is expanded and looks the same:
+  drawing on the left, then title · by (weight 500, "● Now" on the newest), muted kind · date,
+  the line at 1.25em, and the why in `--soft`. At 640px and below the drawing stacks above the text.
 - **Work pages (`work/*.html`, 2026-10-26):** same bar, column and type as the Inspiration page,
   left-aligned. Name → muted "role · years" → one intro paragraph → plain sections (h2 at
   body size, weight 500; prose in `--soft`) → images only where real work exists (magined:

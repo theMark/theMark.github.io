@@ -50,72 +50,51 @@
 
   function byline(post) { return post.by ? post.title + " · " + post.by : post.title; }
 
-  // Homepage: the newest drawing on top, and a line about it at the end of the intro.
-  var latest = document.getElementById("latest");
-  var lately = document.getElementById("lately");
-  if (latest && posts.length) {
-    var p = posts[0];
-    var link = el("a", { href: "inspiration.html#" + p.id }, art(p, false, true));
-    link.firstChild.style.viewTransitionName = "art";
-    latest.appendChild(link);
-    if (lately) {
-      lately.appendChild(document.createTextNode(" I was recently inspired by " + (p.kind === "outside" ? "" : "the " + KINDS[p.kind][0].toLowerCase() + " ")));
-      lately.appendChild(el("a", { href: "inspiration.html#" + p.id }, quoted(p, p.title) + (p.by ? " by " + p.by : "")));
-      lately.appendChild(document.createTextNode(". " + (p.lately ? p.lately + " " : "")));
-      lately.appendChild(el("a", { "class": "more", href: "inspiration.html" }, "More \u2192"));
-    }
+  // The accent comes from the newest drawing, on every page that loads posts.js.
+  if (posts.length && posts[0].accent) {
+    root.style.setProperty("--accent-dark", posts[0].accent[0]);
+    root.style.setProperty("--accent-light", posts[0].accent[1]);
   }
 
-  // Inspiration page: newest first, grouped by month, filterable by kind.
+  // Homepage: the newest drawing on top with a "Lately" caption under it.
+  var latest = document.getElementById("latest");
+  if (latest && posts.length) {
+    var p = posts[0];
+    var href = "inspiration.html#" + p.id;
+    var pic = art(p, true, true);
+    // shown at 240px: the 400px copy covers most screens, the full art covers sharp ones
+    var img = pic.firstChild;
+    img.setAttribute("srcset", "assets/inspiration/" + p.id + "/flat-sm.webp 400w, assets/inspiration/" + p.id + "/flat.webp " + p.size[0] + "w");
+    img.setAttribute("sizes", "240px");
+    img.setAttribute("loading", "eager");
+    latest.appendChild(el("a", { "class": "art-link", href: href }, named(pic)));
+    latest.appendChild(el("figcaption", {}, el("a", { href: href }, [
+      el("span", { "class": "lately" }, "Lately:"),
+      " " + quoted(p, p.title) + (p.by ? " by " + p.by : "") + " \u2192"
+    ])));
+  }
+
+  // Inspiration page: newest first, grouped by month. Every entry looks the same:
+  // drawing, title, kind and date, the line, and why it stuck.
   var list = document.getElementById("entries");
-  var filters = document.getElementById("kinds");
   if (list) {
     var lastMonth = null;
     posts.forEach(function (p, i) {
       var d = parseDate(p.date);
       var month = d.getFullYear() + "-" + d.getMonth();
       if (month !== lastMonth) {
-        list.appendChild(el("h2", { "class": "month", "data-month": month },
-          MONTHS[d.getMonth()] + " " + d.getFullYear()));
+        list.appendChild(el("h2", { "class": "month" }, MONTHS[d.getMonth()] + " " + d.getFullYear()));
         lastMonth = month;
       }
       var title = el("h3", {}, byline(p));
       if (i === 0) title.appendChild(el("span", { "class": "now" }, "● Now"));
-      list.appendChild(el("article", { "class": "entry", id: p.id, "data-kind": p.kind, "data-month": month }, [
+      list.appendChild(el("article", { "class": "entry", id: p.id }, [
         i === 0 ? named(art(p, true, false)) : art(p, true, false),
         el("div", { "class": "text" }, [
-          title,
-          el("p", { "class": "muted" }, KINDS[p.kind][0] + " · " + shortDate(d)),
-          el("p", {}, quoted(p, p.excerpt || p.line))
-        ].concat(p.why ? [el("p", { "class": "muted" }, p.why)] : []))
+          el("div", {}, [title, el("p", { "class": "muted" }, KINDS[p.kind][0] + " · " + shortDate(d))]),
+          el("p", { "class": "line" }, quoted(p, p.excerpt || p.line))
+        ].concat(p.why ? [el("p", { "class": "why" }, p.why)] : []))
       ]));
-    });
-
-    // Only offer kinds that have posts.
-    var present = Object.keys(KINDS).filter(function (k) {
-      return posts.some(function (p) { return p.kind === k; });
-    });
-    if (filters && present.length > 1) {
-      ["all"].concat(present).forEach(function (k) {
-        var b = el("button", { type: "button", "data-kind": k, "aria-pressed": String(k === "all") },
-          k === "all" ? "All" : KINDS[k][1]);
-        b.addEventListener("click", function () { filterBy(k); });
-        filters.appendChild(b);
-      });
-    } else if (filters) {
-      filters.hidden = true;
-    }
-  }
-
-  function filterBy(k) {
-    filters.querySelectorAll("button").forEach(function (b) {
-      b.setAttribute("aria-pressed", String(b.dataset.kind === k));
-    });
-    list.querySelectorAll(".entry").forEach(function (e) {
-      e.hidden = k !== "all" && e.dataset.kind !== k;
-    });
-    list.querySelectorAll(".month").forEach(function (m) {
-      m.hidden = !list.querySelector('.entry[data-month="' + m.dataset.month + '"]:not([hidden])');
     });
   }
 
