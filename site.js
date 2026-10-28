@@ -50,20 +50,28 @@
 
   function byline(post) { return post.by ? post.title + " · " + post.by : post.title; }
 
-  // Homepage: the newest drawing on top, and a line about it at the end of the intro.
+  // The accent comes from the newest drawing, on every page that loads posts.js.
+  if (posts.length && posts[0].accent) {
+    root.style.setProperty("--accent-dark", posts[0].accent[0]);
+    root.style.setProperty("--accent-light", posts[0].accent[1]);
+  }
+
+  // Homepage: the newest drawing on top with a "Lately" caption under it.
   var latest = document.getElementById("latest");
-  var lately = document.getElementById("lately");
   if (latest && posts.length) {
     var p = posts[0];
-    var link = el("a", { href: "inspiration.html#" + p.id }, art(p, false, true));
-    link.firstChild.style.viewTransitionName = "art";
-    latest.appendChild(link);
-    if (lately) {
-      lately.appendChild(document.createTextNode(" I was recently inspired by " + (p.kind === "outside" ? "" : "the " + KINDS[p.kind][0].toLowerCase() + " ")));
-      lately.appendChild(el("a", { href: "inspiration.html#" + p.id }, quoted(p, p.title) + (p.by ? " by " + p.by : "")));
-      lately.appendChild(document.createTextNode(". " + (p.lately ? p.lately + " " : "")));
-      lately.appendChild(el("a", { "class": "more", href: "inspiration.html" }, "More \u2192"));
-    }
+    var href = "inspiration.html#" + p.id;
+    var pic = art(p, true, true);
+    // shown at 240px: the 400px copy covers most screens, the full art covers sharp ones
+    var img = pic.firstChild;
+    img.setAttribute("srcset", "assets/inspiration/" + p.id + "/flat-sm.webp 400w, assets/inspiration/" + p.id + "/flat.webp " + p.size[0] + "w");
+    img.setAttribute("sizes", "240px");
+    img.setAttribute("loading", "eager");
+    latest.appendChild(el("a", { "class": "art-link", href: href }, named(pic)));
+    latest.appendChild(el("figcaption", {}, el("a", { href: href }, [
+      el("span", { "class": "lately" }, "Lately:"),
+      " " + quoted(p, p.title) + (p.by ? " by " + p.by : "") + " \u2192"
+    ])));
   }
 
   // Inspiration page: newest first, grouped by month, filterable by kind.
