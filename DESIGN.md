@@ -27,7 +27,7 @@
   remembered (`localStorage.theme`, set as `data-theme` on `<html>`).
 - **Art:** each post has a custom flat vector illustration on a transparent ground (no frame
   or box). It is a complete piece that stands on its own (2026-10-27, Mark): nothing cropped,
-  no fades at the edges, the subject grounded on its own base (T and C stands on a stage riser). 240px on the homepage (2026-10-28), 128px (96px on phones) on the Inspiration page.
+  no fades at the edges, the subject grounded on its own base (T and C stands on a stage riser). 240px on the homepage (2026-10-28); on the Inspiration page it sits in a 240×200 box, bottom-aligned.
   (Grainy gradient and paper collage were tried and dropped on 2026-10-26.)
 - **Links:** underlined at rest in the accent so they read as links (2026-10-28); bar and nav
   links have no underline. Selected filter items get a solid underline.

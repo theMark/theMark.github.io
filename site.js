@@ -74,56 +74,27 @@
     ])));
   }
 
-  // Inspiration page: newest first, grouped by month, filterable by kind.
+  // Inspiration page: newest first, grouped by month. Every entry looks the same:
+  // drawing, title, kind and date, the line, and why it stuck.
   var list = document.getElementById("entries");
-  var filters = document.getElementById("kinds");
   if (list) {
     var lastMonth = null;
     posts.forEach(function (p, i) {
       var d = parseDate(p.date);
       var month = d.getFullYear() + "-" + d.getMonth();
       if (month !== lastMonth) {
-        list.appendChild(el("h2", { "class": "month", "data-month": month },
-          MONTHS[d.getMonth()] + " " + d.getFullYear()));
+        list.appendChild(el("h2", { "class": "month" }, MONTHS[d.getMonth()] + " " + d.getFullYear()));
         lastMonth = month;
       }
       var title = el("h3", {}, byline(p));
       if (i === 0) title.appendChild(el("span", { "class": "now" }, "● Now"));
-      list.appendChild(el("article", { "class": "entry", id: p.id, "data-kind": p.kind, "data-month": month }, [
+      list.appendChild(el("article", { "class": "entry", id: p.id }, [
         i === 0 ? named(art(p, true, false)) : art(p, true, false),
         el("div", { "class": "text" }, [
-          title,
-          el("p", { "class": "muted" }, KINDS[p.kind][0] + " · " + shortDate(d)),
-          el("p", {}, quoted(p, p.excerpt || p.line))
-        ].concat(p.why ? [el("p", { "class": "muted" }, p.why)] : []))
+          el("div", {}, [title, el("p", { "class": "muted" }, KINDS[p.kind][0] + " · " + shortDate(d))]),
+          el("p", { "class": "line" }, quoted(p, p.excerpt || p.line))
+        ].concat(p.why ? [el("p", { "class": "why" }, p.why)] : []))
       ]));
-    });
-
-    // Only offer kinds that have posts.
-    var present = Object.keys(KINDS).filter(function (k) {
-      return posts.some(function (p) { return p.kind === k; });
-    });
-    if (filters && present.length > 1) {
-      ["all"].concat(present).forEach(function (k) {
-        var b = el("button", { type: "button", "data-kind": k, "aria-pressed": String(k === "all") },
-          k === "all" ? "All" : KINDS[k][1]);
-        b.addEventListener("click", function () { filterBy(k); });
-        filters.appendChild(b);
-      });
-    } else if (filters) {
-      filters.hidden = true;
-    }
-  }
-
-  function filterBy(k) {
-    filters.querySelectorAll("button").forEach(function (b) {
-      b.setAttribute("aria-pressed", String(b.dataset.kind === k));
-    });
-    list.querySelectorAll(".entry").forEach(function (e) {
-      e.hidden = k !== "all" && e.dataset.kind !== k;
-    });
-    list.querySelectorAll(".month").forEach(function (m) {
-      m.hidden = !list.querySelector('.entry[data-month="' + m.dataset.month + '"]:not([hidden])');
     });
   }
 
