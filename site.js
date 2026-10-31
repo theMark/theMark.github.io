@@ -56,7 +56,7 @@
     root.style.setProperty("--accent-light", posts[0].accent[1]);
   }
 
-  // Homepage: the newest drawing on top with a "Lately" caption under it.
+  // Homepage: the newest drawing under the "Lately" header, with its title under it.
   var latest = document.getElementById("latest");
   if (latest && posts.length) {
     var p = posts[0];
@@ -68,10 +68,9 @@
     img.setAttribute("sizes", "(max-width: 432px) calc(100vw - 32px), 400px");
     img.setAttribute("loading", "eager");
     latest.appendChild(el("a", { "class": "art-link", href: href }, named(pic)));
-    latest.appendChild(el("figcaption", {}, el("a", { href: href }, [
-      el("span", { "class": "lately" }, "Lately:"),
-      " " + quoted(p, p.title) + (p.by ? " by " + p.by : "") + " \u2192"
-    ])));
+    latest.appendChild(el("figcaption", {}, el("a", { href: href },
+      quoted(p, p.title) + (p.by ? " by " + p.by : "") + " \u2192"
+    )));
   }
 
   // Inspiration page: newest first, grouped by month. Every entry looks the same:

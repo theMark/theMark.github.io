@@ -10,6 +10,13 @@
   /* accent: one color from the newest drawing (posts.js `accent`, set by site.js) */
   --accent: var(--accent-dark, #f0a75a);
   --focus: #9fc3ff;
+  /* how strong the accent wash is at the top of the window */
+  --wash: 11%;
+  --wash-img: radial-gradient(120% 60vh at 50% 0, color-mix(in srgb, var(--accent) var(--wash), transparent), transparent 65%);
+  /* the floating bottom bar */
+  --dock-bg: rgba(32, 33, 37, .72);
+  --dock-line: rgba(255, 255, 255, .09);
+  --dock-shadow: 0 10px 30px rgba(0, 0, 0, .35);
   --sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
   --text: 1em;
@@ -20,11 +27,13 @@
   :root:not([data-theme="dark"]) {
     --bg: #f6f6f3; --ink: #1c1c1b; --soft: #3d3d3a; --muted: #6a6a66; --rule: #d9d9d4;
     --now: #b25a0c; --accent: var(--accent-light, #b25a0c); --focus: #2a62c9; color-scheme: light;
+    --wash: 16%; --dock-bg: rgba(255, 255, 255, .72); --dock-line: rgba(0, 0, 0, .08); --dock-shadow: 0 8px 30px rgba(0, 0, 0, .08);
   }
 }
 :root[data-theme="light"] {
   --bg: #f6f6f3; --ink: #1c1c1b; --soft: #3d3d3a; --muted: #6a6a66; --rule: #d9d9d4;
   --now: #b25a0c; --accent: var(--accent-light, #b25a0c); --focus: #2a62c9; color-scheme: light;
+  --wash: 16%; --dock-bg: rgba(255, 255, 255, .72); --dock-line: rgba(0, 0, 0, .08); --dock-shadow: 0 8px 30px rgba(0, 0, 0, .08);
 }
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
@@ -36,6 +45,12 @@ body {
   font: var(--text)/1.5 var(--sans);
   padding: 0 max(16px, env(safe-area-inset-right)) 112px max(16px, env(safe-area-inset-left));
   -webkit-font-smoothing: antialiased;
+  isolation: isolate;
+}
+/* a soft wash of the accent from the top of the window, so the page isn't flat black */
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto 0; height: 100vh; z-index: -1; pointer-events: none;
+  background: var(--wash-img);
 }
 /* links are underlined at rest in the accent, so they read as links */
 a { color: inherit; text-underline-offset: 4px; text-decoration-color: color-mix(in srgb, var(--accent) 70%, transparent); }
@@ -52,7 +67,8 @@ main { display: flex; flex-direction: column; padding-top: 20px; }
 /* top bar: link back to the homepage (not on the homepage itself) */
 .bar {
   position: sticky; top: 0; z-index: 5;
-  background: var(--bg);
+  /* the same wash, pinned to the window, so the bar blends into it */
+  background: var(--wash-img) fixed, var(--bg);
   display: flex; justify-content: space-between; align-items: center; gap: 12px;
   min-height: 64px;
 }
@@ -71,25 +87,39 @@ main { display: flex; flex-direction: column; padding-top: 20px; }
 .latest figcaption { font-size: .875em; }
 .latest figcaption a { color: var(--muted); text-decoration: none; }
 .latest figcaption a:hover { color: var(--ink); }
-.lately { color: var(--accent); }
+/* "Lately" and "Work" share one small header in the accent */
+.home h2 { font-size: .875rem; font-weight: 400; color: var(--accent); }
+.lately-sec { display: flex; flex-direction: column; align-items: center; gap: 12px; }
 .intro { align-self: center; margin-top: -8px; }
 .intro p { font-size: 1.5rem; line-height: 1.4; max-width: 30ch; }
-.work { display: flex; flex-direction: column; gap: 14px; }
-.work h2, .tl-head h1 { font-size: inherit; font-weight: 500; }
-.home .work h2 { color: var(--muted); }
-.work ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 18px; }
-.work li a { font-weight: 500; }
-.work li span { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
-/* bottom bar on every page: the rule runs edge to edge, the links sit in the column */
-.foot {
-  position: fixed; left: 0; right: 0; bottom: 0; z-index: 5;
-  background: var(--bg); border-top: 1px solid var(--rule); color: var(--muted);
-  padding: 0 max(16px, env(safe-area-inset-right)) env(safe-area-inset-bottom) max(16px, env(safe-area-inset-left));
+.tl-head h1 { font-size: inherit; font-weight: 500; }
+/* Work: ruled rows, name on the left, years on the right */
+.work { display: flex; flex-direction: column; gap: 10px; align-self: center; width: 480px; max-width: 100%; }
+.work ul { list-style: none; margin: 0; padding: 0; text-align: left; }
+.work li a {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+  padding: 12px 4px; border-top: 1px solid var(--rule); text-decoration: none;
 }
-.foot-in { max-width: var(--col); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; min-height: 52px; }
-.foot nav { display: flex; align-items: center; gap: 24px; }
-.foot nav a { text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; }
+.work li:last-child a { border-bottom: 1px solid var(--rule); }
+.work .name { font-weight: 500; text-underline-offset: 4px; }
+.work li a:hover .name { text-decoration: underline; text-decoration-color: var(--accent); }
+.work .years { font: .8125rem/1.5 var(--mono); color: var(--muted); white-space: nowrap; }
+/* bottom bar on every page: a floating, rounded bar centered over the page */
+.foot {
+  position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom)); z-index: 5;
+  transform: translateX(-50%); max-width: calc(100% - 24px);
+}
+.foot-in {
+  display: flex; align-items: center; gap: 22px; height: 52px; padding: 0 6px 0 22px; border-radius: 999px;
+  background: var(--dock-bg); border: 1px solid var(--dock-line); box-shadow: var(--dock-shadow);
+  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); color: var(--soft);
+}
+.foot nav { display: flex; align-items: center; gap: 22px; }
+.foot nav::after { content: ""; width: 1px; height: 20px; background: var(--dock-line); }
+.foot nav a { text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; white-space: nowrap; }
 .foot nav a:hover { color: var(--ink); }
+.foot .theme { margin: 0; width: 40px; height: 40px; border-radius: 50%; color: var(--soft); }
+.foot .theme:hover { color: var(--ink); }
 
 /* Inspiration page: a wider column, every entry expanded the same way */
 .wide { --col: 760px; }
@@ -134,7 +164,11 @@ main { display: flex; flex-direction: column; padding-top: 20px; }
 
 @media (max-width: 480px) {
   .intro p { font-size: 1.25rem; }
-  .foot nav { gap: 16px; }
+  .foot-in { gap: 14px; padding: 0 4px 0 16px; }
+  .foot nav { gap: 14px; }
+}
+@media (max-width: 360px) {
+  .foot nav a { font-size: .9375rem; }
 }
 
 /* page transitions (Chrome, Edge, Safari 18.2+; others just load the page).

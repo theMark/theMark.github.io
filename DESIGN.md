@@ -9,9 +9,12 @@
   sits at the top as a drawing with its line; a short first-person bio; Work as a plain list.
   The Inspiration page lists every post, newest first, grouped by month.
 - **Layout:** single column, max-width `560px`, 16px side gutter. Sticky top bar with a
-  "← Mark Weiss" link (not on the homepage). Fixed bottom bar on every page (2026-10-28): the rule runs edge to edge,
-  the links sit in the 560px column: Work · Inspiration · About · Email at 1rem (Résumé joins once
-  there's a PDF), and the sun / moon icon for light and dark on the right. LinkedIn and GitHub live on About. Sections separated by space, not boxes.
+  "← Mark Weiss" link (not on the homepage). Floating bottom bar on every page (2026-10-31, replacing
+  the edge-to-edge rule): a rounded bar centered 20px above the bottom of the window, translucent
+  with a blur, a hairline border and a soft shadow (`--dock-bg`, `--dock-line`, `--dock-shadow`).
+  Inside: Work · Inspiration · About · Email at 1rem in `--soft` (Résumé joins once there's a PDF),
+  a short divider, then the sun / moon icon for light and dark. LinkedIn and GitHub live on About.
+  Sections separated by space, not boxes.
 - **Type:** **Geist** 400/500 at 1em/1.5 (16px, the browser standard) for everything,
   phones included (`--text`; Mark asked for the standard paragraph size on 2026-10-27,
   replacing the earlier 1.5em). The one exception is the homepage inspiration line under the
@@ -19,8 +22,14 @@
 - **Color, dark:** bg `#111214` · ink `#e9e9e6` · soft `#c9c9c5` (work page prose) ·
   muted `#8f8f8b` · rule `#2a2b2e` · now `#f0a75a` (the "● Now" marker, favicon dot) · focus `#9fc3ff`.
 - **Accent (2026-10-28):** one color picked from the newest drawing (`accent` in posts.js, a
-  dark-mode and a light-mode value; T and C is amber `#f0a75a` / `#b25a0c`). Used only on link
-  underlines (70%) and the homepage "Lately:" label. Never as a fill, button or background.
+  dark-mode and a light-mode value; T and C is amber `#f0a75a` / `#b25a0c`). Used on link
+  underlines (70%), the homepage "Lately" and "Work" headers, and the wash. Never as a solid
+  fill or a button.
+- **Wash (2026-10-31):** so the page isn't flat black, a soft radial glow of the accent comes down
+  from the top of the window on every page (`--wash-img`: 11% of the accent in dark, 16% in light,
+  fading out by about 60% of the window height). It is pinned to the window (`body::before`,
+  fixed), and the sticky top bar paints the same fixed wash so it blends in. Each new post's
+  accent recolors it. The drawings themselves stay flat, with no gradients.
 - **Color, light:** bg `#f6f6f3` · ink `#1c1c1b` · soft `#3d3d3a` · muted `#6a6a66` ·
   rule `#d9d9d4` · now `#b25a0c` · focus `#2a62c9`.
 - **Mode:** follows the visitor's system setting; the top-bar switch overrides it and is
@@ -32,7 +41,7 @@
 - **Links:** underlined at rest in the accent so they read as links (2026-10-28); bar and nav
   links have no underline.
 - **Motion:** small hover color changes, plus page transitions (2026-10-26, option C): text crossfades, the newest drawing moves between the homepage and the Inspiration page, the top and bottom bars stay put. Off under reduced motion; browsers without view transitions just load the page.
-- **Homepage order (direction C, 2026-10-26):** who I am comes first; all homepage text is centered (Inspiration page stays left-aligned). Updated 2026-10-28 from the design canvas: a 400px drawing of the newest post with a small muted caption, "Lately: “<title>” by <by> →" ("Lately:" in the accent; both link to the post on the Inspiration page) → one line, "I'm Mark Weiss, a product designer who builds with AI, based in Chico, California." ("Mark Weiss" links to about.html) → Work: muted heading, then each place name (weight 500) with its years in muted. Contact links live in the bottom bar. Lyrics and the longer "why" live on the Inspiration page.
+- **Homepage order (direction C, 2026-10-26):** who I am comes first; all homepage text is centered (Inspiration page stays left-aligned). Updated 2026-10-31 from the design canvas (board 25): a small "Lately" header, then a 400px drawing of the newest post with a muted caption, "“<title>” by <by> →" (both link to the post on the Inspiration page) → one line, "I'm Mark Weiss, a product designer who builds with AI, based in Chico, California." ("Mark Weiss" links to about.html) → a "Work" header, then Work as ruled rows in a 480px block: place name (weight 500) on the left, years on the right in Geist Mono, muted, hairlines between rows, no job titles. "Lately" and "Work" use the same header: .875rem, weight 400, in the accent. Contact links live in the bottom bar. Lyrics and the longer "why" live on the Inspiration page.
 - **Inspiration page (2026-10-28, "Timeline A"):** column widens to 760px (`body.wide`). Heading:
   "Inspiration" then "A running log of things that caught my eye and stuck with me." at 1.25em.
   No kind filters. Month headings over a hairline. Every entry is expanded and looks the same:
@@ -111,3 +120,4 @@
 | 2026-10-24 | Homepage + Timeline moved to **"Quiet column"** | Mark asked for something creative, simple and not "AI slop", modelled on pengzhe.ng. Picked layout G (latest object, bio, Work list) + G3 Inspiration page, with hand-drawn art in three styles behind a Flat / Grainy / Collage switch. Case studies stay on Aurora for now. |
 | 2026-10-26 | Homepage simplified (direction C), flat art only, light mode added | Mark: "it's my personal site, people need to know who I am." Picked C from four canvas sketches; chose flat over grainy/collage; asked for 24px type and centered homepage text like pengzhe.ng. |
 | 2026-10-26 | Work pages moved to **Quiet column**; Aurora retired | Mark: clicking Work "looks like a completely different website"; asked for the work pages to be simple and match the homepage. styles.css removed. |
+| 2026-10-31 | Accent wash, floating bottom bar, Work as ruled rows | Mark felt the site was "a little blah" and "pure black" but wanted to keep the layout. After five rounds on the design canvas he picked board 25 (warm wash, ruled rows, floating bar), without job titles, and with one header style for "Lately" and "Work". |
