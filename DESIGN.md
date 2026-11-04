@@ -10,12 +10,14 @@
   The Inspiration page lists every post, newest first, grouped by month.
 - **Layout:** single column, max-width `560px`, 16px side gutter. Floating top bar on every page
   (2026-11-03, moved up from the bottom; it replaced the old sticky "← Mark Weiss" bar): a rounded bar
-  centered 16px below the top of the window, translucent with a blur, a hairline border and a soft
-  shadow (`--dock-bg`, `--dock-line`, `--dock-shadow`). It sits in the accent wash, and a band of the
-  same wash behind it fades the page out as it scrolls under. Inside: "Mark Weiss" (weight 500, ink,
-  links home) then Work · Inspiration · About · Email at 1rem in `--soft` (Résumé joins once there's a
-  PDF), a short divider, then the sun / moon icon for light and dark. At 480px and below the name
-  shrinks to a 10px accent dot (like the favicon) so the bar fits; at 360px and below the divider goes.
+  centered 16px below the top of the window. Frosted glass (2026-11-04, Mark: "a little more cloudy"):
+  a milky half-clear fill (`--dock-bg`, 50%) over a heavy blur (28px, saturate 1.4) and a hairline
+  border (`--dock-line`), no shadow, so the page shows through as a haze. Inside: an 8px accent dot and
+  "Mark Weiss" (weight 600, ink) linking home, a short divider so the name reads as a name and not one
+  of the links, then Work · Inspiration · About · Email at 1rem in `--soft` (Résumé joins once there's a
+  PDF), another divider, then the sun / moon icon for light and dark. At 480px and below the name and
+  its divider go and the dot (10px) is the home link, so the bar fits; at 360px and below the second
+  divider goes too.
   LinkedIn and GitHub live on About.
   Sections separated by space, not boxes.
 - **Type:** **Geist** 400/500 at 1em/1.5 (16px, the browser standard) for everything,
@@ -31,7 +33,7 @@
 - **Wash (2026-10-31):** so the page isn't flat black, a soft radial glow of the accent comes down
   from the top of the window on every page (`--wash-img`: 11% of the accent in dark, 16% in light,
   fading out by about 60% of the window height). It is pinned to the window (`body::before`,
-  fixed), and a band of the same wash behind the top bar fades content out under it. Each new post's
+  fixed). The top bar is glass over it. Each new post's
   accent recolors it. The drawings themselves stay flat, with no gradients.
 - **Color, light:** bg `#f6f6f3` · ink `#1c1c1b` · soft `#3d3d3a` · muted `#6a6a66` ·
   rule `#d9d9d4` · now `#b25a0c` · focus `#2a62c9`.
@@ -125,3 +127,4 @@
 | 2026-10-26 | Work pages moved to **Quiet column**; Aurora retired | Mark: clicking Work "looks like a completely different website"; asked for the work pages to be simple and match the homepage. styles.css removed. |
 | 2026-10-31 | Accent wash, floating bottom bar, Work as ruled rows | Mark felt the site was "a little blah" and "pure black" but wanted to keep the layout. After five rounds on the design canvas he picked board 25 (warm wash, ruled rows, floating bar), without job titles, and with one header style for "Lately" and "Work". |
 | 2026-11-03 | Bar moved to the top as the navigation | Mark: "move the tab bar to the top. This will be the navigation," with the gradient coming down behind it. Same rounded bar; "Mark Weiss" added as the home link (an accent dot on phones); the old "← Mark Weiss" bar is gone. |
+| 2026-11-04 | Top bar as cloudy glass | Mark wanted the bar more translucent and subtle, and his name not to look like a link. Picked "Glass" from four iterations, then asked for it a little cloudier. Fade band and shadow dropped; name bolder with a dot and divider. |
