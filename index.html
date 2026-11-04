@@ -20,6 +20,20 @@
   </head>
 
   <body>
+    <header class="dock">
+      <div class="dock-in">
+        <a class="dock-home" href="./" aria-current="page"><span class="dock-name">Mark Weiss</span></a>
+        <nav aria-label="Site and contact">
+          <a href="#work">Work</a>
+          <a href="inspiration.html">Inspiration</a>
+          <a href="about.html">About</a>
+          <!-- Résumé goes here once there's a PDF: <a href="resume.pdf">Résumé</a> -->
+          <a href="mailto:mark@magined.com">Email</a>
+        </nav>
+        <button type="button" class="theme" id="theme" aria-label="Switch light and dark mode"></button>
+      </div>
+    </header>
+
     <div class="wrap">
       <main class="home">
         <section class="lately-sec" aria-labelledby="lately-h">
@@ -42,19 +56,6 @@
         </section>
       </main>
     </div>
-
-    <footer class="foot">
-      <div class="foot-in">
-        <nav aria-label="Site and contact">
-          <a href="#work">Work</a>
-          <a href="inspiration.html">Inspiration</a>
-          <a href="about.html">About</a>
-          <!-- Résumé goes here once there's a PDF: <a href="resume.pdf">Résumé</a> -->
-          <a href="mailto:mark@magined.com">Email</a>
-        </nav>
-        <button type="button" class="theme" id="theme" aria-label="Switch light and dark mode"></button>
-      </div>
-    </footer>
 
     <script src="posts.js"></script>
     <script src="site.js"></script>

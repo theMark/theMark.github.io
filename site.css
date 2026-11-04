@@ -13,10 +13,10 @@
   /* how strong the accent wash is at the top of the window */
   --wash: 11%;
   --wash-img: radial-gradient(120% 60vh at 50% 0, color-mix(in srgb, var(--accent) var(--wash), transparent), transparent 65%);
-  /* the floating bottom bar */
-  --dock-bg: rgba(32, 33, 37, .72);
-  --dock-line: rgba(255, 255, 255, .09);
-  --dock-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+  /* the floating top bar */
+  /* frosted glass: a milky, half-clear fill over a heavy blur, so the page shows through as a haze */
+  --dock-bg: rgba(48, 49, 54, .5);
+  --dock-line: rgba(255, 255, 255, .1);
   --sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
   --text: 1em;
@@ -27,23 +27,24 @@
   :root:not([data-theme="dark"]) {
     --bg: #f6f6f3; --ink: #1c1c1b; --soft: #3d3d3a; --muted: #6a6a66; --rule: #d9d9d4;
     --now: #b25a0c; --accent: var(--accent-light, #b25a0c); --focus: #2a62c9; color-scheme: light;
-    --wash: 16%; --dock-bg: rgba(255, 255, 255, .72); --dock-line: rgba(0, 0, 0, .08); --dock-shadow: 0 8px 30px rgba(0, 0, 0, .08);
+    --wash: 16%; --dock-bg: rgba(255, 255, 255, .5); --dock-line: rgba(0, 0, 0, .07);
   }
 }
 :root[data-theme="light"] {
   --bg: #f6f6f3; --ink: #1c1c1b; --soft: #3d3d3a; --muted: #6a6a66; --rule: #d9d9d4;
   --now: #b25a0c; --accent: var(--accent-light, #b25a0c); --focus: #2a62c9; color-scheme: light;
-  --wash: 16%; --dock-bg: rgba(255, 255, 255, .72); --dock-line: rgba(0, 0, 0, .08); --dock-shadow: 0 8px 30px rgba(0, 0, 0, .08);
+  --wash: 16%; --dock-bg: rgba(255, 255, 255, .5); --dock-line: rgba(0, 0, 0, .07);
 }
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
-html { background: var(--bg); }
+html { background: var(--bg); scroll-padding-top: 96px; }
 body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
   font: var(--text)/1.5 var(--sans);
-  padding: 0 max(16px, env(safe-area-inset-right)) 112px max(16px, env(safe-area-inset-left));
+  /* room at the top for the floating bar */
+  padding: calc(84px + env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) 80px max(16px, env(safe-area-inset-left));
   -webkit-font-smoothing: antialiased;
   isolation: isolate;
 }
@@ -64,16 +65,7 @@ p, h1, h2, h3, blockquote, figure { margin: 0; }
 .wrap { max-width: var(--col); margin: 0 auto; }
 main { display: flex; flex-direction: column; padding-top: 20px; }
 
-/* top bar: link back to the homepage (not on the homepage itself) */
-.bar {
-  position: sticky; top: 0; z-index: 5;
-  /* the same wash, pinned to the window, so the bar blends into it */
-  background: var(--wash-img) fixed, var(--bg);
-  display: flex; justify-content: space-between; align-items: center; gap: 12px;
-  min-height: 64px;
-}
-.bar > a { text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; }
-.theme { margin-left: auto; width: 44px; height: 44px; margin-right: -11px; display: inline-grid; place-items: center; color: var(--muted); }
+.theme { width: 44px; height: 44px; display: inline-grid; place-items: center; color: var(--muted); }
 .theme svg { display: block; }
 .theme:hover { color: var(--ink); }
 
@@ -81,8 +73,8 @@ main { display: flex; flex-direction: column; padding-top: 20px; }
 .art img { width: 100%; height: auto; display: block; }
 
 /* home: everything centered, like pengzhe.ng */
-.home { gap: 40px; padding-top: 40px; text-align: center; }
-.latest { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.home { gap: 40px; text-align: center; }
+.latest { margin: 0; max-width: 100%; display: flex; flex-direction: column; align-items: center; gap: 10px; }
 .latest .art-link { display: block; width: 400px; max-width: 100%; }
 .latest figcaption { font-size: .875em; }
 .latest figcaption a { color: var(--muted); text-decoration: none; }
@@ -104,22 +96,28 @@ main { display: flex; flex-direction: column; padding-top: 20px; }
 .work .name { font-weight: 500; text-underline-offset: 4px; }
 .work li a:hover .name { text-decoration: underline; text-decoration-color: var(--accent); }
 .work .years { font: .8125rem/1.5 var(--mono); color: var(--muted); white-space: nowrap; }
-/* bottom bar on every page: a floating, rounded bar centered over the page */
-.foot {
-  position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom)); z-index: 5;
+/* top bar on every page: the site navigation, a floating rounded bar centered at the
+   top of the window, sitting in the accent wash */
+.dock {
+  position: fixed; left: 50%; top: calc(16px + env(safe-area-inset-top)); z-index: 5;
   transform: translateX(-50%); max-width: calc(100% - 24px);
 }
-.foot-in {
+.dock-in {
   display: flex; align-items: center; gap: 22px; height: 52px; padding: 0 6px 0 22px; border-radius: 999px;
-  background: var(--dock-bg); border: 1px solid var(--dock-line); box-shadow: var(--dock-shadow);
-  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); color: var(--soft);
+  background: var(--dock-bg); border: 1px solid var(--dock-line);
+  -webkit-backdrop-filter: blur(28px) saturate(1.4); backdrop-filter: blur(28px) saturate(1.4); color: var(--soft);
 }
-.foot nav { display: flex; align-items: center; gap: 22px; }
-.foot nav::after { content: ""; width: 1px; height: 20px; background: var(--dock-line); }
-.foot nav a { text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; white-space: nowrap; }
-.foot nav a:hover { color: var(--ink); }
-.foot .theme { margin: 0; width: 40px; height: 40px; border-radius: 50%; color: var(--soft); }
-.foot .theme:hover { color: var(--ink); }
+.dock a { text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; white-space: nowrap; }
+.dock a:hover { color: var(--ink); }
+.dock a.dock-home { color: var(--ink); font-weight: 600; letter-spacing: -.01em; gap: 9px; }
+/* the name is set apart from the links: an accent dot before it (like the favicon) and a
+   short divider after it. On phones only the dot is left. */
+.dock-home::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+.dock-home::after { content: ""; width: 1px; height: 20px; margin-left: 13px; background: var(--dock-line); }
+.dock nav { display: flex; align-items: center; gap: 22px; }
+.dock nav::after { content: ""; width: 1px; height: 20px; background: var(--dock-line); }
+.dock .theme { margin: 0; width: 40px; height: 40px; border-radius: 50%; color: var(--soft); }
+.dock .theme:hover { color: var(--ink); }
 
 /* Inspiration page: a wider column, every entry expanded the same way */
 .wide { --col: 760px; }
@@ -128,7 +126,7 @@ main { display: flex; flex-direction: column; padding-top: 20px; }
 .tl-head p { font-size: 1.25em; line-height: 1.4; }
 .entries { display: flex; flex-direction: column; gap: 32px; }
 .month { font-size: inherit; font-weight: 400; color: var(--muted); border-bottom: 1px solid var(--rule); padding-bottom: 6px; }
-.entry { display: flex; gap: 40px; align-items: flex-start; scroll-margin-top: 80px; }
+.entry { display: flex; gap: 40px; align-items: flex-start; }
 .entry .art { flex: none; width: 240px; height: 200px; display: flex; align-items: flex-end; justify-content: center; }
 .entry .art img { width: auto; max-width: 100%; max-height: 100%; }
 .entry .text { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
@@ -164,19 +162,25 @@ main { display: flex; flex-direction: column; padding-top: 20px; }
 
 @media (max-width: 480px) {
   .intro p { font-size: 1.25rem; }
-  .foot-in { gap: 14px; padding: 0 4px 0 16px; }
-  .foot nav { gap: 14px; }
+  .dock-in { gap: 12px; padding: 0 4px 0 12px; }
+  .dock nav { gap: 12px; }
+  .dock a { font-size: .9375rem; }
+  .dock-home { min-width: 28px; justify-content: center; }
+  .dock-home::before { width: 10px; height: 10px; }
+  .dock-home::after { display: none; }
+  .dock-name { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 }
 @media (max-width: 360px) {
-  .foot nav a { font-size: .9375rem; }
+  .dock-in, .dock nav { gap: 9px; }
+  .dock a { font-size: .875rem; }
+  .dock nav::after { display: none; }
 }
 
 /* page transitions (Chrome, Edge, Safari 18.2+; others just load the page).
    The text fades out and in; the newest drawing moves between its spot on the
-   homepage and on the Inspiration page; the bars stay put. */
+   homepage and on the Inspiration page; the top bar stays put. */
 @view-transition { navigation: auto; }
-.bar { view-transition-name: bar; }
-.foot { view-transition-name: foot; }
+.dock { view-transition-name: dock; }
 ::view-transition-old(root) { animation: vt-out 150ms ease-in both; }
 ::view-transition-new(root) { animation: vt-in 250ms ease-out 120ms both; }
 ::view-transition-group(art) { animation-duration: 420ms; animation-timing-function: cubic-bezier(.3, .7, .2, 1); }
