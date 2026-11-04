@@ -40,6 +40,10 @@
 - **Art:** each post has a custom flat vector illustration on a transparent ground (no frame
   or box). It is a complete piece that stands on its own (2026-10-27, Mark): nothing cropped,
   no fades at the edges, the subject grounded on its own base (T and C stands on a stage riser). 400px on the homepage (back to 400 on Mark's ask, 2026-10-28); on the Inspiration page it sits in a 240×200 box, bottom-aligned.
+  **Scaling (2026-11-04, Mark: "one image that we can shrink or grow depending on the screen width"):** each
+  drawing is one `flat.webp` (about 3x size, no small copies, no srcset). On the homepage it is
+  `clamp(240px, 70vw, 400px)` wide, so it grows with the window and hits 400px at about 570px. On the
+  Inspiration page it keeps the 240×200 box on desktop; stacked on phones it uses the same clamp.
   (Grainy gradient and paper collage were tried and dropped on 2026-10-26.)
 - **Links:** underlined at rest in the accent so they read as links (2026-10-28); bar and nav
   links have no underline.

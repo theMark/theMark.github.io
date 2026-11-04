@@ -3,8 +3,8 @@
 //
 // To add a post:
 //   1. Draw its art in the flat vector style as one complete piece on a transparent ground
-//      (nothing cropped or faded at the edges), plus a 400px-wide "-sm" copy.
-//   2. Put both in assets/inspiration/<id>/ as flat.webp and flat-sm.webp.
+//      (nothing cropped or faded at the edges), about 1200px wide or more so it stays sharp.
+//   2. Save it as assets/inspiration/<id>/flat.webp. That one image scales to every screen.
 //   3. Add a block below. Order doesn't matter; posts are sorted by date.
 //
 // kind:    song | book | film | outside

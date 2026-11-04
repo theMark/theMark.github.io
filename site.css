@@ -75,7 +75,9 @@ main { display: flex; flex-direction: column; padding-top: 20px; }
 /* home: everything centered, like pengzhe.ng */
 .home { gap: 40px; text-align: center; }
 .latest { margin: 0; max-width: 100%; display: flex; flex-direction: column; align-items: center; gap: 10px; }
-.latest .art-link { display: block; width: 400px; max-width: 100%; }
+/* one image that scales with the screen: 70% of the window's width, from 240px on the
+   smallest phones up to 400px on desktop (reached at about 570px wide) */
+.latest .art-link { display: block; width: clamp(240px, 70vw, 400px); max-width: 100%; }
 .latest figcaption { font-size: .875em; }
 .latest figcaption a { color: var(--muted); text-decoration: none; }
 .latest figcaption a:hover { color: var(--ink); }
@@ -141,6 +143,9 @@ body::after {
 /* phones: the drawing stacks above the text */
 @media (max-width: 640px) {
   .entry { flex-direction: column; gap: 16px; }
+  /* stacked, the drawing scales with the screen like the homepage one */
+  .entry .art { width: clamp(240px, 70vw, 400px); max-width: 100%; height: auto; justify-content: flex-start; }
+  .entry .art img { width: 100%; max-height: none; }
 }
 
 /* about */
