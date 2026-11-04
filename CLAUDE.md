@@ -8,7 +8,7 @@ deployed via GitHub Pages at https://themark.github.io.
 - `inspiration.html` — every inspiration post, newest first, grouped by month, kind filter.
 - `posts.js` — the inspiration posts (data). `site.js` renders them and runs the light / dark switch.
 - `site.css` — styles for the homepage, Inspiration page and work pages ("Quiet column").
-- `assets/inspiration/<post-id>/` — each post's flat art (`flat.webp` + `flat-sm.webp`).
+- `assets/inspiration/<post-id>/` — each post's flat art (one `flat.webp`, scaled to the screen by CSS).
 - `work/*.html` — case-study pages, also "Quiet column" (`../site.css`).
 
 ## Design System

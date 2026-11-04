@@ -30,19 +30,21 @@
     return a.date < b.date ? 1 : a.date > b.date ? -1 : 0;
   });
 
-  function art(post, small, describe) {
-    var w = small ? 400 : post.size[0];
+  // One image per drawing (flat.webp, drawn at about 3x), scaled by the CSS to the screen.
+  function art(post, describe) {
+    var w = post.size[0];
     return el("div", { "class": "art" }, el("img", {
-      src: "assets/inspiration/" + post.id + "/flat" + (small ? "-sm" : "") + ".webp",
+      src: "assets/inspiration/" + post.id + "/flat.webp",
       alt: describe ? post.alt : "",
       width: w, height: Math.round(w * post.size[1] / post.size[0]),
-      loading: small ? "lazy" : "eager",
       decoding: "async"
     }));
   }
 
   // The newest drawing shares a name on both pages, so it moves between them.
   function named(n) { n.style.viewTransitionName = "art"; return n; }
+
+  function lazy(n) { n.firstChild.setAttribute("loading", "lazy"); return n; }
 
   function quoted(post, text) {
     return post.kind === "song" ? "“" + text + "”" : text;
@@ -61,12 +63,8 @@
   if (latest && posts.length) {
     var p = posts[0];
     var href = "inspiration.html#" + p.id;
-    var pic = art(p, true, true);
-    // shown at up to 400px: the 400px copy covers most screens, the full art covers sharp ones
-    var img = pic.firstChild;
-    img.setAttribute("srcset", "assets/inspiration/" + p.id + "/flat-sm.webp 400w, assets/inspiration/" + p.id + "/flat.webp " + p.size[0] + "w");
-    img.setAttribute("sizes", "(max-width: 432px) calc(100vw - 32px), 400px");
-    img.setAttribute("loading", "eager");
+    var pic = art(p, true);
+    pic.firstChild.setAttribute("fetchpriority", "high");
     latest.appendChild(el("a", { "class": "art-link", href: href }, named(pic)));
     latest.appendChild(el("figcaption", {}, el("a", { href: href },
       quoted(p, p.title) + (p.by ? " by " + p.by : "") + " \u2192"
@@ -88,7 +86,7 @@
       var title = el("h3", {}, byline(p));
       if (i === 0) title.appendChild(el("span", { "class": "now" }, "● Now"));
       list.appendChild(el("article", { "class": "entry", id: p.id }, [
-        i === 0 ? named(art(p, true, false)) : art(p, true, false),
+        i === 0 ? named(art(p, false)) : lazy(art(p, false)),
         el("div", { "class": "text" }, [
           el("div", {}, [title, el("p", { "class": "muted" }, KINDS[p.kind][0] + " · " + shortDate(d))]),
           el("p", { "class": "line" }, quoted(p, p.excerpt || p.line))

@@ -6,9 +6,9 @@ served by GitHub Pages from `main`.
 ## Adding an inspiration post
 
 1. Draw the art in the flat vector style, cut out on a transparent ground.
-   Export it as WebP at full size (about 1224px wide) and as a 400px-wide copy.
-2. Pick an id like `2026-11-02-some-song` and put both files in
-   `assets/inspiration/<id>/` as `flat.webp` and `flat-sm.webp`.
+   Export it as one WebP, about 1200px wide or more so it stays sharp on any screen.
+2. Pick an id like `2026-11-02-some-song` and put it in
+   `assets/inspiration/<id>/` as `flat.webp` (one image; the CSS scales it to the screen).
 3. Add a block to `posts.js` (the comment at the top lists the fields).
 4. Commit and push. The newest post becomes the drawing and the inspiration line on the
    homepage, and the Inspiration page picks it up with a "Now" marker. Kind filters appear once there's more
