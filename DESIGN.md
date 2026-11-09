@@ -4,44 +4,55 @@
 > one drawn object at the top. Reference feel: pengzhe.ng. Since 2026-10-26 the case
 > studies in `work/` use it too. The older "Aurora" system below is retired and kept for history.
 
-## Quiet column (index.html, inspiration.html, work/*.html, site.css)
-- **Idea:** a personal site, not a portfolio pitch. The newest thing that's inspiring me
-  sits at the top as a drawing with its line; a short first-person bio; Work as a plain list.
-  The Inspiration page lists every post, newest first, grouped by month.
-- **Layout:** single column, max-width `560px`, 16px side gutter. Sticky top bar with a
-  "← Mark Weiss" link (not on the homepage). Floating bottom bar on every page except Inspiration (2026-10-31, replacing
-  the edge-to-edge rule): a rounded bar centered 20px above the bottom of the window, translucent
-  with a blur, a hairline border and a soft shadow (`--dock-bg`, `--dock-line`, `--dock-shadow`).
-  Inside: Work · Inspiration · About · Email at 1rem in `--soft` (Résumé joins once there's a PDF),
-  a short divider, then the sun / moon icon for light and dark. LinkedIn and GitHub live on About.
-  Sections separated by space, not boxes.
+## Quiet column (index.html, inspiration.html, about.html, work/*.html, site.css)
+- **Idea:** a personal site, not a portfolio pitch. Who I am first, then the newest
+  thing that's inspiring me as a drawing with a short why, then Work, Tools, About and Contact.
+  The Inspiration page stacks every post, newest first.
+- **Layout (2026-11-09):** no top or bottom bar on any page (Mark: "the only thing I want is
+  something for light mode, dark mode"). The sun / moon switch sits in the top-right corner;
+  every page but the homepage has "← Mark Weiss" in the top-left corner (`.corner`,
+  `.home-link`, body class `stack-page`). The homepage and Inspiration page are one centered
+  608px column; About and the work pages keep the 560px reading column, starting 112px down
+  (`.page-main`, 88px on phones). 16px side gutter. Sections separated by space, not boxes.
 - **Type:** **Geist** 400/500 at 1em/1.5 (16px, the browser standard) for everything,
   phones included (`--text`; Mark asked for the standard paragraph size on 2026-10-27,
-  replacing the earlier 1.5em). The one exception is the homepage inspiration line under the
-  intro: 1.5rem/1.4 (1.25rem on phones), max 30ch (Mark, 2026-10-28). No display headlines.
+  replacing the earlier 1.5em). The one exception is the homepage intro line and the Inspiration page heading:
+  1.75rem/1.3 (1.375rem on phones), max 24ch. No display headlines.
 - **Color, dark:** bg `#111214` · ink `#e9e9e6` · soft `#c9c9c5` (work page prose) ·
   muted `#8f8f8b` · rule `#2a2b2e` · now `#f0a75a` (the "● Now" marker, favicon dot) · focus `#9fc3ff`.
 - **Accent (2026-10-28):** one color picked from the newest drawing (`accent` in posts.js, a
   dark-mode and a light-mode value; T and C is amber `#f0a75a` / `#b25a0c`). Used on link
-  underlines (70%), the homepage "Lately" and "Work" headers, and the wash. Never as a solid
+  underlines (70%), the small section labels (Inspiration, Work, Tools, About, Contact), and the wash. Never as a solid
   fill or a button.
 - **Wash (2026-10-31):** so the page isn't flat black, a soft radial glow of the accent comes down
   from the top of the window on every page (`--wash-img`: 11% of the accent in dark, 16% in light,
   fading out by about 60% of the window height). It is pinned to the window (`body::before`,
-  fixed), and the sticky top bar paints the same fixed wash so it blends in. Each new post's
+  fixed). Each new post's
   accent recolors it. The drawings themselves stay flat, with no gradients.
 - **Color, light:** bg `#f6f6f3` · ink `#1c1c1b` · soft `#3d3d3a` · muted `#6a6a66` ·
   rule `#d9d9d4` · now `#b25a0c` · focus `#2a62c9`.
-- **Mode:** follows the visitor's system setting; the top-bar switch overrides it and is
+- **Mode:** follows the visitor's system setting; the corner switch overrides it and is
   remembered (`localStorage.theme`, set as `data-theme` on `<html>`).
 - **Art:** each post has a custom flat vector illustration on a transparent ground (no frame
   or box). It is a complete piece that stands on its own (2026-10-27, Mark): nothing cropped,
-  no fades at the edges, the subject grounded on its own base (T and C stands on a stage riser). 400px on the homepage (back to 400 on Mark's ask, 2026-10-28); on the Inspiration page it sits in a 240×200 box, bottom-aligned.
+  no fades at the edges, the subject grounded on its own base (T and C stands on a stage riser). On the homepage and the Inspiration page it sits in a 520:476 box up to 340px wide (300px on phones), bottom-aligned.
   (Grainy gradient and paper collage were tried and dropped on 2026-10-26.)
-- **Links:** underlined at rest in the accent so they read as links (2026-10-28); bar and nav
-  links have no underline.
-- **Motion:** small hover color changes, plus page transitions (2026-10-26, option C): text crossfades, the newest drawing moves between the homepage and the Inspiration page, the top and bottom bars stay put. Off under reduced motion; browsers without view transitions just load the page.
-- **Homepage order (direction C, 2026-10-26):** who I am comes first; all homepage text is centered (Inspiration page stays left-aligned). Updated 2026-10-31 from the design canvas (board 25): a small "Lately" header, then a 400px drawing of the newest post with a muted caption, "“<title>” by <by> →" (both link to the post on the Inspiration page) → one line, "I'm Mark Weiss, a product designer who builds with AI, based in Chico, California." ("Mark Weiss" links to about.html) → a "Work" header, then Work as ruled rows in a 480px block: place name (weight 500) on the left, years on the right in Geist Mono, muted, hairlines between rows, no job titles. "Lately" and "Work" use the same header: .875rem, weight 400, in the accent. Contact links live in the bottom bar. Lyrics and the longer "why" live on the Inspiration page.
+- **Links:** underlined at rest in the accent so they read as links (2026-10-28); the corner links, Work rows and
+  Contact links have no underline.
+- **Motion:** small hover color changes, plus page transitions (2026-10-26, option C): text crossfades, the newest drawing moves between the homepage and the Inspiration page, the corner links stay put. Off under reduced motion; browsers without view transitions just load the page.
+- **Homepage (2026-11-09, from the "Homepage, no top bar" canvas):** everything centered, one
+  stack with 96px between sections (72px on phones). Each section after the intro has a small
+  label: .875rem, weight 400, in the accent. In order:
+  1. Intro: "I'm Mark Weiss, a product designer who builds with AI." ("Mark Weiss" links to about.html).
+  2. Inspiration (newest post, from posts.js): the drawing, then the "Inspiration" label under it,
+     then "“<title>” by <by>" (weight 500) with a small muted date, then the first 25 words of the
+     why in `--soft`, cut with "…" and a "Read more" link to the post on the Inspiration page.
+  3. Work: a centered list, each row a small muted line icon (magined a sofa, Freedom Forever a
+     sun, MetPro a leaf), the place name (weight 500) and one muted line about it under the name.
+     No years or time spent (those live on the work pages), no job titles.
+  4. Tools: one comma-separated line in `--soft`.
+  5. About: about 50 words in `--soft`, cut with "…" and "Read more" to about.html.
+  6. Contact: icon + link, stacked: mark@magined.com, LinkedIn, GitHub, in `--soft`.
 - **Inspiration page (2026-11-09, stacked):** every post stacked newest first in one centered
   608px column, each entry shaped like the homepage's Inspiration block: the drawing (max 340px,
   300px on phones, in a 520:476 box, bottom-aligned), then "“<title>” by <by>" (weight 500) with a
@@ -51,7 +62,7 @@
   stuck with me." at 1.75rem (1.375rem on phones). No top or bottom bar on this page: "← Mark
   Weiss" sits in the top-left corner and the sun / moon switch in the top-right (Mark, from the
   "Timeline iterations" canvas, take A).
-- **Work pages (`work/*.html`, 2026-10-26):** same bar, column and type as the Inspiration page,
+- **Work pages (`work/*.html`, 2026-10-26):** the same corners as About, 560px column,
   left-aligned. Name → muted "role · years" → one intro paragraph → plain sections (h2 at
   body size, weight 500; prose in `--soft`) → images only where real work exists (magined:
   a 2-up before/after and a 3-up row, 4px radius, small muted caption) → a prev / next line
@@ -125,3 +136,4 @@
 | 2026-10-26 | Homepage simplified (direction C), flat art only, light mode added | Mark: "it's my personal site, people need to know who I am." Picked C from four canvas sketches; chose flat over grainy/collage; asked for 24px type and centered homepage text like pengzhe.ng. |
 | 2026-10-26 | Work pages moved to **Quiet column**; Aurora retired | Mark: clicking Work "looks like a completely different website"; asked for the work pages to be simple and match the homepage. styles.css removed. |
 | 2026-10-31 | Accent wash, floating bottom bar, Work as ruled rows | Mark felt the site was "a little blah" and "pure black" but wanted to keep the layout. After five rounds on the design canvas he picked board 25 (warm wash, ruled rows, floating bar), without job titles, and with one header style for "Lately" and "Work". |
+| 2026-11-09 | No bars; homepage as a stack of sections | Mark asked to remove the top bar and keep only a light / dark switch, with the homepage as plain sections: who I am, Inspiration, Work, Tools, About, Contact. Picked each section on the "Homepage, no top bar" canvas (image-first Inspiration, Work with line icons and descriptions, stacked Contact). About and work pages lose their bars too. |
