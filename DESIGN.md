@@ -9,7 +9,7 @@
   sits at the top as a drawing with its line; a short first-person bio; Work as a plain list.
   The Inspiration page lists every post, newest first, grouped by month.
 - **Layout:** single column, max-width `560px`, 16px side gutter. Sticky top bar with a
-  "← Mark Weiss" link (not on the homepage). Floating bottom bar on every page (2026-10-31, replacing
+  "← Mark Weiss" link (not on the homepage). Floating bottom bar on every page except Inspiration (2026-10-31, replacing
   the edge-to-edge rule): a rounded bar centered 20px above the bottom of the window, translucent
   with a blur, a hairline border and a soft shadow (`--dock-bg`, `--dock-line`, `--dock-shadow`).
   Inside: Work · Inspiration · About · Email at 1rem in `--soft` (Résumé joins once there's a PDF),
@@ -42,11 +42,15 @@
   links have no underline.
 - **Motion:** small hover color changes, plus page transitions (2026-10-26, option C): text crossfades, the newest drawing moves between the homepage and the Inspiration page, the top and bottom bars stay put. Off under reduced motion; browsers without view transitions just load the page.
 - **Homepage order (direction C, 2026-10-26):** who I am comes first; all homepage text is centered (Inspiration page stays left-aligned). Updated 2026-10-31 from the design canvas (board 25): a small "Lately" header, then a 400px drawing of the newest post with a muted caption, "“<title>” by <by> →" (both link to the post on the Inspiration page) → one line, "I'm Mark Weiss, a product designer who builds with AI, based in Chico, California." ("Mark Weiss" links to about.html) → a "Work" header, then Work as ruled rows in a 480px block: place name (weight 500) on the left, years on the right in Geist Mono, muted, hairlines between rows, no job titles. "Lately" and "Work" use the same header: .875rem, weight 400, in the accent. Contact links live in the bottom bar. Lyrics and the longer "why" live on the Inspiration page.
-- **Inspiration page (2026-10-28, "Timeline A"):** column widens to 760px (`body.wide`). Heading:
-  "Inspiration" then "A running log of things that caught my eye and stuck with me." at 1.25em.
-  No kind filters. Month headings over a hairline. Every entry is expanded and looks the same:
-  drawing on the left, then title · by (weight 500, "● Now" on the newest), muted kind · date,
-  the line at 1.25em, and the why in `--soft`. At 640px and below the drawing stacks above the text.
+- **Inspiration page (2026-11-09, stacked):** every post stacked newest first in one centered
+  608px column, each entry shaped like the homepage's Inspiration block: the drawing (max 340px,
+  300px on phones, in a 520:476 box, bottom-aligned), then "“<title>” by <by>" (weight 500) with a
+  small muted date ("Oct 23"), then the why in `--soft` (the line when a post has no why). 120px
+  between entries (80px on phones). No month headings, kind filters or "● Now" marker. Header: a
+  small "Inspiration" label in the accent over "A running log of things that caught my eye and
+  stuck with me." at 1.75rem (1.375rem on phones). No top or bottom bar on this page: "← Mark
+  Weiss" sits in the top-left corner and the sun / moon switch in the top-right (Mark, from the
+  "Timeline iterations" canvas, take A).
 - **Work pages (`work/*.html`, 2026-10-26):** same bar, column and type as the Inspiration page,
   left-aligned. Name → muted "role · years" → one intro paragraph → plain sections (h2 at
   body size, weight 500; prose in `--soft`) → images only where real work exists (magined:

@@ -5,7 +5,7 @@ deployed via GitHub Pages at https://themark.github.io.
 
 - `index.html` — homepage: newest inspiration drawing + line, bio, Work list, footer links.
 - `about.html` — the About me page (linked from the bottom bar and the name on the homepage).
-- `inspiration.html` — every inspiration post, newest first, grouped by month, kind filter.
+- `inspiration.html` — every inspiration post stacked newest first, each like the homepage block.
 - `posts.js` — the inspiration posts (data). `site.js` renders them and runs the light / dark switch.
 - `site.css` — styles for the homepage, Inspiration page and work pages ("Quiet column").
 - `assets/inspiration/<post-id>/` — each post's flat art (`flat.webp` + `flat-sm.webp`).
