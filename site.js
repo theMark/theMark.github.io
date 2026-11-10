@@ -2,12 +2,6 @@
 // light / dark switch (follows the system until a visitor picks one).
 (function () {
   var root = document.documentElement;
-  var KINDS = {
-    song: ["Song", "Songs"],
-    book: ["Book", "Books"],
-    film: ["Film", "Films"],
-    outside: ["Outside", "Outside"]
-  };
   var MONTHS = ["January", "February", "March", "April", "May", "June", "July",
     "August", "September", "October", "November", "December"];
 
@@ -48,8 +42,6 @@
     return post.kind === "song" ? "“" + text + "”" : text;
   }
 
-  function byline(post) { return post.by ? post.title + " · " + post.by : post.title; }
-
   // The accent comes from the newest drawing, on every page that loads posts.js.
   if (posts.length && posts[0].accent) {
     root.style.setProperty("--accent-dark", posts[0].accent[0]);
@@ -73,26 +65,29 @@
     )));
   }
 
-  // Inspiration page: newest first, grouped by month. Every entry looks the same:
-  // drawing, title, kind and date, the line, and why it stuck.
+  // Inspiration page: every post stacked newest first, each shaped like the homepage's
+  // Inspiration block: the drawing, the title with a small date, then why it stuck.
   var list = document.getElementById("entries");
   if (list) {
-    var lastMonth = null;
     posts.forEach(function (p, i) {
       var d = parseDate(p.date);
-      var month = d.getFullYear() + "-" + d.getMonth();
-      if (month !== lastMonth) {
-        list.appendChild(el("h2", { "class": "month" }, MONTHS[d.getMonth()] + " " + d.getFullYear()));
-        lastMonth = month;
-      }
-      var title = el("h3", {}, byline(p));
-      if (i === 0) title.appendChild(el("span", { "class": "now" }, "● Now"));
+      var pic = el("img", {
+        src: "assets/inspiration/" + p.id + "/flat-sm.webp",
+        srcset: "assets/inspiration/" + p.id + "/flat-sm.webp 400w, assets/inspiration/" + p.id + "/flat.webp " + p.size[0] + "w",
+        sizes: "(max-width: 388px) calc(100vw - 48px), 340px",
+        alt: p.alt,
+        width: 400, height: Math.round(400 * p.size[1] / p.size[0]),
+        loading: i < 2 ? "eager" : "lazy",
+        decoding: "async"
+      });
+      var link = el("a", { "class": "art", href: "#" + p.id }, pic);
+      if (i === 0) named(link);
+      var title = el("h2", {}, [
+        quoted(p, p.title) + (p.by ? " by " + p.by : ""),
+        el("time", { "class": "date", datetime: p.date }, shortDate(d))
+      ]);
       list.appendChild(el("article", { "class": "entry", id: p.id }, [
-        i === 0 ? named(art(p, true, false)) : art(p, true, false),
-        el("div", { "class": "text" }, [
-          el("div", {}, [title, el("p", { "class": "muted" }, KINDS[p.kind][0] + " · " + shortDate(d))]),
-          el("p", { "class": "line" }, quoted(p, p.excerpt || p.line))
-        ].concat(p.why ? [el("p", { "class": "why" }, p.why)] : []))
+        link, title, el("p", { "class": "why" }, p.why || quoted(p, p.line))
       ]));
     });
   }

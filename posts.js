@@ -9,9 +9,9 @@
 //
 // kind:    song | book | film | outside
 // line:    the lyric, quote or one line about it
-// excerpt: optional shorter line for the Inspiration page (defaults to line)
+// excerpt: optional shorter line (not shown right now)
 // why:     what it means to me and why it inspires me, a few sentences, first
-//          person (shown on the Inspiration page)
+//          person (shown on the Inspiration page; the line shows when there is none)
 // accent:  one color picked from the drawing, [for dark mode, for light mode]. It tints
 //          link underlines and the homepage "Lately" label while this is the newest post.
 //          The light one has to read as text on #f6f6f3.
