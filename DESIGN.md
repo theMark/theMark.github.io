@@ -35,7 +35,7 @@
   remembered (`localStorage.theme`, set as `data-theme` on `<html>`).
 - **Art:** each post has a custom flat vector illustration on a transparent ground (no frame
   or box). It is a complete piece that stands on its own (2026-10-27, Mark): nothing cropped,
-  no fades at the edges, the subject grounded on its own base (T and C stands on a stage riser). On the homepage and the Inspiration page it sits in a 520:476 box up to 340px wide (300px on phones), bottom-aligned.
+  no fades at the edges, the subject grounded on its own base (T and C stands on a stage riser). On the homepage and the Inspiration page it shows at its own shape, 400px wide (2026-10-27, Mark), 300px on phones.
   (Grainy gradient and paper collage were tried and dropped on 2026-10-26.)
 - **Links:** underlined at rest in the accent so they read as links (2026-10-28); the corner links, Work rows and
   Contact links have no underline.
@@ -54,8 +54,8 @@
   5. About: about 50 words in `--soft`, cut with "…" and "Read more" to about.html.
   6. Contact: icon + link, stacked: mark@magined.com, LinkedIn, GitHub, in `--soft`.
 - **Inspiration page (2026-11-09, stacked):** every post stacked newest first in one centered
-  608px column, each entry shaped like the homepage's Inspiration block: the drawing (max 340px,
-  300px on phones, in a 520:476 box, bottom-aligned), then "“<title>” by <by>" (weight 500) with a
+  608px column, each entry shaped like the homepage's Inspiration block: the drawing (400px wide,
+  300px on phones, at its own shape), then "“<title>” by <by>" (weight 500) with a
   small muted date ("Oct 23"), then the why in `--soft` (the line when a post has no why). 120px
   between entries (80px on phones). No month headings, kind filters or "● Now" marker. Header: a
   small "Inspiration" label in the accent over "A running log of things that caught my eye and
