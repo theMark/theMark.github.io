@@ -47,7 +47,7 @@
     var pic = el("img", {
       src: "assets/inspiration/" + p.id + "/flat-sm.webp",
       srcset: "assets/inspiration/" + p.id + "/flat-sm.webp 400w, assets/inspiration/" + p.id + "/flat.webp " + p.size[0] + "w",
-      sizes: "(max-width: 388px) calc(100vw - 48px), 340px",
+      sizes: "(max-width: 348px) calc(100vw - 48px), (max-width: 640px) 300px, 400px",
       alt: p.alt,
       width: 400, height: Math.round(400 * p.size[1] / p.size[0]),
       decoding: "async"
@@ -72,7 +72,7 @@
       var pic = el("img", {
         src: "assets/inspiration/" + p.id + "/flat-sm.webp",
         srcset: "assets/inspiration/" + p.id + "/flat-sm.webp 400w, assets/inspiration/" + p.id + "/flat.webp " + p.size[0] + "w",
-        sizes: "(max-width: 388px) calc(100vw - 48px), 340px",
+        sizes: "(max-width: 348px) calc(100vw - 48px), (max-width: 640px) 300px, 400px",
         alt: p.alt,
         width: 400, height: Math.round(400 * p.size[1] / p.size[0]),
         loading: i < 2 ? "eager" : "lazy",
