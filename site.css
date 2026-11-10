@@ -13,10 +13,6 @@
   /* how strong the accent wash is at the top of the window */
   --wash: 11%;
   --wash-img: radial-gradient(120% 60vh at 50% 0, color-mix(in srgb, var(--accent) var(--wash), transparent), transparent 65%);
-  /* the floating bottom bar */
-  --dock-bg: rgba(32, 33, 37, .72);
-  --dock-line: rgba(255, 255, 255, .09);
-  --dock-shadow: 0 10px 30px rgba(0, 0, 0, .35);
   --sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
   --text: 1em;
@@ -27,13 +23,13 @@
   :root:not([data-theme="dark"]) {
     --bg: #f6f6f3; --ink: #1c1c1b; --soft: #3d3d3a; --muted: #6a6a66; --rule: #d9d9d4;
     --now: #b25a0c; --accent: var(--accent-light, #b25a0c); --focus: #2a62c9; color-scheme: light;
-    --wash: 16%; --dock-bg: rgba(255, 255, 255, .72); --dock-line: rgba(0, 0, 0, .08); --dock-shadow: 0 8px 30px rgba(0, 0, 0, .08);
+    --wash: 16%;
   }
 }
 :root[data-theme="light"] {
   --bg: #f6f6f3; --ink: #1c1c1b; --soft: #3d3d3a; --muted: #6a6a66; --rule: #d9d9d4;
   --now: #b25a0c; --accent: var(--accent-light, #b25a0c); --focus: #2a62c9; color-scheme: light;
-  --wash: 16%; --dock-bg: rgba(255, 255, 255, .72); --dock-line: rgba(0, 0, 0, .08); --dock-shadow: 0 8px 30px rgba(0, 0, 0, .08);
+  --wash: 16%;
 }
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
@@ -43,7 +39,7 @@ body {
   background: var(--bg);
   color: var(--ink);
   font: var(--text)/1.5 var(--sans);
-  padding: 0 max(16px, env(safe-area-inset-right)) 112px max(16px, env(safe-area-inset-left));
+  padding: 0 max(16px, env(safe-area-inset-right)) 0 max(16px, env(safe-area-inset-left));
   -webkit-font-smoothing: antialiased;
   isolation: isolate;
 }
@@ -64,61 +60,46 @@ p, h1, h2, h3, blockquote, figure { margin: 0; }
 .wrap { max-width: var(--col); margin: 0 auto; }
 main { display: flex; flex-direction: column; padding-top: 20px; }
 
-/* top bar: link back to the homepage (not on the homepage itself) */
-.bar {
-  position: sticky; top: 0; z-index: 5;
-  /* the same wash, pinned to the window, so the bar blends into it */
-  background: var(--wash-img) fixed, var(--bg);
-  display: flex; justify-content: space-between; align-items: center; gap: 12px;
-  min-height: 64px;
-}
-.bar > a { text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; }
-.theme { margin-left: auto; width: 44px; height: 44px; margin-right: -11px; display: inline-grid; place-items: center; color: var(--muted); }
+/* the light / dark switch (a sun or a moon) */
+.theme { width: 44px; height: 44px; display: inline-grid; place-items: center; color: var(--muted); }
 .theme svg { display: block; }
 .theme:hover { color: var(--ink); }
 
 /* art: one cut-out drawing (flat vector) on a transparent ground */
 .art img { width: 100%; height: auto; display: block; }
 
-/* home: everything centered, like pengzhe.ng */
-.home { gap: 40px; padding-top: 40px; text-align: center; }
-.latest { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 10px; }
-.latest .art-link { display: block; width: 400px; max-width: 100%; }
-.latest figcaption { font-size: .875em; }
-.latest figcaption a { color: var(--muted); text-decoration: none; }
-.latest figcaption a:hover { color: var(--ink); }
-/* "Lately" and "Work" share one small header in the accent */
+/* Homepage: one centered stack of sections (2026-11-09). Who I am first, then the newest
+   drawing with a short why, Work, Tools, About and Contact. No bars: the light / dark
+   switch sits in the top-right corner. */
+.home { gap: 96px; }
 .home h2 { font-size: .875rem; font-weight: 400; color: var(--accent); }
-.lately-sec { display: flex; flex-direction: column; align-items: center; gap: 12px; }
-.intro { align-self: center; margin-top: -8px; }
-.intro p { font-size: 1.5rem; line-height: 1.4; max-width: 30ch; }
-/* Work: ruled rows, name on the left, years on the right */
-.work { display: flex; flex-direction: column; gap: 10px; align-self: center; width: 480px; max-width: 100%; }
-.work ul { list-style: none; margin: 0; padding: 0; text-align: left; }
-.work li a {
-  display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
-  padding: 12px 4px; border-top: 1px solid var(--rule); text-decoration: none;
-}
-.work li:last-child a { border-bottom: 1px solid var(--rule); }
-.work .name { font-weight: 500; text-underline-offset: 4px; }
+.hello { display: flex; justify-content: center; }
+.hello h1 { max-width: 24ch; font-size: 1.75rem; font-weight: 400; line-height: 1.3; letter-spacing: -.01em; text-wrap: balance; }
+.hello a { text-underline-offset: 5px; }
+.insp { display: flex; flex-direction: column; align-items: center; }
+.insp h2 { margin-top: 20px; }
+.insp .title { margin-top: 4px; font-weight: 500; }
+.insp .date { margin-left: 6px; font-weight: 400; font-size: .875rem; color: var(--muted); }
+.insp .why, .about-sec p { max-width: 30em; color: var(--soft); text-wrap: pretty; }
+.insp .why { margin-top: 8px; }
+.insp .why a, .about-sec a { color: var(--ink); white-space: nowrap; }
+.work, .tools, .contact { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.about-sec { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+/* Work: a small line icon, the name, and one line about it under the name */
+.work ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; max-width: 100%; text-align: left; }
+.work li a { display: flex; align-items: flex-start; gap: 12px; padding: 8px 0; text-decoration: none; }
+.work li a > svg { flex: none; margin-top: 3px; color: var(--muted); }
+.work li a > span { display: flex; flex-direction: column; gap: 2px; }
+.work .name { font-weight: 500; }
+.work .desc { font-size: .875rem; line-height: 1.45; color: var(--muted); }
 .work li a:hover .name { text-decoration: underline; text-decoration-color: var(--accent); }
-.work .years { font: .8125rem/1.5 var(--mono); color: var(--muted); white-space: nowrap; }
-/* bottom bar on every page: a floating, rounded bar centered over the page */
-.foot {
-  position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom)); z-index: 5;
-  transform: translateX(-50%); max-width: calc(100% - 24px);
-}
-.foot-in {
-  display: flex; align-items: center; gap: 22px; height: 52px; padding: 0 6px 0 22px; border-radius: 999px;
-  background: var(--dock-bg); border: 1px solid var(--dock-line); box-shadow: var(--dock-shadow);
-  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); color: var(--soft);
-}
-.foot nav { display: flex; align-items: center; gap: 22px; }
-.foot nav::after { content: ""; width: 1px; height: 20px; background: var(--dock-line); }
-.foot nav a { text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; white-space: nowrap; }
-.foot nav a:hover { color: var(--ink); }
-.foot .theme { margin: 0; width: 40px; height: 40px; border-radius: 50%; color: var(--soft); }
-.foot .theme:hover { color: var(--ink); }
+.work li a:hover svg { color: var(--ink); }
+.tools p { max-width: 480px; color: var(--soft); text-wrap: balance; }
+/* Contact: icon and link, stacked */
+.contact div { display: flex; flex-direction: column; align-items: flex-start; font-size: .9375rem; }
+.contact a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: var(--soft); text-decoration: none; }
+.contact a:hover { color: var(--ink); }
+.contact a:hover span { text-decoration: underline; text-decoration-color: var(--accent); }
 
 /* Inspiration page: every post stacked, centered, each shaped like the homepage's
    Inspiration block (drawing, title with a small date, why). No bars: a home link
@@ -135,8 +116,8 @@ main { display: flex; flex-direction: column; padding-top: 20px; }
 .stack-head p { max-width: 24ch; font-size: 1.75rem; line-height: 1.3; letter-spacing: -.01em; text-wrap: balance; }
 .entries { display: flex; flex-direction: column; align-items: center; gap: 120px; }
 .entry { display: flex; flex-direction: column; align-items: center; width: 100%; scroll-margin-top: 32px; }
-.entry .art { position: relative; display: block; width: 100%; max-width: 340px; aspect-ratio: 520 / 476; }
-.entry .art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: 50% 100%; }
+.entry .art, .insp .art { position: relative; display: block; width: 100%; max-width: 340px; aspect-ratio: 520 / 476; }
+.entry .art img, .insp .art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: 50% 100%; }
 .entry h2 { margin-top: 20px; font-size: inherit; font-weight: 500; }
 .entry .date { margin-left: 6px; font-weight: 400; font-size: .875rem; color: var(--muted); }
 .entry .why { margin-top: 8px; max-width: 30em; color: var(--soft); text-wrap: pretty; }
@@ -144,16 +125,23 @@ main { display: flex; flex-direction: column; padding-top: 20px; }
   .stack { padding: 96px 8px; gap: 72px; }
   .stack-head p { font-size: 1.375rem; }
   .entries { gap: 80px; }
-  .entry .art { max-width: 300px; }
+  .entry .art, .insp .art { max-width: 300px; }
   .corner { top: 12px; }
   .home-link { left: 20px; }
   .stack-page .theme { right: 12px; }
+  .home { gap: 72px; }
+  .hello h1 { font-size: 1.375rem; }
+  .page-main { padding-top: 88px; }
 }
 
+/* About and work pages: the same corners, the usual column below them */
+.page-main { padding-top: 112px; padding-bottom: 112px; }
+
 /* about */
-.about { gap: 24px; }
-.about h1 { font-size: inherit; font-weight: 500; }
-.about p { color: var(--soft); }
+.about { gap: 18px; }
+.about h1 { font-size: .875rem; font-weight: 400; color: var(--accent); }
+.about p { color: var(--soft); text-wrap: pretty; }
+.about .lead { font-size: 1.125rem; color: var(--ink); }
 
 /* case studies: same column, left-aligned reading */
 .case { gap: 32px; }
@@ -171,21 +159,12 @@ main { display: flex; flex-direction: column; padding-top: 20px; }
 .case-nav a { text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; }
 .case-nav a:hover { color: var(--ink); }
 
-@media (max-width: 480px) {
-  .intro p { font-size: 1.25rem; }
-  .foot-in { gap: 14px; padding: 0 4px 0 16px; }
-  .foot nav { gap: 14px; }
-}
-@media (max-width: 360px) {
-  .foot nav a { font-size: .9375rem; }
-}
-
 /* page transitions (Chrome, Edge, Safari 18.2+; others just load the page).
    The text fades out and in; the newest drawing moves between its spot on the
-   homepage and on the Inspiration page; the bars stay put. */
+   homepage and on the Inspiration page; the corner links stay put. */
 @view-transition { navigation: auto; }
-.bar { view-transition-name: bar; }
-.foot { view-transition-name: foot; }
+.corner.theme { view-transition-name: theme; }
+.home-link { view-transition-name: home; }
 ::view-transition-old(root) { animation: vt-out 150ms ease-in both; }
 ::view-transition-new(root) { animation: vt-in 250ms ease-out 120ms both; }
 ::view-transition-group(art) { animation-duration: 420ms; animation-timing-function: cubic-bezier(.3, .7, .2, 1); }

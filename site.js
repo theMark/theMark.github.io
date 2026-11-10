@@ -24,17 +24,6 @@
     return a.date < b.date ? 1 : a.date > b.date ? -1 : 0;
   });
 
-  function art(post, small, describe) {
-    var w = small ? 400 : post.size[0];
-    return el("div", { "class": "art" }, el("img", {
-      src: "assets/inspiration/" + post.id + "/flat" + (small ? "-sm" : "") + ".webp",
-      alt: describe ? post.alt : "",
-      width: w, height: Math.round(w * post.size[1] / post.size[0]),
-      loading: small ? "lazy" : "eager",
-      decoding: "async"
-    }));
-  }
-
   // The newest drawing shares a name on both pages, so it moves between them.
   function named(n) { n.style.viewTransitionName = "art"; return n; }
 
@@ -48,21 +37,30 @@
     root.style.setProperty("--accent-light", posts[0].accent[1]);
   }
 
-  // Homepage: the newest drawing under the "Lately" header, with its title under it.
+  // Homepage: the newest drawing, then the "Inspiration" label, the title with a small
+  // date, and the first 25 words of why it stuck, with "Read more" to its spot on the
+  // Inspiration page.
   var latest = document.getElementById("latest");
   if (latest && posts.length) {
     var p = posts[0];
     var href = "inspiration.html#" + p.id;
-    var pic = art(p, true, true);
-    // shown at up to 400px: the 400px copy covers most screens, the full art covers sharp ones
-    var img = pic.firstChild;
-    img.setAttribute("srcset", "assets/inspiration/" + p.id + "/flat-sm.webp 400w, assets/inspiration/" + p.id + "/flat.webp " + p.size[0] + "w");
-    img.setAttribute("sizes", "(max-width: 432px) calc(100vw - 32px), 400px");
-    img.setAttribute("loading", "eager");
-    latest.appendChild(el("a", { "class": "art-link", href: href }, named(pic)));
-    latest.appendChild(el("figcaption", {}, el("a", { href: href },
-      quoted(p, p.title) + (p.by ? " by " + p.by : "") + " \u2192"
-    )));
+    var pic = el("img", {
+      src: "assets/inspiration/" + p.id + "/flat-sm.webp",
+      srcset: "assets/inspiration/" + p.id + "/flat-sm.webp 400w, assets/inspiration/" + p.id + "/flat.webp " + p.size[0] + "w",
+      sizes: "(max-width: 388px) calc(100vw - 48px), 340px",
+      alt: p.alt,
+      width: 400, height: Math.round(400 * p.size[1] / p.size[0]),
+      decoding: "async"
+    });
+    var words = (p.why || quoted(p, p.line)).split(/\s+/);
+    var blurb = words.length > 25 ? words.slice(0, 25).join(" ").replace(/[.,;:!?]+$/, "") + "\u2026 " : words.join(" ") + " ";
+    latest.appendChild(named(el("a", { "class": "art", href: href }, pic)));
+    latest.appendChild(el("h2", { id: "insp-h" }, "Inspiration"));
+    latest.appendChild(el("p", { "class": "title" }, [
+      quoted(p, p.title) + (p.by ? " by " + p.by : ""),
+      el("time", { "class": "date", datetime: p.date }, shortDate(parseDate(p.date)))
+    ]));
+    latest.appendChild(el("p", { "class": "why" }, [blurb, el("a", { href: href }, "Read more")]));
   }
 
   // Inspiration page: every post stacked newest first, each shaped like the homepage's
