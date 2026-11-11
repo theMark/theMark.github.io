@@ -37,7 +37,7 @@
     root.style.setProperty("--accent-light", posts[0].accent[1]);
   }
 
-  // Homepage: the newest drawing, then the "Inspiration" label, the title with a small
+  // Homepage: the newest drawing (no header), then the title with a small
   // date, and the first 25 words of why it stuck, with "Read more" to its spot on the
   // Inspiration page.
   var latest = document.getElementById("latest");
@@ -55,7 +55,6 @@
     var words = (p.why || quoted(p, p.line)).split(/\s+/);
     var blurb = words.length > 25 ? words.slice(0, 25).join(" ").replace(/[.,;:!?]+$/, "") + "\u2026 " : words.join(" ") + " ";
     latest.appendChild(named(el("a", { "class": "art", href: href }, pic)));
-    latest.appendChild(el("h2", { id: "insp-h" }, "Inspiration"));
     latest.appendChild(el("p", { "class": "title" }, [
       quoted(p, p.title) + (p.by ? " by " + p.by : ""),
       el("time", { "class": "date", datetime: p.date }, shortDate(parseDate(p.date)))
