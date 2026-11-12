@@ -11,18 +11,18 @@
 - **Layout (2026-11-09):** no top or bottom bar on any page (Mark: "the only thing I want is
   something for light mode, dark mode"). The sun / moon switch sits in the top-right corner;
   every page but the homepage has "← Mark Weiss" in the top-left corner (`.corner`,
-  `.home-link`, body class `stack-page`). The homepage and Inspiration page are one centered
-  608px column; About and the work pages keep the 560px reading column, starting 112px down
+  `.home-link`, body class `stack-page`). The homepage is one centered 720px column and the Inspiration page
+  a centered 608px column; About and the work pages keep the 560px reading column, starting 112px down
   (`.page-main`, 88px on phones). 16px side gutter. Sections separated by space, not boxes.
 - **Type:** **Geist** 400/500 at 1em/1.5 (16px, the browser standard) for everything,
   phones included (`--text`; Mark asked for the standard paragraph size on 2026-10-27,
-  replacing the earlier 1.5em). The one exception is the homepage intro line and the Inspiration page heading:
-  1.75rem/1.3 (1.375rem on phones), max 24ch. No display headlines.
+  replacing the earlier 1.5em). The exceptions: the homepage intro and section headers
+  (see Homepage below), and the Inspiration page heading at 1.75rem/1.3 (1.375rem on phones), max 24ch.
 - **Color, dark:** bg `#111214` · ink `#e9e9e6` · soft `#c9c9c5` (work page prose) ·
   muted `#8f8f8b` · rule `#2a2b2e` · now `#f0a75a` (the "● Now" marker, favicon dot) · focus `#9fc3ff`.
 - **Accent (2026-10-28):** one color picked from the newest drawing (`accent` in posts.js, a
   dark-mode and a light-mode value; T and C is amber `#f0a75a` / `#b25a0c`). Used on link
-  underlines (70%), the small section labels (Inspiration, Work, Tools, About, Contact), and the wash. Never as a solid
+  underlines (70%), the section headers (Work, About, Contact; the small Inspiration page label), and the wash. Never as a solid
   fill or a button.
 - **Wash (2026-10-31):** so the page isn't flat black, a soft radial glow of the accent comes down
   from the top of the window on every page (`--wash-img`: 11% of the accent in dark, 16% in light,
@@ -40,19 +40,22 @@
 - **Links:** underlined at rest in the accent so they read as links (2026-10-28); the corner links, Work rows and
   Contact links have no underline.
 - **Motion:** small hover color changes, plus page transitions (2026-10-26, option C): text crossfades, the newest drawing moves between the homepage and the Inspiration page, the corner links stay put. Off under reduced motion; browsers without view transitions just load the page.
-- **Homepage (2026-11-09, from the "Homepage, no top bar" canvas):** everything centered, one
-  stack with 96px between sections (72px on phones). Each section after the intro has a small
-  label: .875rem, weight 400, in the accent. In order:
-  1. Intro: "I'm Mark Weiss, a product designer who builds with AI." ("Mark Weiss" links to about.html).
-  2. Inspiration (newest post, from posts.js): the drawing, then the "Inspiration" label under it,
-     then "“<title>” by <by>" (weight 500) with a small muted date, then the first 25 words of the
-     why in `--soft`, cut with "…" and a "Read more" link to the post on the Inspiration page.
-  3. Work: a centered list, each row a small muted line icon (magined a sofa, Freedom Forever a
-     sun, MetPro a leaf), the place name (weight 500) and one muted line about it under the name.
-     No years or time spent (those live on the work pages), no job titles.
-  4. Tools: one comma-separated line in `--soft`.
-  5. About: about 50 words in `--soft`, cut with "…" and "Read more" to about.html.
-  6. Contact: icon + link, stacked: mark@magined.com, LinkedIn, GitHub, in `--soft`.
+- **Homepage (2026-11-11, take C from the "Homepage, more like me" canvas):** everything
+  centered, every line, in one 720px column with 128px between sections (88px on phones). Mark
+  wanted bigger headers and one alignment throughout. Each section after Inspiration has a big
+  header: 2.25rem (1.75rem on phones), weight 500, -0.02em, in the accent. Section text is
+  1.0625rem (1rem on phones). In order:
+  1. Intro: "I'm Mark Weiss, a product designer who builds with AI." ("Mark Weiss" links to
+     about.html) at 3.25rem/1.1, weight 500, -0.03em, max 15ch (2.25rem on phones).
+  2. Inspiration (newest post, from posts.js), no header: the drawing, then "“<title>” by <by>"
+     (weight 500) with a small muted date, then the first 25 words of the why in `--soft`, cut
+     with "…" and a "Read more" link to the post on the Inspiration page.
+  3. Work: just the place names (weight 500, 1.125rem), centered, each linking to its work page.
+     No icons, descriptions, years or job titles.
+  4. About: about 50 words in `--soft`, cut with "…" and "Read more" to about.html.
+  5. Contact: icon + link in one centered row (stacked on phones): mark@magined.com, LinkedIn,
+     GitHub, in `--soft`.
+  (No Tools section since 2026-11-11.)
 - **Inspiration page (2026-11-09, stacked):** every post stacked newest first in one centered
   608px column, each entry shaped like the homepage's Inspiration block: the drawing (400px wide,
   300px on phones, at its own shape), then "“<title>” by <by>" (weight 500) with a
@@ -137,3 +140,4 @@
 | 2026-10-26 | Work pages moved to **Quiet column**; Aurora retired | Mark: clicking Work "looks like a completely different website"; asked for the work pages to be simple and match the homepage. styles.css removed. |
 | 2026-10-31 | Accent wash, floating bottom bar, Work as ruled rows | Mark felt the site was "a little blah" and "pure black" but wanted to keep the layout. After five rounds on the design canvas he picked board 25 (warm wash, ruled rows, floating bar), without job titles, and with one header style for "Lately" and "Work". |
 | 2026-11-09 | No bars; homepage as a stack of sections | Mark asked to remove the top bar and keep only a light / dark switch, with the homepage as plain sections: who I am, Inspiration, Work, Tools, About, Contact. Picked each section on the "Homepage, no top bar" canvas (image-first Inspiration, Work with line icons and descriptions, stacked Contact). About and work pages lose their bars too. |
+| 2026-11-11 | Homepage take C: all centered, big headers | Mark felt the homepage was bland and mixed centered and left-aligned text. From four takes on the "Homepage, more like me" canvas he picked C (everything centered, 3.25rem intro, 2.25rem accent headers), and asked to drop the Inspiration header, the Tools section, and the Work icons and descriptions. |

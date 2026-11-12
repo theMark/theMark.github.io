@@ -3,7 +3,7 @@
 Static homepage, Inspiration page and case-study pages. Plain HTML/CSS/JS, no build step,
 deployed via GitHub Pages at https://themark.github.io.
 
-- `index.html` — homepage: intro, newest inspiration drawing + short why, Work, Tools, About, Contact.
+- `index.html` — homepage: intro, newest inspiration drawing + short why, Work, About, Contact.
 - `about.html` — the full About page (linked from the name and "Read more" on the homepage).
 - `inspiration.html` — every inspiration post stacked newest first, each like the homepage block.
 - `posts.js` — the inspiration posts (data). `site.js` renders them and runs the light / dark switch.
