@@ -46,7 +46,9 @@
   header: 2.25rem (1.75rem on phones), weight 500, -0.02em, in the accent. Section text is
   1.0625rem (1rem on phones). In order:
   1. Intro: "I'm Mark Weiss, a product designer who builds with AI." ("Mark Weiss" links to
-     about.html) at 3.25rem/1.1, weight 500, -0.03em, max 15ch (2.25rem on phones).
+     about.html) at 3.25rem/1.1, weight 500, -0.03em, 2.25rem on phones. Since 2026-11-13 it spans about
+     2/3 of the window (`min(960px, max(66vw, 100%))`, breaking out of the 720px column) so it
+     sits on two lines on tablets and up and the drawing comes up; phones stay on three lines.
   2. Inspiration (newest post, from posts.js), no header: the drawing, then "“<title>” by <by>"
      (weight 500) with a small muted date, then the first 25 words of the why in `--soft`, cut
      with "…" and a "Read more" link to the post on the Inspiration page.
@@ -141,3 +143,4 @@
 | 2026-10-31 | Accent wash, floating bottom bar, Work as ruled rows | Mark felt the site was "a little blah" and "pure black" but wanted to keep the layout. After five rounds on the design canvas he picked board 25 (warm wash, ruled rows, floating bar), without job titles, and with one header style for "Lately" and "Work". |
 | 2026-11-09 | No bars; homepage as a stack of sections | Mark asked to remove the top bar and keep only a light / dark switch, with the homepage as plain sections: who I am, Inspiration, Work, Tools, About, Contact. Picked each section on the "Homepage, no top bar" canvas (image-first Inspiration, Work with line icons and descriptions, stacked Contact). About and work pages lose their bars too. |
 | 2026-11-11 | Homepage take C: all centered, big headers | Mark felt the homepage was bland and mixed centered and left-aligned text. From four takes on the "Homepage, more like me" canvas he picked C (everything centered, 3.25rem intro, 2.25rem accent headers), and asked to drop the Inspiration header, the Tools section, and the Work icons and descriptions. |
+| 2026-11-13 | Homepage intro spans 2/3 of the window | Mark felt the three-line intro pushed the drawing down too far and asked for it to fill about 2/3 of the width. Same size, now two lines on tablets and up; the drawing moves up 58px. |

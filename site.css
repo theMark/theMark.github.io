@@ -74,7 +74,9 @@ main { display: flex; flex-direction: column; padding-top: 20px; }
 .stack.home { max-width: 720px; gap: 128px; }
 .home h2 { font-size: 2.25rem; font-weight: 500; line-height: 1.15; letter-spacing: -.02em; color: var(--accent); text-wrap: balance; }
 .hello { display: flex; justify-content: center; }
-.hello h1 { max-width: 15ch; font-size: 3.25rem; font-weight: 500; line-height: 1.1; letter-spacing: -.03em; text-wrap: balance; }
+/* the intro spans about 2/3 of the window (never narrower than the column, max 960px), so it
+   sits on two lines on laptops and desktops and the drawing comes up (2026-11-13) */
+.hello h1 { width: min(960px, max(66vw, 100%)); flex-shrink: 0; font-size: 3.25rem; font-weight: 500; line-height: 1.1; letter-spacing: -.03em; text-wrap: balance; }
 .hello a { text-decoration-thickness: 3px; text-underline-offset: .14em; }
 /* Inspiration: no header, just the drawing, the title with a small date, and the why */
 .insp { display: flex; flex-direction: column; align-items: center; }
