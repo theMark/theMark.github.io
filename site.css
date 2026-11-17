@@ -77,10 +77,10 @@ main { display: flex; flex-direction: column; padding-top: 20px; }
 .stack.home > .insp { margin-top: calc(clamp(48px, 7vh, 80px) - clamp(88px, 9vw, 128px)); }
 .home h2 { font-size: 2.25rem; font-weight: 500; line-height: 1.15; letter-spacing: -.02em; color: var(--accent); text-wrap: balance; }
 .hello { display: flex; justify-content: center; }
-/* The intro scales with the window: about 34px on phones, 47px on tablets, 59px on a laptop,
-   up to 76px on big screens. Its box is 17em wide (so it grows with the type) and may run wider
+/* The intro scales with the window: about 31px on phones, 40px on tablets, 50px on a laptop,
+   up to 64px on big screens (a step down on 2026-11-17). Its box is 17em wide (so it grows with the type) and may run wider
    than the 720px column, but never past the window's gutters. Two lines from laptops up. */
-.hello h1 { width: min(17em, calc(100vw - 48px)); flex-shrink: 0; font-size: clamp(2.125rem, 1.6rem + 2.6vw, 4.75rem); font-weight: 500; line-height: 1.1; letter-spacing: -.03em; text-wrap: balance; }
+.hello h1 { width: min(17em, calc(100vw - 48px)); flex-shrink: 0; font-size: clamp(1.875rem, 1.4rem + 2.2vw, 4rem); font-weight: 500; line-height: 1.1; letter-spacing: -.03em; text-wrap: balance; }
 .hello a { text-decoration-thickness: 3px; text-underline-offset: .14em; }
 /* Inspiration: no header, just the drawing, the title with a small date, and the why */
 .insp { display: flex; flex-direction: column; align-items: center; }

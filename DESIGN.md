@@ -47,8 +47,8 @@
   1.0625rem (1rem on phones). In order:
   1. Intro: "I'm Mark Weiss, a product designer who builds with AI." ("Mark Weiss" links to
      about.html), weight 500, -0.03em, line height 1.1. Since 2026-11-16 it scales with the window:
-     `clamp(2.125rem, 1.6rem + 2.6vw, 4.75rem)` (about 34px on phones, 47px tablets, 59px laptops,
-     76px big screens) in a 17em box that may run wider than the column but stays inside the
+     `clamp(1.875rem, 1.4rem + 2.2vw, 4rem)` (about 31px on phones, 40px tablets, 50px laptops,
+     64px big screens; stepped down from 36-76px on 2026-11-17, Mark) in a 17em box that may run wider than the column but stays inside the
      gutters, so it's two lines from tablets up and three on phones ("I'm Mark Weiss, / a product
      designer / who builds with AI."; a no-break space keeps "a product" and "with AI" together).
      Spacing scales too: top padding `clamp(80px, 12vh, 136px)` (88px phones), intro to drawing
@@ -150,3 +150,4 @@
 | 2026-11-09 | No bars; homepage as a stack of sections | Mark asked to remove the top bar and keep only a light / dark switch, with the homepage as plain sections: who I am, Inspiration, Work, Tools, About, Contact. Picked each section on the "Homepage, no top bar" canvas (image-first Inspiration, Work with line icons and descriptions, stacked Contact). About and work pages lose their bars too. |
 | 2026-11-11 | Homepage take C: all centered, big headers | Mark felt the homepage was bland and mixed centered and left-aligned text. From four takes on the "Homepage, more like me" canvas he picked C (everything centered, 3.25rem intro, 2.25rem accent headers), and asked to drop the Inspiration header, the Tools section, and the Work icons and descriptions. |
 | 2026-11-16 | Homepage intro and spacing scale with the window | On a laptop the intro wrapped to three lines with "a" alone at the end of line 1, a big gap sat under it and the amp was cut at the fold. The intro now sizes with the window (two lines from tablets up), the top and intro-to-drawing gaps shrink on short screens, and the drawing shrinks a little on short laptops. |
+| 2026-11-17 | Homepage intro a step smaller | Mark asked for the heading a little smaller. Same scaling, about 15% smaller at every size (31px phones to 64px big screens). |
